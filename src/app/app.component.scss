@@ -1,4 +1,4 @@
-@import "../variables";
+@use "../variables" as *;
 
 .content {
   background-color: $second-color;
