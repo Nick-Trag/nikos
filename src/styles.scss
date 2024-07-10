@@ -11,8 +11,8 @@ body {
   min-height: 100vh;
 }
 
-// Sets the height to the remaining size of the screen, without the navbar
 @layer utilities {
+  // Sets the height to the remaining size of the screen, without the navbar
   .h-screen-no-navbar {
     height: calc(100vh - $nav-height);
   }
