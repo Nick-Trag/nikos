@@ -7,6 +7,6 @@
 body {
   background-color: $bg-color;
   color: $text-color;
-  //font-family: Mallanna, sans-serif;
-  font-family: Capriola, Mallanna, sans-serif;
+  @apply font-capriola;
+  min-height: 100vh;
 }
