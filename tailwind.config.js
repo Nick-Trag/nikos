@@ -16,6 +16,31 @@ module.exports = {
         mallanna: ['Mallanna', ...defaultTheme.fontFamily.sans],
         capriola: ['Capriola', 'Mallanna', ...defaultTheme.fontFamily.sans],
       },
+      animation: {
+        'slow-fade-in': 'slow-fade-in 1.5s linear forwards',
+        'slide-in-right': 'slide-in-right 2s linear forwards',
+      },
+      keyframes: {
+        'slow-fade-in': {
+          from: {
+            opacity: 0,
+          },
+          '50%': {
+            opacity: 0.25,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
+        'slide-in-right': {
+          from: {
+            right: '-50%',
+          },
+          to: {
+            right: '0',
+          },
+        },
+      },
       screens: {
         'h-xs': {
           'raw': '(min-height: 150px)'
