@@ -34,11 +34,11 @@ module.exports = {
         },
         'slide-in-right': {
           from: {
-            right: '-4%',
+            translate: '4%',
             opacity: 0,
           },
           to: {
-            right: '0',
+            translate: '0',
             opacity: 1,
           },
         },
