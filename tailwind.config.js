@@ -19,6 +19,7 @@ module.exports = {
       animation: {
         'slow-fade-in': 'slow-fade-in 1.5s linear forwards',
         'slide-in-right': 'slide-in-right 1s linear forwards',
+        'slide-in-up': 'slide-in-up 1s linear forwards',
       },
       keyframes: {
         'slow-fade-in': {
@@ -39,6 +40,16 @@ module.exports = {
           },
           to: {
             translate: '0',
+            opacity: 1,
+          },
+        },
+        'slide-in-up': {
+          from: {
+            translate: '0 4%',
+            opacity: 0,
+          },
+          to: {
+            translate: '0 0',
             opacity: 1,
           },
         },
