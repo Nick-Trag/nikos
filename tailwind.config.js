@@ -19,7 +19,7 @@ module.exports = {
       },
       animation: {
         'slow-fade-in': 'slow-fade-in 1.5s linear forwards',
-        'slide-in-right': 'slide-in-right 1s linear forwards',
+        'slide-in-left': 'slide-in-left 1s linear forwards',
         'slide-in-up': 'slide-in-up 1s linear forwards',
       },
       keyframes: {
@@ -34,7 +34,7 @@ module.exports = {
             opacity: 1,
           },
         },
-        'slide-in-right': {
+        'slide-in-left': {
           from: {
             translate: '4%',
             opacity: 0,
