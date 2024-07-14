@@ -78,6 +78,7 @@ module.exports = {
     },
   },
   plugins: [
+    // Add an animation-delay property to Tailwind. Reference: https://github.com/tailwindlabs/tailwindcss/discussions/3378#discussioncomment-4177286
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
