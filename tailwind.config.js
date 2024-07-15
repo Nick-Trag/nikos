@@ -14,7 +14,7 @@ module.exports = {
         'sea-blue': "#0091AD",
       },
       fontFamily: {
-        mallanna: ['Mallanna', ...defaultTheme.fontFamily.sans], // TODO: This text should be a bit bigger, Mallanna is too tiny on its own
+        mallanna: ['Mallanna', ...defaultTheme.fontFamily.sans], // TODO: This text should be a bit bigger, Mallanna is too tiny on its own: https://stackoverflow.com/a/73528347/7400287
         capriola: ['Capriola', 'Mallanna', ...defaultTheme.fontFamily.sans],
       },
       animation: {
