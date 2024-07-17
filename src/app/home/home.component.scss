@@ -51,3 +51,9 @@
 .projects-container {
   @extend .schools-container;
 }
+
+li::before {
+  content: "→";
+  @apply pr-0.5;
+  //color: black;
+}
