@@ -1,3 +1,6 @@
+@use '../../variables' as *;
+
+
 .profile-photo {
   border-radius: 50%;
   margin: auto;
@@ -5,4 +8,30 @@
 
 .logo {
   width: 100px;
+}
+
+.school-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  text-align: center;
+  @apply p-4;
+  background-color: $text-color;
+  color: $bg-color;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
+
+  & > h2 {
+    @apply text-xl;
+    @apply font-bold;
+  }
+}
+
+.schools-container { // TODO: Make this a grid with breakpoints instead of a wrapping flex
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  @apply pt-4;
+  @apply gap-4;
 }
