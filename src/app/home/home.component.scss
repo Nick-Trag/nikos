@@ -20,6 +20,7 @@
   background-color: $text-color;
   color: $bg-color;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
+  @apply max-w-80;
 
   & > h2 {
     @apply text-xl;
@@ -27,11 +28,14 @@
   }
 }
 
-.schools-container { // TODO: Make this a grid with breakpoints instead of a wrapping flex
-  display: flex;
-  align-items: stretch;
+.schools-container {
+  @apply flex;
+  @apply flex-col;
+  @apply md:flex-row;
+  @apply items-center;
+  @apply md:items-stretch;
   justify-content: space-around;
-  flex-wrap: wrap;
   @apply pt-4;
+  @apply px-2;
   @apply gap-4;
 }
