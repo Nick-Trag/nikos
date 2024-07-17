@@ -1,4 +1,4 @@
-<main class="">
+<main>
   <div class="h-screen-no-navbar px-3 sm:px-0 max-w-xl mx-auto">
     <div class="h-sm:vertical-center opacity-0 animation-delay-1000 animate-slow-fade-in">
 <!--      <img class="profile-photo" src="nikos_profile_small.png" alt="Picture of Nikos Tragkas">-->
@@ -42,7 +42,7 @@
     <h1 class="text-3xl text-center font-capriola">Education</h1>
     <div class="schools-container">
       <!-- TODO: No inline styles here, use an actual class -->
-      <div class="school-card"> <!-- TODO: Three cards, dropping in one after the other -->
+      <div class="card"> <!-- TODO: Three cards, dropping in one after the other -->
         <img src="images/AUTH_logo_small.png" alt="Aristotle University of Thessaloniki logo" class="logo">
         <h2>Aristotle University of Thessaloniki</h2>
         <div>Masters's Degree</div>
@@ -50,7 +50,7 @@
 <!--        <div>Grade?</div>-->
 <!--        <div>Thesis?</div>-->
       </div>
-      <div class="school-card">
+      <div class="card">
         <img src="images/upm_logo.png" alt="Universidad Politécnica de Madrid logo" class="logo">
         <h2><span lang="es">Universidad Politécnica de Madrid</span></h2>
         <div>Erasmus+ Exchange Semester</div>
@@ -58,7 +58,7 @@
 <!--        <div>Grade?</div>-->
 <!--        <div>Thesis?</div>-->
       </div>
-      <div class="school-card">
+      <div class="card">
         <img src="images/AUTH_logo_small.png" alt="Aristotle University of Thessaloniki logo" class="logo">
         <h2>Aristotle University of Thessaloniki</h2>
         <div>Bachelor's Degree</div>
@@ -71,20 +71,27 @@
   </div>
   <div class="py-24 max-w-5xl mx-auto motion-safe:animate-slide-in-up md:motion-safe:animate-slide-in-left">
     <h1 class="text-3xl text-center font-capriola">Experience</h1>
-    <div class="flex items-center"> <!-- TODO: No inline styles here, use an actual class -->
-      <img src="images/it-auth-logo.png" alt="AUTH IT Center logo" class="logo">
-      AUTH IT CENTER: Did some stuff
-    </div>
-    <div class="flex items-center">
-      <img src="images/inca_hellas_logo.png" alt="INCA Hellas logo" class="logo">
-      INCA Hellas: Did more stuff
+    <div class="jobs-container">
+      <div class="card"> <!-- TODO: No inline styles here, use an actual class -->
+        <img src="images/it-auth-logo.png" alt="AUTH IT Center logo" class="logo">
+        <h2>AUTH IT CENTER</h2>
+        <p>Did some stuff</p>
+      </div>
+      <div class="card">
+        <img src="images/inca_hellas_logo.png" alt="INCA Hellas logo" class="logo">
+        <h2>INCA Hellas</h2>
+        <p>Did more stuff</p>
+      </div>
     </div>
   </div>
   <div class="py-24 max-w-5xl mx-auto motion-safe:animate-slide-in-up md:motion-safe:animate-slide-in-left">
     <h1 class="text-3xl text-center font-capriola">Projects</h1>
-    <div class="flex items-center">
-      <img src="images/wili_small.png" alt="Wili Wishlist logo" class="logo">
-      Wili Wishlist: GOATed app
+    <div class="projects-container w-full">
+      <div class="card">
+        <img src="images/wili_small.png" alt="Wili Wishlist logo" class="logo">
+        <h2>Wili Wishlist</h2>
+        <p>GOATed app</p>
+      </div>
     </div>
   </div>
 </main>

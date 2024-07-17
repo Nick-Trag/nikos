@@ -10,7 +10,7 @@
   width: 100px;
 }
 
-.school-card {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +21,7 @@
   color: $bg-color;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
   @apply max-w-80;
+  @apply min-w-64;
 
   & > h2 {
     @apply text-xl;
@@ -38,4 +39,12 @@
   @apply pt-4;
   @apply px-2;
   @apply gap-4;
+}
+
+.jobs-container {
+  @extend .schools-container;
+}
+
+.projects-container {
+  @extend .schools-container;
 }
