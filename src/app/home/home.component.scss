@@ -32,6 +32,10 @@
     @apply font-bold;
   }
 
+  & > h3 {
+    opacity: 0.9;
+  }
+
   & > ul {
     text-align: start;
     align-self: start;
@@ -45,11 +49,25 @@ a:hover > .card, a:active > .card {
 .school-card {
   @extend .card;
   @apply max-w-80;
+
+  & > h4 {
+    opacity: 0.8;
+  }
 }
 
 .job-card {
   @extend .card;
   @apply max-w-xl;
+
+  & > h3 {
+    @apply text-lg;
+  }
+
+  & > .job-dates {
+    align-self: end;
+    opacity: 0.78;
+    @apply -mb-5;
+  }
 }
 
 .project-card {
