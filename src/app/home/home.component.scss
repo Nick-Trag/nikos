@@ -53,6 +53,12 @@ a:hover > .card, a:active > .card {
   & > h4 {
     opacity: 0.8;
   }
+
+  & > .school-dates {
+    align-self: end;
+    opacity: 0.78;
+    @apply mb-2;
+  }
 }
 
 .job-card {
