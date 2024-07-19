@@ -63,9 +63,11 @@ a:hover > .card, a:active > .card {
     @apply text-lg;
   }
 
-  & > .job-dates {
-    align-self: end;
+  & > .job-info {
+    display: flex;
+    justify-content: space-between;
     opacity: 0.78;
+    width: 100%;
     @apply -mb-5;
   }
 }
