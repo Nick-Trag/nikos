@@ -39,6 +39,10 @@
   }
 }
 
+a:hover > .card, a:active > .card {
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75) inset;
+}
+
 .schools-container {
   @apply flex;
   @apply flex-col;
