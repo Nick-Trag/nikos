@@ -25,7 +25,6 @@
   background-color: $text-color;
   color: $bg-color;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
-  @apply max-w-80;
   @apply min-w-64;
 
   & > h2 {
@@ -43,7 +42,21 @@ a:hover > .card, a:active > .card {
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75) inset;
 }
 
-.schools-container {
+.school-card {
+  @extend .card;
+  @apply max-w-80;
+}
+
+.job-card {
+  @extend .card;
+  @apply max-w-xl;
+}
+
+.project-card {
+  @extend .card;
+}
+
+.base-container {
   @apply flex;
   @apply flex-col;
   @apply md:flex-row;
@@ -55,12 +68,18 @@ a:hover > .card, a:active > .card {
   @apply gap-4;
 }
 
+.schools-container {
+  @extend .base-container;
+}
+
 .jobs-container {
-  @extend .schools-container;
+  @extend .base-container;
+  max-width: 95%;
+  margin: 0 auto;
 }
 
 .projects-container {
-  @extend .schools-container;
+  @extend .base-container;
 }
 
 li::before {
