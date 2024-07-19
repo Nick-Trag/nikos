@@ -109,7 +109,8 @@ a:hover > .card, a:active > .card {
 }
 
 li::before {
-  content: "→";
+  content: "-";
+  //content: "→";
   @apply pr-0.5;
   //color: black;
 }
