@@ -20,7 +20,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex: 1 1 0;
   width: 100%;
   border-radius: 6px;
@@ -52,6 +51,7 @@ a.card:hover, a.card:active {
 
 .school-card {
   @extend .card;
+  align-items: center;
   @apply max-w-80;
 
   & > h4 {
@@ -67,6 +67,7 @@ a.card:hover, a.card:active {
 
 .job-card {
   @extend .card;
+  align-items: center;
   @apply max-w-xl;
 
   & > h3 {
