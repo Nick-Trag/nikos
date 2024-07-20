@@ -147,14 +147,24 @@
   </div>
   <div class="py-24 max-w-5xl mx-auto motion-safe:animate-slide-in-up md:motion-safe:animate-slide-in-left">
     <h1 class="text-3xl text-center font-capriola">Projects</h1>
-    <div class="projects-container">
+    <div class="projects-container"> <!-- TODO: Container and card should not use the base versions, they are too different. Use better classes -->
       <a href="#">
         <div class="project-card"> <!-- TODO: More space for projects. No cards, just full on elements -->
-          <div class="logo-wrapper">
-            <img src="images/wili_small.png" alt="Wili Wishlist logo">
+          <div class="flex items-center">
+            <div class="logo-wrapper">
+              <img src="images/wili_small.png" alt="Wili Wishlist logo">
+            </div>
+            <div>
+              <h2 class="font-bold text-xl">Wili Wishlist</h2>
+              <ul class="text-start">
+                <li>Android App created using Flutter</li>
+                <li>Create a list of items to purchase, and add images, prices, categories, etc.</li>
+                <li>Mark items as purchased and distinguish them from the rest</li>
+                <li>Sort and filter items to easily organize them</li>
+                <li>Customize the categories, the currency used, and the app theme (light or dark)</li>
+              </ul>
+            </div>
           </div>
-          <h2>Wili Wishlist</h2>
-          <p>GOATed app</p>
         </div>
       </a>
     </div>
