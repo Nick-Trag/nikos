@@ -96,11 +96,6 @@ a.card:hover, a.card:active {
 
 .base-container {
   @apply flex;
-  @apply flex-col;
-  @apply md:flex-row;
-  @apply items-center;
-  @apply md:items-stretch;
-  justify-content: space-around;
   @apply pt-4;
   @apply px-2;
   @apply gap-4;
@@ -108,22 +103,29 @@ a.card:hover, a.card:active {
 
 .schools-container {
   @extend .base-container;
+  @apply flex-col;
+  @apply md:flex-row;
+  @apply items-center;
+  @apply md:items-stretch;
+  justify-content: space-around;
 }
 
 .jobs-container {
   @extend .base-container;
+  @apply flex-col;
+  @apply md:flex-row;
+  @apply items-center;
+  @apply md:items-stretch;
+  justify-content: space-around;
   max-width: 95%;
   margin: 0 auto;
 }
 
 .projects-container {
-  display: flex;
+  @extend .base-container;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @apply pt-4;
-  @apply px-2;
-  @apply gap-4;
   max-width: 95%;
   margin: 0 auto;
 }
