@@ -98,7 +98,6 @@ a.card:hover, a.card:active {
   @apply flex;
   @apply pt-4;
   @apply px-2;
-  @apply gap-4;
 }
 
 .schools-container {
@@ -107,6 +106,7 @@ a.card:hover, a.card:active {
   @apply md:flex-row;
   @apply items-center;
   @apply md:items-stretch;
+  @apply gap-4;
   justify-content: space-around;
 }
 
@@ -116,6 +116,7 @@ a.card:hover, a.card:active {
   @apply md:flex-row;
   @apply items-center;
   @apply md:items-stretch;
+  @apply gap-4;
   justify-content: space-around;
   max-width: 95%;
   margin: 0 auto;
@@ -126,6 +127,7 @@ a.card:hover, a.card:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @apply gap-10;
   max-width: 95%;
   margin: 0 auto;
 }
