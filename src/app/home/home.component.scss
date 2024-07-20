@@ -82,6 +82,14 @@ a.card:hover, a.card:active {
   }
 }
 
+.project-link {
+  @apply px-1;
+
+  &:hover, &:active {
+    border: 1px $bg-color dashed;
+  }
+}
+
 .project-card {
   @extend .card;
 }
@@ -109,7 +117,15 @@ a.card:hover, a.card:active {
 }
 
 .projects-container {
-  @extend .base-container;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @apply pt-4;
+  @apply px-2;
+  @apply gap-4;
+  max-width: 95%;
+  margin: 0 auto;
 }
 
 li::before {
