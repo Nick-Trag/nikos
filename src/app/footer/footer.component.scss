@@ -1,5 +1,6 @@
 a {
   @apply px-2;
+  @apply py-1;
 
   &:hover {
     border: 1px dashed;
