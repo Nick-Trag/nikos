@@ -1,0 +1,7 @@
+a {
+  @apply px-2;
+
+  &:hover {
+    border: 1px dashed;
+  }
+}
