@@ -42,7 +42,7 @@
   }
 }
 
-a:hover > .card, a:active > .card {
+a.card:hover, a.card:active {
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75) inset;
 }
 
