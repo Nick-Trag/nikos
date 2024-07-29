@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
@@ -9,24 +9,30 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
   styleUrl: './home.component.scss',
   animations: [
     trigger('inView', [
-      state('false', style({ translate: '0 -20%', opacity: 0 })),
+      state('false', style({ translate: '0 -5%', opacity: 0 })),
       state('true', style({ translate: '0 0', opacity: 1 })),
       transition('false => true', [animate('1s ease-out')]),
     ])
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
   // private element = inject(ElementRef);
   protected inView: boolean = false;
+  @ViewChild('educationDiv') educationDiv: ElementRef | undefined;
 
   constructor() {
 
   }
 
-  ngOnInit(): void {
-    // console.log(this.element.nativeElement.offsetTop);
-    setTimeout(() => {
-      this.inView = true;
-    }, 5000);
+  ngAfterViewInit(): void {
+    if (this.educationDiv !== undefined) {
+      const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        if (entries[0].isIntersecting) {
+          this.inView = true;
+          observer.unobserve(entries[0].target);
+        }
+      }, { threshold: 0.6});
+      intersectionObserver.observe(this.educationDiv.nativeElement);
+    }
   }
 }
