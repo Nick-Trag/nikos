@@ -1,0 +1,29 @@
+@use '../../variables' as *;
+@use '../../styles/home-styles' as *;
+
+.project-card {
+  @extend .card;
+}
+
+.projects-container {
+  @extend .base-container;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @apply gap-10;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.project-logo {
+  width: 200px;
+}
+
+.project-link {
+  @apply px-1;
+  @apply pt-0.5;
+
+  &:hover, &:active {
+    border: 1px $bg-color dashed;
+  }
+}

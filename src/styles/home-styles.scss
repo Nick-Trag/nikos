@@ -1,0 +1,53 @@
+@use '../variables' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  width: 100%;
+  border-radius: 6px;
+  text-align: center;
+  @apply p-4;
+  background-color: $text-color;
+  color: $bg-color;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
+  @apply min-w-64;
+
+  & > h2 {
+    @apply text-xl;
+    @apply font-bold;
+  }
+
+  & > h3 {
+    opacity: 0.9;
+  }
+
+  & > ul {
+    text-align: start;
+    align-self: start;
+  }
+}
+
+a.card:hover, a.card:active {
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75) inset;
+}
+
+.base-container {
+  @apply flex;
+  @apply pt-4;
+  @apply px-2;
+}
+
+.logo-wrapper {
+  width: 100px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+li::before {
+  content: "-";
+  //content: "→";
+  @apply pr-0.5;
+  //color: black;
+}

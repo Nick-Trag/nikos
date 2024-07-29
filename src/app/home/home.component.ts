@@ -1,10 +1,17 @@
 import { AfterViewInit, Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
-import { animate, query, stagger, state, style, transition, trigger } from "@angular/animations";
+import { animate, state, style, transition, trigger } from "@angular/animations";
+import { EducationComponent } from "../education/education.component";
+import { ExperienceComponent } from "../experience/experience.component";
+import { ProjectsComponent } from "../projects/projects.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    EducationComponent,
+    ExperienceComponent,
+    ProjectsComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [
@@ -53,8 +60,8 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.registerIntersectionObserver(this.educationDiv, this.educationInView, 0.4);
-    this.registerIntersectionObserver(this.experienceDiv, this.experienceInView, 0.4);
-    this.registerIntersectionObserver(this.projectsDiv, this.projectsInView, 0.2);
+    // this.registerIntersectionObserver(this.educationDiv, this.educationInView, 0.4);
+    // this.registerIntersectionObserver(this.experienceDiv, this.experienceInView, 0.4);
+    // this.registerIntersectionObserver(this.projectsDiv, this.projectsInView, 0.2);
   }
 }

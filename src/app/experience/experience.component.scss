@@ -1,0 +1,31 @@
+@use '../../styles/home-styles' as *;
+
+.job-card {
+  @extend .card;
+  align-items: center;
+  @apply max-w-xl;
+
+  & > h3 {
+    @apply text-lg;
+  }
+
+  & > .job-info {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.78;
+    width: 100%;
+    @apply -mb-5;
+  }
+}
+
+.jobs-container {
+  @extend .base-container;
+  @apply flex-col;
+  @apply md:flex-row;
+  @apply items-center;
+  @apply md:items-stretch;
+  @apply gap-4;
+  justify-content: space-around;
+  max-width: 95%;
+  margin: 0 auto;
+}

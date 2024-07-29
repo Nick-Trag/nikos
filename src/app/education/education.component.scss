@@ -1,0 +1,27 @@
+@use '../../styles/home-styles' as *;
+
+.schools-container {
+  @extend .base-container;
+  @apply flex-col;
+  @apply md:flex-row;
+  @apply items-center;
+  @apply md:items-stretch;
+  @apply gap-4;
+  justify-content: space-around;
+}
+
+.school-card {
+  @extend .card;
+  align-items: center;
+  @apply max-w-80;
+
+  & > h4 {
+    opacity: 0.8;
+  }
+
+  & > .school-dates {
+    align-self: end;
+    opacity: 0.78;
+    @apply mb-4;
+  }
+}
