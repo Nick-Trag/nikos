@@ -17,18 +17,34 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 })
 export class HomeComponent implements AfterViewInit {
   // private element = inject(ElementRef);
-  protected inView: boolean = false;
+  protected educationInView: boolean = false;
+  protected experienceInView: boolean = false;
+  protected projectsInView: boolean = false;
   @ViewChild('educationDiv') educationDiv: ElementRef | undefined;
+  @ViewChild('experienceDiv') experienceDiv: ElementRef | undefined;
+  @ViewChild('projectsDiv') projectsDiv: ElementRef | undefined;
 
   constructor() {
 
+  }
+
+  private registerIntersectionObserver(element: ElementRef | undefined): void {
+    if (element !== undefined) {
+      const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        if (entries[0].isIntersecting) {
+          // TODO: Set the correct inView to true
+          observer.unobserve(entries[0].target);
+        }
+      }, {threshold: 0.1}); // TODO: Proper threshold for every item
+      intersectionObserver.observe(element.nativeElement);
+    }
   }
 
   ngAfterViewInit(): void {
     if (this.educationDiv !== undefined) {
       const intersectionObserver = new IntersectionObserver((entries, observer) => {
         if (entries[0].isIntersecting) {
-          this.inView = true;
+          this.educationInView = true;
           observer.unobserve(entries[0].target);
         }
       }, { threshold: 0.4}); // TODO: Check threshold for small screens
