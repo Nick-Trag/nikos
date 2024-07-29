@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
@@ -17,9 +17,9 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 })
 export class HomeComponent implements AfterViewInit {
   // private element = inject(ElementRef);
-  protected educationInView: boolean = false;
-  protected experienceInView: boolean = false;
-  protected projectsInView: boolean = false;
+  protected educationInView = signal(false);
+  protected experienceInView = signal(false);
+  protected projectsInView = signal(false);
   @ViewChild('educationDiv') educationDiv: ElementRef | undefined;
   @ViewChild('experienceDiv') experienceDiv: ElementRef | undefined;
   @ViewChild('projectsDiv') projectsDiv: ElementRef | undefined;
@@ -28,27 +28,21 @@ export class HomeComponent implements AfterViewInit {
 
   }
 
-  private registerIntersectionObserver(element: ElementRef | undefined): void {
+  private registerIntersectionObserver(element: ElementRef | undefined, inViewSignal: WritableSignal<boolean>, threshold: number): void {
     if (element !== undefined) {
       const intersectionObserver = new IntersectionObserver((entries, observer) => {
         if (entries[0].isIntersecting) {
-          // TODO: Set the correct inView to true
+          inViewSignal.set(true);
           observer.unobserve(entries[0].target);
         }
-      }, {threshold: 0.1}); // TODO: Proper threshold for every item
+      }, {threshold: threshold}); // TODO: Check threshold for small screens
       intersectionObserver.observe(element.nativeElement);
     }
   }
 
   ngAfterViewInit(): void {
-    if (this.educationDiv !== undefined) {
-      const intersectionObserver = new IntersectionObserver((entries, observer) => {
-        if (entries[0].isIntersecting) {
-          this.educationInView = true;
-          observer.unobserve(entries[0].target);
-        }
-      }, { threshold: 0.4}); // TODO: Check threshold for small screens
-      intersectionObserver.observe(this.educationDiv.nativeElement);
-    }
+    this.registerIntersectionObserver(this.educationDiv, this.educationInView, 0.4);
+    this.registerIntersectionObserver(this.experienceDiv, this.experienceInView, 0.4);
+    this.registerIntersectionObserver(this.projectsDiv, this.projectsInView, 0.2);
   }
 }

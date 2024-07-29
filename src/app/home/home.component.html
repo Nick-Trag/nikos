@@ -37,7 +37,7 @@
       <img src="images/nikos_2023.jpg" alt="Picture of Nikos Tragkas" class="border-2 border-black rounded-xl"> <!-- TODO: Use smaller images -->
     </div>
   </div>
-  <div class="my-24 max-w-5xl mx-auto opacity-0" [@inView]="educationInView" #educationDiv>
+  <div class="my-24 max-w-5xl mx-auto opacity-0" [@inView]="educationInView()" #educationDiv>
     <h1 class="text-3xl text-center font-capriola">Education</h1>
     <div class="schools-container">
       <div class="school-card">
@@ -82,7 +82,7 @@
       </div>
     </div>
   </div>
-  <div class="my-24 max-w-5xl mx-auto opacity-0" [@inView]="experienceInView" #experienceDiv>
+  <div class="my-24 max-w-5xl mx-auto opacity-0" [@inView]="experienceInView()" #experienceDiv>
     <h1 class="text-3xl text-center font-capriola">Experience</h1>
     <div class="jobs-container">
       <div class="job-card">
@@ -143,7 +143,7 @@
       </div>
     </div>
   </div>
-  <div class="my-24 max-w-5xl mx-auto opacity-0" [@inView]="projectsInView" #projectsDiv> <!-- TODO: Separate intersection observer for each item -->
+  <div class="my-24 max-w-5xl mx-auto opacity-0" [@inView]="projectsInView()" #projectsDiv> <!-- TODO: Separate intersection observer for each item -->
     <h1 class="text-3xl text-center font-capriola">Projects</h1>
     <div class="projects-container">
       <a href="https://play.google.com/store/apps/details?id=csd.nikos.wili" target="_blank" class="project-card">
