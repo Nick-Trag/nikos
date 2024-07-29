@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
-import { animate, state, style, transition, trigger } from "@angular/animations";
+import { animate, query, stagger, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,16 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
       state('false', style({ translate: '0 -5%', opacity: 0 })),
       state('true', style({ translate: '0 0', opacity: 1 })),
       transition('false => true', [animate('1s ease-out')]),
-    ]) // TODO: Stagger the animations
+      // query('h1, div > div', [
+      //   state('false', style({ translate: '0 -5%', opacity: 0 })),
+      //   state('true', style({ translate: '0 0', opacity: 1 })),
+      //   transition('false => true', [
+      //     stagger(100, [
+      //       animate('1s ease-out'),
+      //     ]),
+      //   ]),
+      // ], {optional: true}),
+    ]), // TODO: Stagger the animations
   ],
 })
 export class HomeComponent implements AfterViewInit {
