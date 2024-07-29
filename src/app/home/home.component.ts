@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, signal, ViewChild, WritableSignal } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { EducationComponent } from "../education/education.component";
 import { ExperienceComponent } from "../experience/experience.component";
@@ -10,7 +10,7 @@ import { ProjectsComponent } from "../projects/projects.component";
   imports: [
     EducationComponent,
     ExperienceComponent,
-    ProjectsComponent
+    ProjectsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -33,31 +33,31 @@ import { ProjectsComponent } from "../projects/projects.component";
 })
 export class HomeComponent implements AfterViewInit {
   // private element = inject(ElementRef);
-  protected educationInView = signal(false);
-  protected experienceInView = signal(false);
-  protected projectsInView = signal(false);
-  @ViewChild('educationDiv') educationDiv: ElementRef | undefined;
-  @ViewChild('experienceDiv') experienceDiv: ElementRef | undefined;
-  @ViewChild('projectsDiv') projectsDiv: ElementRef | undefined;
+  // protected educationInView = signal(false);
+  // protected experienceInView = signal(false);
+  // protected projectsInView = signal(false);
+  // @ViewChild('educationDiv') educationDiv: ElementRef | undefined;
+  // @ViewChild('experienceDiv') experienceDiv: ElementRef | undefined;
+  // @ViewChild('projectsDiv') projectsDiv: ElementRef | undefined;
 
   constructor() {
 
   }
 
-  private registerIntersectionObserver(element: ElementRef | undefined, inViewSignal: WritableSignal<boolean>, threshold: number): void {
-    if (element !== undefined) {
-      const intersectionObserver = new IntersectionObserver((entries, observer) => {
-        if (entries[0].isIntersecting) {
-          inViewSignal.set(true);
-          observer.unobserve(entries[0].target);
-        }
-      }, {threshold: threshold}); // TODO: Check threshold for small screens
-      intersectionObserver.observe(element.nativeElement);
-    }
-    else {
-      inViewSignal.set(true);
-    }
-  }
+  // private registerIntersectionObserver(element: ElementRef | undefined, inViewSignal: WritableSignal<boolean>, threshold: number): void {
+  //   if (element !== undefined) {
+  //     const intersectionObserver = new IntersectionObserver((entries, observer) => {
+  //       if (entries[0].isIntersecting) {
+  //         inViewSignal.set(true);
+  //         observer.unobserve(entries[0].target);
+  //       }
+  //     }, {threshold: threshold}); // TODO: Check threshold for small screens
+  //     intersectionObserver.observe(element.nativeElement);
+  //   }
+  //   else {
+  //     inViewSignal.set(true);
+  //   }
+  // }
 
   ngAfterViewInit(): void {
     // this.registerIntersectionObserver(this.educationDiv, this.educationInView, 0.4);
