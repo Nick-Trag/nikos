@@ -38,6 +38,9 @@ export class HomeComponent implements AfterViewInit {
       }, {threshold: threshold}); // TODO: Check threshold for small screens
       intersectionObserver.observe(element.nativeElement);
     }
+    else {
+      inViewSignal.set(true);
+    }
   }
 
   ngAfterViewInit(): void {
