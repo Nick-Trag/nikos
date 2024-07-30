@@ -13,7 +13,7 @@ import { animate, query, stagger, state, style, transition, trigger } from "@ang
     trigger('child', [
       state('false', style({ translate: '0 -10%', opacity: 0 })),
       // state('true', style({ translate: '0 0', opacity: 1 })),
-    ]),
+    ]), // TODO: I might actually be able to do this semi-easily, using style or class-bindings on the inView variable. And CSS animation delays. Check it for experience
     trigger('inView', [
       transition('false => true', [
         query('h1, div > .school-card', [
