@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { animate, query, stagger, style, transition, trigger } from "@angular/animations";
+import { animate, query, stagger, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-education',
@@ -8,6 +8,12 @@ import { animate, query, stagger, style, transition, trigger } from "@angular/an
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
   animations: [
+    // Hacky, but necessary solution. I cannot tell it to apply this state by default in the query function. I need to apply it to every child directly
+    // Reference: https://github.com/angular/angular/issues/18775
+    trigger('child', [
+      state('false', style({ translate: '0 -10%', opacity: 0 })),
+      // state('true', style({ translate: '0 0', opacity: 1 })),
+    ]),
     trigger('inView', [
       transition('false => true', [
         query('h1, div > .school-card', [

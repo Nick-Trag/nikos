@@ -37,7 +37,10 @@
       <img src="images/nikos_2023.jpg" alt="Picture of Nikos Tragkas" class="border-2 border-black rounded-xl"> <!-- TODO: Use smaller images -->
     </div>
   </div>
-  <app-education></app-education>
+<!--  TODO: Defer is not a great solution, but it helps with the flash of starting content. I should probably use a loading screen eventually -->
+  @defer {
+    <app-education></app-education>
+  }
   <app-experience></app-experience>
   <app-projects></app-projects>
 <!--  <app-education [@inView]="educationInView()" #educationDiv></app-education>-->
