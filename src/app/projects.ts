@@ -1,5 +1,5 @@
 interface ProjectLink {
-  site: string;
+  faIcons: string;
   link: string;
 }
 
@@ -28,13 +28,67 @@ export const projects: Project[] = [
     ],
     projectLinks: [
       {
-        site: 'github',
+        faIcons: 'fa-brands fa-github',
         link: 'https://github.com/Nick-Trag/wili',
       },
       {
-        site: 'play store',
+        faIcons: 'fa-brands fa-google-play',
         link: 'https://play.google.com/store/apps/details?id=csd.nikos.wili',
       }
     ]
+  },
+  { // TODO: The actual project, with the correct image and links when it is complete
+    name: 'Nikos',
+    mainLink: "#",
+    imageLink: "images/wili_small.png",
+    imageAlt: "Wili Wishlist logo",
+    bulletPoints: [
+      'Personal Portfolio website',
+      'Built using Angular, Tailwind',
+      'Blah, blah...',
+      'More things to say',
+    ],
+    projectLinks: [
+      {
+        faIcons: "fa-brands fa-github",
+        link: "https://github.com/Nick-Trag/nikos"
+      },
+      {
+        faIcons: "fa-solid fa-link",
+        link: "#"
+      },
+    ],
+  },
+  {
+    name: "Achaikos Faros website",
+    mainLink: "https://cavaaxaikosfaros.gr",
+    imageLink: "images/axaikos_faros.png",
+    imageAlt: "Achaikos Faros logo",
+    bulletPoints: [
+      'Website with information about a liquor store',
+      'Used HTML and CSS',
+    ],
+    projectLinks: [
+      {
+        faIcons: "fa-solid fa-link",
+        link: "https://cavaaxaikosfaros.gr"
+      },
+    ],
+  },
+  {
+    name: "Thessmetro",
+    mainLink: "https://nick-trag.github.io/thessmetro",
+    imageLink: "images/thessmetro_logo.jpg",
+    imageAlt: "Thessmetro logo",
+    bulletPoints: [
+      "Website for posting news about the construction of Thessaloniki's subway",
+      "Used Angular and Bootstrap",
+    ],
+    projectLinks: [
+      {
+        faIcons: "fa-solid fa-link",
+        link: "https://nick-trag.github.io/thessmetro",
+      },
+    ],
   },
 ];
