@@ -32,6 +32,7 @@ export class EducationComponent implements AfterViewInit {
   @ViewChild('container') container: ElementRef | undefined;
 
   ngAfterViewInit(): void {
+    // TODO: Can use an intersection observer service
     if (this.container !== undefined) {
       const intersectionObserver = new IntersectionObserver((entries, observer) => {
         if (entries[0].isIntersecting) {
