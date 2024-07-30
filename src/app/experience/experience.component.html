@@ -1,7 +1,7 @@
-<div class="my-24 max-w-5xl mx-auto" style="transition: all 1s ease-out" [style.opacity]="inView ? 1 : 0" [style.translate]="inView ? '0 0' : '0 -10%'" #container>
-  <h1 class="text-3xl text-center font-capriola">Experience</h1> <!-- TODO: Clean up code -->
+<div class="my-24 max-w-5xl mx-auto" #container>
+  <h1 class="text-3xl text-center font-capriola" style="transition: all 1s ease-out" [style.opacity]="inView ? 1 : 0" [style.translate]="inView ? '0 0' : '0 -10%'">Experience</h1> <!-- TODO: Clean up code -->
   <div class="jobs-container">
-    <div class="job-card">
+    <div class="job-card" style="transition: all 1s 300ms ease-out" [style.opacity]="inView ? 1 : 0" [style.translate]="inView ? '0 0' : '0 -10%'">
       <div class="job-info">
         <div class="job-dates">Feb 2020 - Mar 2021</div>
         <div class="job-location">Thessaloniki, Greece</div>
@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>
-    <div class="job-card">
+    <div class="job-card" style="transition: all 1s 500ms ease-out" [style.opacity]="inView ? 1 : 0" [style.translate]="inView ? '0 0' : '0 -10%'">
       <div class="job-info">
         <div class="job-dates">Jul 2019 - Feb 2020</div>
         <div class="job-location">Thessaloniki, Greece</div>
