@@ -1,5 +1,4 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { animate, state, style, transition, trigger } from "@angular/animations";
 import { EducationComponent } from "../education/education.component";
 import { ExperienceComponent } from "../experience/experience.component";
 import { ProjectsComponent } from "../projects/projects.component";
@@ -15,10 +14,10 @@ import { ProjectsComponent } from "../projects/projects.component";
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [
-    trigger('inView', [
-      state('false', style({ translate: '0 -5%', opacity: 0 })),
-      state('true', style({ translate: '0 0', opacity: 1 })),
-      transition('false => true', [animate('1s ease-out')]),
+    // trigger('inView', [
+    //   state('false', style({ translate: '0 -5%', opacity: 0 })),
+    //   state('true', style({ translate: '0 0', opacity: 1 })),
+    //   transition('false => true', [animate('1s ease-out')]),
       // query('h1, div > div', [
       //   state('false', style({ translate: '0 -5%', opacity: 0 })),
       //   state('true', style({ translate: '0 0', opacity: 1 })),
@@ -28,7 +27,7 @@ import { ProjectsComponent } from "../projects/projects.component";
       //     ]),
       //   ]),
       // ], {optional: true}),
-    ]), // TODO: Stagger the animations
+    // ]),
   ],
 })
 export class HomeComponent implements AfterViewInit {
@@ -51,7 +50,7 @@ export class HomeComponent implements AfterViewInit {
   //         inViewSignal.set(true);
   //         observer.unobserve(entries[0].target);
   //       }
-  //     }, {threshold: threshold}); // TODO: Check threshold for small screens
+  //     }, {threshold: threshold});
   //     intersectionObserver.observe(element.nativeElement);
   //   }
   //   else {
