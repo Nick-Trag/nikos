@@ -1,9 +1,12 @@
-import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ObserverDirective } from "../observer.directive";
 
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [],
+  imports: [
+    ObserverDirective
+  ],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
   animations: [
@@ -26,24 +29,6 @@ import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angula
     // ]),
   ]
 })
-export class EducationComponent implements AfterViewInit {
+export class EducationComponent {
   protected inView = signal(false);
-
-  @ViewChild('container') container: ElementRef | undefined;
-
-  ngAfterViewInit(): void {
-    // TODO: Can use an intersection observer service
-    if (this.container !== undefined) {
-      const intersectionObserver = new IntersectionObserver((entries, observer) => {
-        if (entries[0].isIntersecting) {
-          this.inView.set(true);
-          observer.unobserve(entries[0].target);
-        }
-      }, {threshold: 0.4}); // TODO: Check threshold for small screens
-      intersectionObserver.observe(this.container.nativeElement);
-    }
-    else {
-      this.inView.set(true);
-    }
-  }
 }

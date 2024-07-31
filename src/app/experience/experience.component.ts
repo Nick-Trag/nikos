@@ -1,29 +1,15 @@
-import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ObserverDirective } from "../observer.directive";
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [],
+  imports: [
+    ObserverDirective
+  ],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss'
 })
-export class ExperienceComponent implements AfterViewInit {
+export class ExperienceComponent {
   protected inView = signal(false);
-
-  @ViewChild('container') container: ElementRef | undefined;
-
-  ngAfterViewInit(): void {
-    if (this.container !== undefined) {
-      const intersectionObserver = new IntersectionObserver((entries, observer) => {
-        if (entries[0].isIntersecting) {
-          this.inView.set(true);
-          observer.unobserve(entries[0].target);
-        }
-      }, {threshold: 0.4}); // TODO: Check threshold for small screens
-      intersectionObserver.observe(this.container.nativeElement);
-    }
-    else {
-      this.inView.set(true);
-    }
-  }
 }
