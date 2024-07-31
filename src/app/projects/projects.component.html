@@ -1,5 +1,5 @@
 <div class="my-24 max-w-5xl mx-auto">
-  <h1 class="text-3xl text-center font-capriola">Projects</h1>
+  <h1 class="text-3xl text-center font-capriola" [@inView]="inView[0]">Projects</h1> <!-- Show this along with the first project -->
   <div class="projects-container">
     @for (project of projects; track $index) {
       <a href="{{project.mainLink}}" target="_blank" class="project-card" [@inView]="inView[$index]" #projectCard>

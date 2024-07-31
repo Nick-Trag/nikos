@@ -1,7 +1,7 @@
-<div class="my-24 max-w-5xl mx-auto" [@inView]="inView" #container>
-  <h1 class="text-3xl text-center font-capriola" [@child]="inView">Education</h1>
+<div class="my-24 max-w-5xl mx-auto" #container>
+  <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-fade-in]="!inView">Education</h1>
   <div class="schools-container">
-    <div class="school-card" [@child]="inView">
+    <div class="school-card enter-transition delay-300" [class.to-fade-in]="!inView">
       <div class="school-dates">
         Oct 2020 - Jul 2022
       </div>
@@ -14,7 +14,7 @@
 <!--        <div>Grade?</div>-->
 <!--        <div>Thesis?</div>-->
     </div>
-    <div class="school-card" [@child]="inView">
+    <div class="school-card enter-transition delay-500" [class.to-fade-in]="!inView">
       <div class="school-dates">
         Sep 2021 - Feb 2022
       </div>
@@ -27,7 +27,7 @@
 <!--        <div>Grade?</div>-->
 <!--        <div>Thesis?</div>-->
     </div>
-    <div class="school-card" [@child]="inView">
+    <div class="school-card enter-transition delay-700" [class.to-fade-in]="!inView">
       <div class="school-dates">
         Oct 2016 - Nov 2020
       </div>

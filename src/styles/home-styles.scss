@@ -51,6 +51,16 @@ a.card:hover, a.card:active {
   transition-timing-function: ease-out;
 }
 
+.to-fade-in {
+  translate: 0 -40px;
+  opacity: 0;
+}
+
+//.faded-in {
+//  translate: 0 0;
+//  opacity: 1;
+//}
+
 li::before {
   content: "-";
   //content: "→";

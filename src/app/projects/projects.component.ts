@@ -10,7 +10,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
   styleUrl: './projects.component.scss',
   animations: [
     trigger('inView', [
-      state('false', style({ translate: '0 -5%', opacity: 0 })),
+      state('false', style({ translate: '0 -10%', opacity: 0 })),
       state('true', style({ translate: '0 0', opacity: 1 })),
       transition('false => true', [
         animate('1s ease-out'),
