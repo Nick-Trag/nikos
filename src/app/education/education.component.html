@@ -1,4 +1,4 @@
-<div class="my-24 max-w-5xl mx-auto" appObserver [inViewSignal]="inView" [threshold]=0.4>
+<div class="my-24 max-w-5xl mx-auto" appObserver [inViewSignal]="inView" [threshold]="0.4"> <!-- TODO: Thresholds and animations on mobile -->
   <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-fade-in]="!inView()">Education</h1> <!-- TODO: Try motion-safe -->
   <div class="schools-container">
     <div class="school-card enter-transition delay-300" [class.to-fade-in]="!inView()">

@@ -2,6 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import { EducationComponent } from "../education/education.component";
 import { ExperienceComponent } from "../experience/experience.component";
 import { ProjectsComponent } from "../projects/projects.component";
+import { AboutMeComponent } from "../about-me/about-me.component";
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { ProjectsComponent } from "../projects/projects.component";
     EducationComponent,
     ExperienceComponent,
     ProjectsComponent,
+    AboutMeComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

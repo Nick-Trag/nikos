@@ -56,6 +56,11 @@ a.card:hover, a.card:active {
   opacity: 0;
 }
 
+.to-slide-in {
+  translate: 4%;
+  opacity: 0;
+}
+
 //.faded-in {
 //  translate: 0 0;
 //  opacity: 1;
