@@ -20,3 +20,31 @@
     }
   }
 }
+
+.mobile-navbar-closed {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: $nav-height;
+}
+
+.burger-button {
+  @apply ml-4;
+  @apply px-4;
+  @apply py-1;
+  @apply rounded;
+  border: 1px solid $text-color;
+}
+
+.mobile-navbar-open {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: $bg-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+}
