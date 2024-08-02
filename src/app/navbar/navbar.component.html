@@ -31,6 +31,9 @@
   </nav>
   <div [class.hidden]="!navOpen">
     <nav class="mobile-navbar-open">
+      <button class="close-button enter-transition animate-slow-fade-in" (click)="toggleNav()"> <!-- TODO: Better animations -->
+        <i class="fa-solid fa-xmark text-2xl"></i>
+      </button>
       <div class="nav-item opacity-0 animate-slide-in-up animation-delay-100">
         <a routerLink="/">Home</a>
       </div>
