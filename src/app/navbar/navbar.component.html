@@ -24,6 +24,11 @@
   </nav>
 </div>
 <div class="md:hidden"> <!-- Mobile navbar -->
+  <nav class="mobile-navbar-closed animate-slide-in-up">
+    <button class="burger-button" (click)="toggleNav()">
+      <i class="fa-solid fa-bars text-3xl"></i>
+    </button>
+  </nav>
   <div [class.hidden]="!navOpen">
     <nav class="mobile-navbar-open">
       <div class="nav-item opacity-0 animate-slide-in-up animation-delay-100">
@@ -46,9 +51,4 @@
       </div>
     </nav>
   </div>
-  <nav class="mobile-navbar-closed animate-slide-in-up">
-    <button class="burger-button" (click)="toggleNav()">
-      <i class="fa-solid fa-bars text-3xl"></i>
-    </button>
-  </nav>
 </div>
