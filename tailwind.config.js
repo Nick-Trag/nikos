@@ -19,6 +19,7 @@ module.exports = {
       },
       animation: {
         'slow-fade-in': 'slow-fade-in 1.5s linear forwards',
+        'fade-in': 'slow-fade-in 400ms linear forwards',
         'slide-in-left': 'slide-in-left 1s linear forwards',
         'slide-in-up': 'slide-in-up 1s linear forwards',
       },
