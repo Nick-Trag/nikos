@@ -33,7 +33,7 @@
   @apply px-4;
   @apply py-1;
   @apply rounded;
-  border: 1px solid $text-color;
+  border: 1px solid rgba(var(--text-color), 0.3);
 }
 
 .mobile-navbar-open {

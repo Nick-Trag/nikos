@@ -2,3 +2,10 @@ $bg-color: theme('colors.charcoal'); // TODO: I'd like it a bit brighter. Maybe 
 $text-color: theme('colors.lavender');
 $secondary-color: theme('colors.sea-blue');
 $nav-height: theme('size.16');
+
+:root {
+  --bg-color: 55, 63, 81; // theme(colors.charcoal');
+  --text-color: 213, 220, 249; // theme('colors.lavender');
+  --secondary-color: 0, 145, 173; // theme('colors.sea-blue');
+  --nav-height: theme('size.16');
+}
