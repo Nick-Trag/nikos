@@ -24,31 +24,31 @@
   </nav>
 </div>
 <div class="md:hidden"> <!-- Mobile navbar -->
+  <div [class.hidden]="!navOpen">
+    <nav class="mobile-navbar-open">
+      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-100">
+        <a routerLink="/">Home</a>
+      </div>
+      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-200">
+        <a routerLink="/photography">Photography</a>
+      </div>
+      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-300">
+        <a routerLink="/coding">Coding</a>
+      </div>
+      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-[400ms]">
+        <a routerLink="/travel">Travel</a>
+      </div>
+      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-500">
+        <a routerLink="/gym">Gym</a>
+      </div>
+      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-[600ms]">
+        <a routerLink="/video-games">Video games</a>
+      </div>
+    </nav>
+  </div>
   <nav class="mobile-navbar-closed animate-slide-in-up">
     <button class="burger-button" (click)="toggleNav()">
       <i class="fa-solid fa-bars text-3xl"></i>
     </button>
   </nav>
-</div>
-<div [class.hidden]="!navOpen">
-  <div class="mobile-navbar-open">
-    <div class="nav-item opacity-0 animate-slide-in-up animation-delay-100">
-      <a routerLink="/">Home</a>
-    </div>
-    <div class="nav-item opacity-0 animate-slide-in-up animation-delay-200">
-      <a routerLink="/photography">Photography</a>
-    </div>
-    <div class="nav-item opacity-0 animate-slide-in-up animation-delay-300">
-      <a routerLink="/coding">Coding</a>
-    </div>
-    <div class="nav-item opacity-0 animate-slide-in-up animation-delay-[400ms]">
-      <a routerLink="/travel">Travel</a>
-    </div>
-    <div class="nav-item opacity-0 animate-slide-in-up animation-delay-500">
-      <a routerLink="/gym">Gym</a>
-    </div>
-    <div class="nav-item opacity-0 animate-slide-in-up animation-delay-[600ms]">
-      <a routerLink="/video-games">Video games</a>
-    </div>
-  </div>
 </div>
