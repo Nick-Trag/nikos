@@ -41,6 +41,10 @@
   background-color: #4f5972;
   position: fixed;
   z-index: 2;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: clip-path 0s;
+  }
 }
 
 .mobile-nav-container-closed {
