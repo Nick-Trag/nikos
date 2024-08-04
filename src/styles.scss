@@ -8,13 +8,13 @@ body {
   background-color: $bg-color;
   color: $text-color;
   @apply font-mallanna;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 @layer utilities {
   // Sets the height to the remaining size of the screen, without the navbar
   .h-screen-no-navbar {
-    height: calc(100vh - $nav-height);
+    height: calc(100svh - $nav-height);
   }
 }
 
