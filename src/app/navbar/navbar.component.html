@@ -31,25 +31,25 @@
   </nav>
   <div class="mobile-nav-container" [ngClass]="navOpen ? 'mobile-nav-container-open' : 'mobile-nav-container-closed'">
     <nav class="mobile-navbar-open">
-      <button class="close-button enter-transition animate-fade-in" (click)="toggleNav()"> <!-- TODO: Better animations -->
+      <button class="close-button" [ngClass]="navOpen ? 'enter-transition animate-fade-in' : ''" (click)="toggleNav()"> <!-- TODO: Better animations -->
         <i class="fa-solid fa-xmark text-2xl"></i>
       </button>
-      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-100">
+      <div class="nav-item opacity-0 animation-delay-100" [class.animate-slide-in-up]="navOpen">
         <a routerLink="/">Home</a>
       </div>
-      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-200">
+      <div class="nav-item opacity-0 animation-delay-200" [class.animate-slide-in-up]="navOpen">
         <a routerLink="/photography">Photography</a>
       </div>
-      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-300">
+      <div class="nav-item opacity-0 animation-delay-300" [class.animate-slide-in-up]="navOpen">
         <a routerLink="/coding">Coding</a>
       </div>
-      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-[400ms]">
+      <div class="nav-item opacity-0 animation-delay-[400ms]" [class.animate-slide-in-up]="navOpen">
         <a routerLink="/travel">Travel</a>
       </div>
-      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-500">
+      <div class="nav-item opacity-0 animation-delay-500" [class.animate-slide-in-up]="navOpen">
         <a routerLink="/gym">Gym</a>
       </div>
-      <div class="nav-item opacity-0 animate-slide-in-up animation-delay-[600ms]">
+      <div class="nav-item opacity-0 animation-delay-[600ms]" [class.animate-slide-in-up]="navOpen">
         <a routerLink="/video-games">Video games</a>
       </div>
     </nav>
