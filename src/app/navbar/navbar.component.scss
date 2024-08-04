@@ -37,18 +37,18 @@
 }
 
 .mobile-nav-container {
-  transition: all 0.2s ease-in;
-  background-color: $bg-color;
+  transition: clip-path 0.2s ease-in;
+  background-color: #4f5972;
   position: fixed;
   z-index: 2;
 }
 
 .mobile-nav-container-closed {
-  clip-path: ellipse(0px 0px at -15% -15%);
+  clip-path: ellipse(0px 0px at 0% 0%);
 }
 
 .mobile-nav-container-open {
-  clip-path: ellipse(1100px 1100px at -15% -15%);
+  clip-path: ellipse(1100px 1100px at 0% 0%);
 }
 
 .mobile-navbar-open {
@@ -57,7 +57,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: $bg-color;
+  background-color: #4f5972;
   display: flex;
   flex-direction: column;
   justify-content: center;
