@@ -9,6 +9,7 @@ body {
   color: $text-color;
   @apply font-mallanna;
   min-height: 100svh;
+  overflow-x: hidden;
 }
 
 @layer utilities {
