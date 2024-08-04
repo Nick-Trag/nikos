@@ -37,14 +37,14 @@
 }
 
 .mobile-nav-container {
-  transition: clip-path 0.2s ease-in;
+  transition: clip-path 0.3s ease-in-out;
   background-color: #4f5972;
   position: fixed;
   z-index: 2;
 }
 
 .mobile-nav-container-closed {
-  clip-path: ellipse(0px 0px at 0% 0%);
+  clip-path: ellipse(0px 0px at 0% -10%);
 }
 
 .mobile-nav-container-open {
