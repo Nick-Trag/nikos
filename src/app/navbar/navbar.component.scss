@@ -36,6 +36,21 @@
   border: 1px solid rgba(var(--text-color), 0.3);
 }
 
+.mobile-nav-container {
+  transition: all 0.2s ease-in;
+  background-color: $bg-color;
+  position: fixed;
+  z-index: 2;
+}
+
+.mobile-nav-container-closed {
+  clip-path: ellipse(0px 0px at -15% -15%);
+}
+
+.mobile-nav-container-open {
+  clip-path: ellipse(1100px 1100px at -15% -15%);
+}
+
 .mobile-navbar-open {
   position: fixed;
   left: 0;
