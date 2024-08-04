@@ -1,8 +1,6 @@
 <div class="hidden md:block"> <!-- Desktop navbar -->
   <nav class="navbar">
   <!--  TODO: Navbar items will become more fun, with stuff like icons, hover effects, and animations -->
-  <!--  TODO: The translate animation does not work correctly -->
-  <!--  TODO: Collapse on mobile -->
     <div class="nav-item opacity-0 animate-slide-in-up animation-delay-100">
       <a routerLink="/">Home</a>
     </div>
@@ -31,7 +29,7 @@
   </nav>
   <div class="mobile-nav-container" [ngClass]="navOpen ? 'mobile-nav-container-open' : 'mobile-nav-container-closed'">
     <nav class="mobile-navbar-open">
-      <button class="close-button" [ngClass]="navOpen ? 'enter-transition animate-fade-in' : ''" (click)="toggleNav()"> <!-- TODO: Better animations -->
+      <button class="close-button" [ngClass]="navOpen ? 'enter-transition animate-fade-in' : ''" (click)="toggleNav()">
         <i class="fa-solid fa-xmark text-2xl"></i>
       </button>
       <div class="nav-item opacity-0 animation-delay-100" [class.animate-slide-in-up]="navOpen">
