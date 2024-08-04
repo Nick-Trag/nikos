@@ -3,7 +3,7 @@
 .schools-container {
   @extend .base-container;
   @apply flex-col;
-  @apply almost-lg:flex-row; // TODO: Check how well this works (as well as the about me section)
+  @apply almost-lg:flex-row;
   @apply items-center;
   @apply almost-lg:items-stretch;
   @apply gap-4;
