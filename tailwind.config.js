@@ -57,6 +57,7 @@ module.exports = {
         },
       },
       screens: {
+        'almost-lg': '850px',
         'h-xs': {
           'raw': '(min-height: 150px)'
         },

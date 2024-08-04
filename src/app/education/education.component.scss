@@ -3,9 +3,9 @@
 .schools-container {
   @extend .base-container;
   @apply flex-col;
-  @apply md:flex-row;
+  @apply almost-lg:flex-row; // TODO: Check how well this works (as well as the about me section)
   @apply items-center;
-  @apply md:items-stretch;
+  @apply almost-lg:items-stretch;
   @apply gap-4;
   justify-content: space-around;
 }
