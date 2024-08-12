@@ -3,6 +3,7 @@
   @apply rounded-sm;
   background-color: white;
   padding: 10px 10px 50px 10px;
+  box-shadow: 6px 6px 11px -4px rgba(0, 0, 0, 0.75);
 
   & > img {
     @apply rounded-sm;
