@@ -4,8 +4,14 @@
   background-color: white;
   padding: 10px 10px 50px 10px;
   box-shadow: 6px 6px 11px -4px rgba(0, 0, 0, 0.75);
+  transition: scale 0.2s linear;
 
   & > img {
     @apply rounded-sm;
+  }
+
+  &:hover {
+    z-index: 10;
+    scale: 1.5;
   }
 }
