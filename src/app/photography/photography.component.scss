@@ -1,0 +1,10 @@
+.polaroid {
+  width: 300px;
+  @apply rounded-sm;
+  background-color: white;
+  padding: 10px 10px 50px 10px;
+
+  & > img {
+    @apply rounded-sm;
+  }
+}
