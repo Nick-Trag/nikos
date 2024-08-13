@@ -17,6 +17,11 @@ body {
   .h-screen-no-navbar {
     height: calc(100svh - $nav-height);
   }
+
+  // Sets the minimum height to the remaining size of the screen, without the navbar
+  .min-h-screen-no-navbar {
+    min-height: calc(100svh - $nav-height);
+  }
 }
 
 @layer components {
