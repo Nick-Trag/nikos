@@ -1,45 +1,11 @@
 <main>
   <div class="mx-auto p-16 flex gap-2 justify-center items-center flex-wrap">
     <!-- TODO: Add Peles Castle -->
-    <!-- TODO: Make this a for loop with variables (randomized order perhaps) -->
-    <a href="photos/large/DSC_0788.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0788_md_cmp.jpg" alt="Belém Tower">
-    </a>
-    <a href="photos/large/DSC_0191_crop.jpg" target="_blank" class="polaroid rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0191_crop_md_cmp.jpg" alt="Retiro Park">
-    </a>
-    <a href="photos/large/DSC_0065.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0065_md_cmp.jpg" alt="Statue of Alexander the Great">
-    </a>
-    <a href="photos/large/DSC_0186.jpg" target="_blank" class="polaroid rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0186_md_cmp.jpg" alt="Palace of Culture and Science">
-    </a>
-    <a href="photos/large/DSC_0269.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0269_md_cmp.jpg" lang="es" alt="Palacio de Cristal">
-    </a>
-    <a href="photos/large/DSC_0351.jpg" target="_blank" class="polaroid rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0351_md_cmp.jpg" lang="es" alt="Sevilla buildings on the river">
-    </a>
-    <a href="photos/large/DSC_0497.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0497_md_cmp.jpg" alt="Zurich">
-    </a>
-    <a href="photos/large/DSC_0555.jpg" target="_blank" class="polaroid rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0555_md_cmp.jpg" lang="es" alt="Plaza de España">
-    </a>
-    <a href="photos/large/DSC_0587.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0587_md_cmp.jpg" alt="Tel Aviv skyscrapers">
-    </a>
-    <a href="photos/large/DSC_0693.jpg" target="_blank" class="polaroid rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0693_md_cmp.jpg" lang="es" alt="Plaza de España">
-    </a>
-    <a href="photos/large/DSC_0773.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0773_md_cmp.jpg" alt="Monolithos Castle">
-    </a>
-    <a href="photos/large/DSC_0953_1.jpg" target="_blank" class="polaroid rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_0953_1_md_cmp.jpg" alt="Bird flying in front of bridge">
-    </a>
-    <a href="photos/large/DSC_1158.jpg" target="_blank" class="polaroid -rotate-[25deg]">
-      <img src="photos/medium/compressed/DSC_1158_md_cmp.jpg" alt="Walls of Dubrovnik">
-    </a>
+    <!-- TODO: Randomized order perhaps -->
+    @for (photo of photos; track photo.name) {
+      <a href="photos/large/{{photo.name}}" target="_blank" class="polaroid" [ngClass]="$even ? '-rotate-[25deg]' : 'rotate-[25deg]'">
+        <img src="photos/medium/compressed/{{photo.name}}" alt="{{photo.alt}}">
+      </a>
+    }
   </div>
 </main>
