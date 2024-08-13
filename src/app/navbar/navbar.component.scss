@@ -40,7 +40,7 @@
   transition: clip-path 0.3s ease-in-out;
   background-color: #4f5972;
   position: fixed;
-  z-index: 2;
+  z-index: 15;
 
   @media (prefers-reduced-motion: reduce) {
     transition: clip-path 0s;
