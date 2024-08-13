@@ -3,7 +3,7 @@
     <!-- TODO: Randomized order perhaps -->
     @for (photo of photos; track photo.name) {
       <a href="photos/large/{{photo.name}}" target="_blank" class="polaroid" [ngClass]="$even ? '-rotate-[25deg]' : 'rotate-[25deg]'">
-        <img src="photos/medium/compressed/{{photo.name}}" alt="{{photo.alt}}">
+        <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
       </a>
     }
   </div>
