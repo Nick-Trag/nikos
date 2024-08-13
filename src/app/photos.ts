@@ -56,4 +56,8 @@ export const photos: Photo[] = [
     name: 'DSC_1158.jpg',
     alt: 'Walls of Dubrovnik',
   },
+  {
+    name: 'DSC_0276.jpg',
+    alt: 'Cloudy sunset at Peles Castle',
+  },
 ];

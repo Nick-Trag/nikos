@@ -1,6 +1,5 @@
 <main>
   <div class="mx-auto p-16 flex gap-2 justify-center items-center flex-wrap">
-    <!-- TODO: Add Peles Castle -->
     <!-- TODO: Randomized order perhaps -->
     @for (photo of photos; track photo.name) {
       <a href="photos/large/{{photo.name}}" target="_blank" class="polaroid" [ngClass]="$even ? '-rotate-[25deg]' : 'rotate-[25deg]'">
