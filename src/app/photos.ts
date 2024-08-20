@@ -36,6 +36,11 @@ export const photos: Photo[] = [
     lang: 'en',
   },
   {
+    name: 'DSC_0403.jpg',
+    alt: 'An office building in Warsaw',
+    lang: 'en',
+  },
+  {
     name: 'DSC_0497.jpg',
     alt: 'Zurich',
     lang: 'en',
