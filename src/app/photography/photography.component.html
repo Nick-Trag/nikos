@@ -1,6 +1,5 @@
 <main>
   <div class="mx-auto p-16 flex justify-center items-center flex-wrap">
-    <!-- TODO: Randomized order perhaps -->
     @for (photo of photos; track photo.name) {
       <a href="photos/large/{{photo.name}}" target="_blank" class="-m-5 polaroid" [ngClass]="$even ? '-rotate-[25deg]' : 'rotate-[25deg]'">
         <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
