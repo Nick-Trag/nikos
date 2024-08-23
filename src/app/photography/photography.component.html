@@ -1,7 +1,7 @@
 <main class="main-container">
   <!-- Possible TODO: Random rotation and translation within bounds for each of the polaroids -->
   @for (photo of photos; track photo.name) {
-    <a href="photos/large/{{photo.name}}" target="_blank" class="polaroid absolute" [ngClass]="$even ? '-rotate-[25deg]' : 'rotate-[25deg]'"> <!-- left-2/4 top-1/4 -->
+    <a href="photos/large/{{photo.name}}" target="_blank" class="polaroid absolute" [style.rotate]="rotations[$index] + 'deg'" [style.translate]="translations[$index] + 'px'"> <!-- left-2/4 top-1/4 -->
       <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
     </a>
   }
