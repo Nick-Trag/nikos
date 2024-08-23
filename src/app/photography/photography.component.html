@@ -1,8 +1,10 @@
-<main class="main-container">
-  <!-- Possible TODO: Random rotation and translation within bounds for each of the polaroids -->
-  @for (photo of photos; track photo.name) {
-    <a href="photos/large/{{photo.name}}" target="_blank" class="polaroid absolute" [style.rotate]="rotations[$index] + 'deg'" [style.translate]="translations[$index] + 'px'"> <!-- left-2/4 top-1/4 -->
-      <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
-    </a>
-  }
+<main>
+  <div class="min-h-screen-no-navbar mx-auto py-16 px-32 flex justify-center items-center flex-wrap">
+    <!-- Possible TODO: Random rotation and translation within bounds for each of the polaroids -->
+    @for (photo of photos; track photo.name) {
+      <a href="photos/large/{{photo.name}}" target="_blank" class="-m-10 polaroid" [style.rotate]="rotations[$index] + 'deg'" [style.translate]="translations[$index] + 'px ' + translations[$index] + 'px'">
+        <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
+      </a>
+    }
+  </div>
 </main>
