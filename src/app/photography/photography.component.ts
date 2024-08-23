@@ -20,6 +20,7 @@ export class PhotographyComponent implements OnInit {
     this.photos = this.shuffle(photos);
     // TODO: Semi-random translations and rotations
     // Maybe just the rotations, and use flex-wrap instead. Because mobile is low-key a nightmare
+    // Or maybe actually straight up display: none on the container when on mobile and make a completely different UI. This might be better actually
     this.rotations = Array(this.photos.length).fill(20);
     this.translations = Array(this.photos.length).fill(200);
   }
