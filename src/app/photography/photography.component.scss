@@ -1,3 +1,6 @@
+@use "../../variables" as *;
+
+
 .polaroid {
   width: 300px;
   @apply rounded-sm;
@@ -14,4 +17,8 @@
     z-index: 100;
     scale: 1.5;
   }
+}
+
+.main-container {
+  min-height: max(calc(100svh - $nav-height), 700px);
 }
