@@ -19,6 +19,7 @@ export class PhotographyComponent implements OnInit {
   ngOnInit(): void {
     this.photos = this.shuffle(photos);
     // TODO: Semi-random translations and rotations
+    // Maybe just the rotations, and use flex-wrap instead. Because mobile is low-key a nightmare
     this.rotations = Array(this.photos.length).fill(20);
     this.translations = Array(this.photos.length).fill(200);
   }
