@@ -1,8 +1,7 @@
 <main>
-  <div class="min-h-screen-no-navbar mx-auto py-16 max-w-[100rem] flex justify-center items-center flex-wrap">
-    <!-- Possible TODO: Random rotation and translation within bounds for each of the polaroids -->
+  <div class="min-h-screen-no-navbar mx-auto pt-16 pb-24 px-3 max-w-[100rem] flex justify-center items-center flex-wrap">
     @for (photo of photos; track photo.name) {
-      <a href="photos/large/{{photo.name}}" target="_blank" class="-m-10 polaroid" [style.rotate]="rotations[$index] + 'deg'" [style.translate]="translationsX[$index] + 'px ' + translationsY[$index] + 'px'" [style.z-index]="zIndices[$index]"> <!-- [ngStyle]="styles[$index]" -->
+      <a href="photos/large/{{photo.name}}" target="_blank" class="-m-10 polaroid" [ngStyle]="styles[$index]">
         <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
       </a>
     }

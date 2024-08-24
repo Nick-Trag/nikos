@@ -14,7 +14,7 @@
   }
 
   &:hover {
-    z-index: 100;
+    z-index: 100 !important; // Important is needed here, because if I use custom z-indices, inline styles take precedence over this hover state style
     scale: 1.5;
   }
 }

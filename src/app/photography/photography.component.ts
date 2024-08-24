@@ -14,35 +14,31 @@ import { NgClass, NgStyle } from "@angular/common";
 })
 export class PhotographyComponent implements OnInit {
   photos: Photo[] = [];
-  rotations: number[] = [];
-  translationsX: number[] = [];
-  translationsY: number[] = [];
-  zIndices: number[] = [];
-  // styles: object[] = [];
+  styles: Record<string, string>[] = [];
 
   ngOnInit(): void {
     this.photos = this.shuffle(photos);
     // TODO: Animate
     for (let i = 0; i < this.photos.length; i++) {
-      this.rotations.push(Math.random() * 70 - 35); // Rotations from -35deg to 35deg
+      let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 
       // Polaroids look bad if they are too straight, so enforce a 15-degree rotation minimum
-      if (this.rotations[i] > 0 && this.rotations[i] < 15) {
-        this.rotations[i] = 15;
+      if (rotation > 0 && rotation < 15) {
+        rotation = 15;
       }
-      else if (this.rotations[i] <= 0 && this.rotations[i] > -15) {
-        this.rotations[i] = -15;
+      else if (rotation <= 0 && rotation > -15) {
+        rotation = -15;
       }
 
-      this.translationsX.push(Math.random() * 100 - 50); // Translations from -50px to 50px
-      this.translationsY.push(Math.random() * 100 - 50);
-      this.zIndices.push(Math.floor(Math.random() * 20) + 1); // TODO: Not sure if I want random z-indices
+      const translationX = Math.random() * 100 - 50; // Translations from -50px to 50px
+      const translationY = Math.random() * 100 - 50;
+      const zIndex = Math.floor(Math.random() * 20) + 1; // z-indices from 1 to 20
 
-      // this.styles.push({
-      //   'z-index': this.zIndices[i],
-      //   'translate': this.translationsX[i] + 'px ' + this.translationsY[i] + 'px',
-      //   'rotate': this.rotations[i] + 'deg',
-      // });
+      this.styles.push({
+        'z-index': zIndex.toString(),
+        'translate': translationX + 'px ' + translationY + 'px',
+        'rotate': rotation + 'deg',
+      });
     }
   }
 
