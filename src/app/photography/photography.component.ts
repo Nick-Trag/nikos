@@ -17,7 +17,7 @@ export class PhotographyComponent implements OnInit {
 
   ngOnInit(): void {
     this.photos = this.shuffle(photos);
-    // TODO: Animate (shuffle them around a bit)
+    // TODO: Animate (start from slightly larger, to give the effect that they drop in)
     for (let i = 0; i < this.photos.length; i++) {
       let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 
@@ -33,11 +33,13 @@ export class PhotographyComponent implements OnInit {
       const translationY = Math.random() * 100 - 50;
       const zIndex = Math.floor(Math.random() * 20) + 1; // z-indices from 1 to 20
 
-      this.styles.push({
-        'z-index': zIndex.toString(),
-        'translate': translationX + 'px ' + translationY + 'px',
-        'rotate': rotation + 'deg',
-      });
+      setTimeout(() => {
+        this.styles.push({
+          'z-index': zIndex.toString(),
+          'translate': translationX + 'px ' + translationY + 'px',
+          'rotate': rotation + 'deg',
+        });
+      }, 0);
     }
   }
 
