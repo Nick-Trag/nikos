@@ -9,7 +9,7 @@ body {
   color: $text-color;
   @apply font-mallanna;
   min-height: 100svh;
-  overflow-x: hidden;
+  overflow-x: hidden; // TODO: Seems to be buggy on mobile
 }
 
 @layer utilities {

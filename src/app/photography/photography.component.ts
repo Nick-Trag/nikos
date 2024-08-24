@@ -12,12 +12,10 @@ import { NgStyle } from "@angular/common";
   styleUrl: './photography.component.scss'
 })
 export class PhotographyComponent implements OnInit {
-  photos: Photo[] = [];
+  photos: Photo[] = this.shuffle(photos);
   styles: Record<string, string>[] = [];
 
   ngOnInit(): void {
-    this.photos = this.shuffle(photos);
-    // TODO: Animate (start from slightly larger, to give the effect that they drop in)
     for (let i = 0; i < this.photos.length; i++) {
       let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 
@@ -40,7 +38,8 @@ export class PhotographyComponent implements OnInit {
           'translate': translationX + 'px ' + translationY + 'px',
           'rotate': rotation + 'deg',
         });
-      }, 0);
+      }, 100); // Not the cleanest solution, but I could not find a better one. If I don't put this in a setTimeout, the styles are applied immediately, so no transition occurs
+      // I'm also adding a small delay of 100ms, to give time for the mobile navbar to get out of the way and not hide the transitions
     }
   }
 

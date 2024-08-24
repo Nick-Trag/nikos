@@ -1,7 +1,7 @@
 <main>
   <div class="min-h-screen-no-navbar mx-auto pt-16 pb-24 px-3 max-w-[100rem] flex justify-center items-center flex-wrap">
     @for (photo of photos; track photo.name) {
-      <a href="photos/large/{{photo.name}}" target="_blank" class="-m-10 polaroid" style="scale: 1.5" [ngStyle]="styles[$index]">
+      <a href="photos/large/{{photo.name}}" target="_blank" class="-m-10 polaroid to-drop-in" [ngStyle]="styles[$index]">
         <img src="photos/medium/compressed/{{photo.name}}" lang="{{photo.lang}}" alt="{{photo.alt}}">
       </a>
     }
