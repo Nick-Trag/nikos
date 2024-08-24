@@ -18,7 +18,7 @@ export class PhotographyComponent implements OnInit {
 
   ngOnInit(): void {
     this.photos = this.shuffle(photos);
-    // TODO: Animate
+    // TODO: Animate (shuffle them around a bit)
     for (let i = 0; i < this.photos.length; i++) {
       let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 
