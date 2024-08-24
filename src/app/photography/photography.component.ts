@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Photo, photos } from "../photos";
-import { NgClass, NgStyle } from "@angular/common";
+import { NgStyle } from "@angular/common";
 
 @Component({
   selector: 'app-photography',
   standalone: true,
   imports: [
-    NgClass,
     NgStyle
   ],
   templateUrl: './photography.component.html',
