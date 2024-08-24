@@ -35,6 +35,7 @@ export class PhotographyComponent implements OnInit {
 
       setTimeout(() => {
         this.styles.push({
+          'scale': '1',
           'z-index': zIndex.toString(),
           'translate': translationX + 'px ' + translationY + 'px',
           'rotate': rotation + 'deg',
