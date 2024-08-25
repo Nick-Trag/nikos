@@ -50,7 +50,6 @@ a.card:hover, a.card:active {
   transition-duration: 1s;
   transition-timing-function: ease-out;
 
-  // TODO: Fully decide where exactly to use motion-safe
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
