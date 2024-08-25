@@ -1,7 +1,7 @@
 <div class="my-24 max-w-5xl mx-auto" appObserver [inViewSignal]="inView" [threshold]="0.4">
-  <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-fade-in]="!inView()">Experience</h1>
+  <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-slide-in-down]="!inView()">Experience</h1>
   <div class="jobs-container">
-    <div class="job-card enter-transition delay-300" [class.to-fade-in]="!inView()">
+    <div class="job-card enter-transition delay-300" [class.to-slide-in-down]="!inView()">
       <div class="job-info">
         <div class="job-dates">Feb 2020 - Mar 2021</div>
         <div class="job-location">Thessaloniki, Greece</div>
@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>
-    <div class="job-card enter-transition delay-500" [class.to-fade-in]="!inView()">
+    <div class="job-card enter-transition delay-500" [class.to-slide-in-down]="!inView()">
       <div class="job-info">
         <div class="job-dates">Jul 2019 - Feb 2020</div>
         <div class="job-location">Thessaloniki, Greece</div>

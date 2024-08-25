@@ -1,5 +1,5 @@
 <div class="p-3 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4" appObserver [inViewSignal]="inView" [threshold]="0.4">
-  <div class="text-justify enter-transition" [class.to-slide-in]="!inView()">
+  <div class="text-justify enter-transition" [class.to-slide-in-left]="!inView()">
     <h1 class="font-capriola text-3xl">About me!</h1>
     <div class="font-mallanna">
       <!--      More details (uni, projects, interests, ...)-->
@@ -22,7 +22,7 @@
       </p>
     </div>
   </div>
-  <div class="enter-transition delay-200" [class.to-slide-in]="!inView()">
+  <div class="enter-transition delay-200" [class.to-slide-in-left]="!inView()">
     <img src="images/nikos_2023_small.jpg" alt="Picture of Nikos Tragkas" class="border-2 border-black rounded-xl"> <!-- TODO: ngSrc? -->
   </div>
 </div>

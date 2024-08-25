@@ -12,6 +12,44 @@ body {
   overflow-x: hidden; // TODO: Seems to be buggy on mobile
 }
 
+.enter-transition {
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.to-slide-in-down {
+  translate: 0 -40px;
+  opacity: 0;
+
+  @media (prefers-reduced-motion: reduce) {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
+.to-slide-in-left {
+  translate: 4%;
+  opacity: 0;
+
+  @media (prefers-reduced-motion: reduce) {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
+.to-fade-in {
+  opacity: 0;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+  }
+}
+
 @layer utilities {
   // Sets the height to the remaining size of the screen, without the navbar
   .h-screen-no-navbar {
