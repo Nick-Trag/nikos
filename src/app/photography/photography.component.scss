@@ -9,6 +9,10 @@
   box-shadow: 6px 6px 11px -4px rgba(0, 0, 0, 0.75);
   transition: scale 0.2s linear, translate 0.5s ease-out, rotate 0.5s ease-out;
 
+  @media (prefers-reduced-motion: reduce) {
+    transition: scale 0.2s linear;
+  }
+
   & > img {
     @apply rounded-sm;
   }
@@ -20,8 +24,10 @@
 }
 
 .to-drop-in {
-  scale: 1.3;
-  z-index: 1;
-  translate: 0 0;
-  rotate: 0deg;
+  @media (prefers-reduced-motion: no-preference) {
+    scale: 1.3;
+    z-index: 1;
+    translate: 0 0;
+    rotate: 0deg;
+  }
 }
