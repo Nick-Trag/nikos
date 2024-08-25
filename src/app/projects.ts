@@ -64,7 +64,7 @@ export const projects: Project[] = [
     mainLink: "https://cavaaxaikosfaros.gr",
     imageLink: "images/axaikos_faros.png",
     imageAlt: "Achaikos Faros logo",
-    bulletPoints: [
+    bulletPoints: [ // TODO: More details
       'Website with information about a liquor store',
       'Used HTML and CSS',
     ],
@@ -81,8 +81,8 @@ export const projects: Project[] = [
     imageLink: "images/thessmetro_logo.jpg",
     imageAlt: "Thessmetro logo",
     bulletPoints: [
-      "Website for posting news about the construction of Thessaloniki's subway",
-      "Used Angular and Bootstrap",
+      "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
+      "Used Angular framework and Bootstrap",
     ],
     projectLinks: [
       {
