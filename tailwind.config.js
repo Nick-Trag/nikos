@@ -16,14 +16,27 @@ module.exports = {
       fontFamily: {
         mallanna: ['Mallanna', ...defaultTheme.fontFamily.sans],
         capriola: ['Capriola', 'Mallanna', ...defaultTheme.fontFamily.sans],
+        roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
       animation: {
+        'rotate': 'rotate 2s linear infinite',
         'slow-fade-in': 'slow-fade-in 1.5s linear forwards',
         'fade-in': 'slow-fade-in 400ms linear forwards',
         'slide-in-left': 'slide-in-left 1s linear forwards',
         'slide-in-up': 'slide-in-up 1s linear forwards',
       },
       keyframes: {
+        'rotate': {
+          from: {
+            rotate: '25deg',
+          },
+          '50%': {
+            rotate: '-35deg',
+          },
+          to: {
+            rotate: '25deg',
+          }
+        },
         'slow-fade-in': {
           from: {
             opacity: 0,
