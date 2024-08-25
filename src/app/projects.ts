@@ -17,7 +17,7 @@ export const projects: Project[] = [
   {
     name: 'Wili Wishlist',
     mainLink: 'https://play.google.com/store/apps/details?id=csd.nikos.wili',
-    imageLink: 'images/wili_small.png',
+    imageLink: 'images/compressed/wili_small.png',
     imageAlt: 'Wili Wishlist logo',
     bulletPoints: [
       'Android App created using Flutter',
@@ -40,7 +40,7 @@ export const projects: Project[] = [
   { // TODO: The actual project, with the correct image and links when it is complete
     name: 'Nikos',
     mainLink: "#",
-    imageLink: "images/wili_small.png",
+    imageLink: "images/compressed/wili_small.png",
     imageAlt: "Wili Wishlist logo",
     bulletPoints: [
       'Personal Portfolio website',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
   {
     name: "Achaikos Faros website",
     mainLink: "https://cavaaxaikosfaros.gr",
-    imageLink: "images/axaikos_faros.png",
+    imageLink: "images/compressed/axaikos_faros_small.png",
     imageAlt: "Achaikos Faros logo",
     bulletPoints: [ // TODO: More details
       'Website with information about a liquor store',
@@ -78,7 +78,7 @@ export const projects: Project[] = [
   {
     name: "Thessmetro",
     mainLink: "https://nick-trag.github.io/thessmetro",
-    imageLink: "images/thessmetro_logo.jpg",
+    imageLink: "images/compressed/thessmetro_logo_small.jpg",
     imageAlt: "Thessmetro logo",
     bulletPoints: [
       "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
