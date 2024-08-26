@@ -27,7 +27,7 @@
       <i class="fa-solid fa-bars text-3xl"></i>
     </button>
   </nav>
-  <!-- TODO: Disappear background stuff when navbar is open. Disappear foreground stuff when navbar is closed -->
+  <!-- TODO: Disappear background stuff when navbar is open. Disappear foreground stuff when navbar is closed. Probably using Angular animations... -->
   <div class="mobile-nav-container" [ngClass]="navOpen ? 'mobile-nav-container-open' : 'mobile-nav-container-closed'">
     <nav class="mobile-navbar-open">
       <button class="close-button" [ngClass]="navOpen ? 'enter-transition animate-fade-in' : ''" (click)="toggleNav()">
