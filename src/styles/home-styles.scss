@@ -45,9 +45,17 @@ a.card:hover, a.card:active {
   align-items: center;
 }
 
-li::before {
-  content: "-"; // TODO: Better list-style
-  //content: "→";
-  @apply pr-0.5;
-  //color: black;
+ul {
+  @apply ml-3;
+}
+
+li {
+  @apply pl-1;
+}
+
+// https://stackoverflow.com/a/13354689/7400287
+li::marker {
+  content: "\f386"; // f6d5 is a dragon :)
+  @apply text-xs;
+  font-family: FontAwesome, serif;
 }
