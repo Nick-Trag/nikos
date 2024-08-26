@@ -28,8 +28,7 @@
     </button>
   </nav>
   @if (navOpen) {
-    <!-- TODO: Disappear background stuff when navbar is open -->
-    <div class="mobile-nav-container" @toggleNav>
+    <div class="mobile-nav-container" @toggleNav cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
       <nav class="mobile-navbar-open">
         <button class="close-button enter-transition animate-fade-in" (click)="closeNav()">
           <i class="fa-solid fa-xmark text-2xl"></i>
