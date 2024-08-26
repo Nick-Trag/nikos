@@ -64,8 +64,8 @@ export const projects: Project[] = [
     mainLink: "https://cavaaxaikosfaros.gr",
     imageLink: "images/compressed/axaikos_faros_small.png",
     imageAlt: "Achaikos Faros logo",
-    bulletPoints: [ // TODO: More details
-      'Website with information about a liquor store',
+    bulletPoints: [
+      'A liquor store\'s website, containing its contact info, hours of operation, and location on Google Maps',
       'Used HTML and CSS',
     ],
     projectLinks: [

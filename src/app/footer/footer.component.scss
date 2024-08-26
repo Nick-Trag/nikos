@@ -3,7 +3,7 @@ a {
   @apply py-1;
 
   &:hover {
-    border: 1px dashed;
+    border: 1px dashed; // TODO: Outline instead of border (also in project links)
   }
 }
 
