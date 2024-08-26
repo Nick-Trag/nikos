@@ -16,16 +16,9 @@
         </div>
         <div class="self-end opacity-85">
           @for (link of project.projectLinks; track $index) {
-            @if ($last) {
-              <a href="{{link.link}}" target="_blank" class="project-link">
-                <i class="{{link.faIcons}} text-2xl"></i>
-              </a>
-            }
-            @else {
-              <a href="{{link.link}}" target="_blank" class="project-link mr-1">
-                <i class="{{link.faIcons}} text-2xl"></i>
-              </a>
-            }
+            <a href="{{link.link}}" target="_blank" class="project-link">
+              <i class="{{link.faIcons}} text-2xl"></i>
+            </a>
           }
         </div>
       </a>
