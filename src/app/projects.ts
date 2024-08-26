@@ -38,24 +38,24 @@ export const projects: Project[] = [
     ]
   },
   { // TODO: The actual project, with the correct image and links when it is complete
-    name: 'Nikos',
+    name: 'nikos.com',
     mainLink: "#",
     imageLink: "images/compressed/wili_small.png",
     imageAlt: "Wili Wishlist logo",
     bulletPoints: [
-      'Personal Portfolio website',
-      'Built using Angular, Tailwind',
-      'Blah, blah...',
-      'More things to say',
+      'Personal website, including a portfolio, and featuring multiple pages about my interests',
+      'Every page was built to show off a different skill in web development',
+      'Includes animations, responsiveness, cool layouts and more...',
+      'Built using Angular framework and Tailwind CSS',
     ],
     projectLinks: [
       {
         faIcons: "fa-brands fa-github",
-        link: "https://github.com/Nick-Trag/nikos"
+        link: "https://github.com/Nick-Trag/nikos",
       },
       {
         faIcons: "fa-solid fa-link",
-        link: "#"
+        link: "#",
       },
     ],
   },
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     projectLinks: [
       {
         faIcons: "fa-solid fa-link",
-        link: "https://cavaaxaikosfaros.gr"
+        link: "https://cavaaxaikosfaros.gr",
       },
     ],
   },

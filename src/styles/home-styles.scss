@@ -46,7 +46,7 @@ a.card:hover, a.card:active {
 }
 
 li::before {
-  content: "-";
+  content: "-"; // TODO: Better list-style
   //content: "→";
   @apply pr-0.5;
   //color: black;
