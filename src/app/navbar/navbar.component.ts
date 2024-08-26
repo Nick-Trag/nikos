@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { NgClass } from "@angular/common";
-import { animate, state, style, transition, trigger } from "@angular/animations";
+import { animate, style, transition, trigger } from "@angular/animations";
 
 const open = { 'clip-path': 'ellipse(1100px 1100px at 0% 0%)' };
 const closed = { 'clip-path': 'ellipse(0px 0px at -100px -100px)' };
