@@ -21,7 +21,7 @@ module.exports = {
       animation: {
         'rotate': 'rotate 2s linear infinite',
         'slow-fade-in': 'slow-fade-in 1.5s linear forwards',
-        'fade-in': 'slow-fade-in 400ms linear forwards',
+        'fade-in': 'fade-in 1s linear forwards',
         'slide-in-left': 'slide-in-left 1s linear forwards',
         'slide-in-up': 'slide-in-up 1s linear forwards',
       },
@@ -36,6 +36,14 @@ module.exports = {
           to: {
             rotate: '25deg',
           }
+        },
+        'fade-in': {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
         },
         'slow-fade-in': {
           from: {
