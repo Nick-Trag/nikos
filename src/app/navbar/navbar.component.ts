@@ -17,5 +17,13 @@ export class NavbarComponent {
 
   toggleNav() {
     this.navOpen = !this.navOpen;
+    document.body.style.overflowY = this.navOpen ? 'hidden' : '';
+    document.documentElement.style.overflowY = this.navOpen ? 'hidden' : '';
+  }
+
+  closeNav() {
+    this.navOpen = false;
+    document.body.style.overflowY = '';
+    document.documentElement.style.overflowY = '';
   }
 }
