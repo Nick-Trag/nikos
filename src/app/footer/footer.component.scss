@@ -1,9 +1,10 @@
 a {
-  @apply px-2;
   @apply py-1;
+  display: inline-block;
+  width: 2.5rem;
 
   &:hover {
-    outline: 2px dashed; // TODO: Outline instead of border (also in project links)
+    outline: 2px dashed;
   }
 }
 

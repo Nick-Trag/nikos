@@ -21,7 +21,7 @@
 
 .project-link {
   @apply p-1;
-  display: inline-block; // TODO: Check if this breaks any responsiveness (doesn't seem to) and apply it to the footer as well
+  display: inline-block;
   width: 2.5rem;
 
   &:hover, &:active {
