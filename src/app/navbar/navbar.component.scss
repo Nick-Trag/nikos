@@ -37,23 +37,19 @@
 }
 
 .mobile-nav-container {
-  transition: clip-path 0.3s ease-in-out;
+  //transition: clip-path 0.3s ease-in-out;
   background-color: #4f5972;
   position: fixed;
   z-index: 1500;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: clip-path 0s;
-  }
 }
 
-.mobile-nav-container-closed {
-  clip-path: ellipse(0px 0px at -100px -100px);
-}
-
-.mobile-nav-container-open {
-  clip-path: ellipse(1100px 1100px at 0% 0%);
-}
+//.mobile-nav-container-closed {
+//  clip-path: ellipse(0px 0px at -100px -100px);
+//}
+//
+//.mobile-nav-container-open {
+//  clip-path: ellipse(1100px 1100px at 0% 0%);
+//}
 
 .mobile-navbar-open {
   position: fixed;
