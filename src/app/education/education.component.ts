@@ -31,4 +31,5 @@ import { ObserverDirective } from "../observer.directive";
 })
 export class EducationComponent {
   protected inView = signal(false);
+  protected threshold = window.innerWidth > 768 ? 0.4 : 0.2; // A smaller threshold for smaller screens (smaller than md)
 }

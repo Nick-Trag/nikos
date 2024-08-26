@@ -12,4 +12,5 @@ import { ObserverDirective } from "../observer.directive";
 })
 export class ExperienceComponent {
   protected inView = signal(false);
+  protected threshold = window.innerWidth > 768 ? 0.4 : 0.1; // A smaller threshold for smaller screens (smaller than md)
 }

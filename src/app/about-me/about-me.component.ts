@@ -14,4 +14,5 @@ import { RouterLink } from "@angular/router";
 })
 export class AboutMeComponent {
   protected inView = signal(false);
+  protected threshold = window.innerWidth > 768 ? 0.4 : 0.2; // A smaller threshold for smaller screens (smaller than md)
 }

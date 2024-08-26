@@ -2,7 +2,7 @@
   <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-slide-in-down]="!inView[0]()">Projects</h1> <!-- Showing this along with the first project -->
   <div class="projects-container">
     @for (project of projects; track $index) {
-      <a href="{{project.mainLink}}" target="_blank" class="project-card enter-transition delay-100" [class.to-slide-in-down]="!inView[$index]()" appObserver [inViewSignal]="inView[$index]" [threshold]="0.4">
+      <a href="{{project.mainLink}}" target="_blank" class="project-card enter-transition delay-100" [class.to-slide-in-down]="!inView[$index]()" appObserver [inViewSignal]="inView[$index]" [threshold]="threshold">
         <div class="flex items-center flex-col md:flex-row gap-4 md:gap-8">
           <img src="{{project.imageLink}}" alt="{{project.imageAlt}}" class="project-logo" [class.rounded-full]="project.name === 'Thessmetro'">
           <div class="md:w-full">

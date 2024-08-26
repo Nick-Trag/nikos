@@ -14,4 +14,5 @@ import { ObserverDirective } from "../observer.directive";
 export class ProjectsComponent {
   projects: Project[] = projects;
   inView: WritableSignal<boolean>[] = Array.from(this.projects, () => signal(false));
+  protected threshold = window.innerWidth > 768 ? 0.4 : 0.2; // A smaller threshold for smaller screens (smaller than md)
 }
