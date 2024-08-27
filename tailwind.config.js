@@ -19,7 +19,7 @@ module.exports = {
         'varela-round': ['Varela Round', ...defaultTheme.fontFamily.sans],
         mallanna: ['Mallanna', ...defaultTheme.fontFamily.sans],
         convergence: ['Convergence', ...defaultTheme.fontFamily.sans],
-        capriola: ['Capriola', 'Mallanna', ...defaultTheme.fontFamily.sans],
+        capriola: ['Capriola', 'Varela Round', ...defaultTheme.fontFamily.sans],
         roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
       animation: {

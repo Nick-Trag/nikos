@@ -7,7 +7,7 @@
   src: url(/fonts/Capriola-Regular.ttf) format('truetype');}
 
 // Mallanna
-@font-face { // TODO: Mallanna has no support for Spanish and size-adjust is not great. Find a better font
+@font-face {
   font-family: 'Mallanna';
   font-style: normal;
   font-weight: 400;
@@ -31,6 +31,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
+  size-adjust: 95%;
   src: url(/fonts/VarelaRound-Regular.ttf) format('truetype');
 }
 
