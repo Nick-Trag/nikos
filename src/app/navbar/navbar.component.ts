@@ -4,8 +4,8 @@ import { NgClass } from "@angular/common";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { A11yModule } from "@angular/cdk/a11y";
 
-const open = { 'clip-path': 'ellipse(1100px 1100px at 0% 0%)' };
 const closed = { 'clip-path': 'ellipse(0px 0px at -100px -100px)' };
+const open = { 'clip-path': 'ellipse(1100px 1100px at 0% 0%)' };
 const timing: string = '0.3s ease-in-out';
 
 @Component({

@@ -27,30 +27,28 @@
     </button>
   </nav>
   @if (navOpen) {
-    <div class="mobile-nav-container" @toggleNav cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
-      <nav class="mobile-navbar-open">
-        <button class="close-button enter-transition animate-fade-in" (click)="closeNav()">
-          <i class="fa-solid fa-xmark text-2xl"></i>
-        </button>
-        <div class="nav-item opacity-0 animate-fade-in">
-          <a routerLink="/" (click)="closeNav()">Home</a>
-        </div>
-        <div class="nav-item opacity-0 animation-delay-100 animate-fade-in">
-          <a routerLink="/photography" (click)="closeNav()">Photography</a>
-        </div>
-        <div class="nav-item opacity-0 animation-delay-200 animate-fade-in">
-          <a routerLink="/coding" (click)="closeNav()">Coding</a>
-        </div>
-        <div class="nav-item opacity-0 animation-delay-300 animate-fade-in">
-          <a routerLink="/travel" (click)="closeNav()">Travel</a>
-        </div>
-        <div class="nav-item opacity-0 animation-delay-[400ms] animate-fade-in">
-          <a routerLink="/gym" (click)="closeNav()">Gym</a>
-        </div>
-        <div class="nav-item opacity-0 animation-delay-500 animate-fade-in">
-          <a routerLink="/video-games" (click)="closeNav()">Video games</a>
-        </div>
-      </nav>
-    </div>
+    <nav class="mobile-navbar-open" @toggleNav cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+      <button class="close-button enter-transition animate-fade-in" (click)="closeNav()">
+        <i class="fa-solid fa-xmark text-2xl"></i>
+      </button>
+      <div class="nav-item opacity-0 animate-fade-in">
+        <a routerLink="/" (click)="closeNav()">Home</a>
+      </div>
+      <div class="nav-item opacity-0 animation-delay-100 animate-fade-in">
+        <a routerLink="/photography" (click)="closeNav()">Photography</a>
+      </div>
+      <div class="nav-item opacity-0 animation-delay-200 animate-fade-in">
+        <a routerLink="/coding" (click)="closeNav()">Coding</a>
+      </div>
+      <div class="nav-item opacity-0 animation-delay-300 animate-fade-in">
+        <a routerLink="/travel" (click)="closeNav()">Travel</a>
+      </div>
+      <div class="nav-item opacity-0 animation-delay-[400ms] animate-fade-in">
+        <a routerLink="/gym" (click)="closeNav()">Gym</a>
+      </div>
+      <div class="nav-item opacity-0 animation-delay-500 animate-fade-in">
+        <a routerLink="/video-games" (click)="closeNav()">Video games</a>
+      </div>
+    </nav>
   }
 </div>
