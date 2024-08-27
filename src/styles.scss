@@ -46,7 +46,7 @@ $nikos-theme: mat.define-theme((
 body {
   background: rgb(13, 27, 42);
   background: linear-gradient(135deg, rgba(13, 27, 42, 1) 50%, rgba(27, 38, 59, 1) 100%);
-  color: $text-color;
+  color: $lavender;
   @apply font-varela-round;
   min-height: 100svh;
 
