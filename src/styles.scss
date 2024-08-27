@@ -44,10 +44,15 @@ $nikos-theme: mat.define-theme((
 @tailwind utilities;
 
 body {
-  background-color: $bg-color;
+  background: rgb(13, 27, 42);
+  background: linear-gradient(135deg, rgba(13, 27, 42, 1) 50%, rgba(27, 38, 59, 1) 100%);
   color: $text-color;
   @apply font-varela-round;
   min-height: 100svh;
+
+  // Slightly lighter bg-gradient I experimented with. Keeping it in the code for if the need arises in the future
+  //background: rgb(13, 27, 42);
+  //background: linear-gradient(135deg, rgba(13, 27, 42, 1) 50%, rgba(27, 38, 59, 1) 75%, rgba(26, 50, 71, 1) 100%);
 }
 
 body, html {
