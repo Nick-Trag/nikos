@@ -40,9 +40,9 @@ export const projects: Project[] = [
       },
     ],
   },
-  { // TODO: The actual project, with the correct image and links when it is complete
+  {
     name: 'nikostragkas.eu',
-    mainLink: "#",
+    mainLink: "#", // TODO: Proper link (here and down). Some joke about recursion would be cool
     imageLink: "images/site_logos/nikos_logo_full_small_horizontal.png",
     imageAlt: "nikostragkas.eu logo",
     bulletPoints: [
@@ -64,7 +64,7 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
+  { // TODO: More yapping on these 2 projects
     name: "Achaikos Faros website",
     mainLink: "https://cavaaxaikosfaros.gr",
     imageLink: "images/compressed/axaikos_faros_small.png",
