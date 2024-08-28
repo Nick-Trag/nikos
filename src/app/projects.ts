@@ -38,10 +38,10 @@ export const projects: Project[] = [
     ]
   },
   { // TODO: The actual project, with the correct image and links when it is complete
-    name: 'nikos-tr.com',
+    name: 'nikostragkas.eu',
     mainLink: "#",
     imageLink: "images/computer_pixel_art_small.jpg",
-    imageAlt: "nikos-tr.com logo",
+    imageAlt: "nikostragkas.eu logo",
     bulletPoints: [
       'Personal website, including a portfolio, and featuring multiple pages about my interests',
       'Every page was built to show off a different skill in web development',

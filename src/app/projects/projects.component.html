@@ -4,7 +4,7 @@
     @for (project of projects; track $index) {
       <a href="{{project.mainLink}}" target="_blank" class="project-card enter-transition delay-100" [class.to-slide-in-down]="!inView[$index]()" appObserver [inViewSignal]="inView[$index]" [threshold]="threshold">
         <div class="flex items-center flex-col md:flex-row gap-4 md:gap-8">
-          <img src="{{project.imageLink}}" alt="{{project.imageAlt}}" class="project-logo md:mt-4" [class.rounded-full]="['Thessmetro', 'nikos-tr.com'].includes(project.name)">
+          <img src="{{project.imageLink}}" alt="{{project.imageAlt}}" class="project-logo md:mt-4" [class.rounded-full]="['Thessmetro', 'nikostragkas.eu'].includes(project.name)">
           <div class="md:w-full">
             <h2 class="font-bold text-xl">{{ project.name }}</h2>
             <ul class="text-start">
