@@ -16,7 +16,7 @@
         </div>
         <div class="self-end opacity-85">
           @for (link of project.projectLinks; track $index) {
-            <a href="{{link.link}}" target="_blank" class="project-link">
+            <a href="{{link.link}}" target="_blank" class="project-link" [attr.aria-label]="link.ariaLabel">
               <i class="{{link.faIcons}} text-2xl"></i>
             </a>
           }

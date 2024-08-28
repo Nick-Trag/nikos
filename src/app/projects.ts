@@ -1,6 +1,7 @@
 interface ProjectLink {
   faIcons: string;
   link: string;
+  ariaLabel: string;
 }
 
 export interface Project {
@@ -30,12 +31,14 @@ export const projects: Project[] = [
       {
         faIcons: 'fa-brands fa-github',
         link: 'https://github.com/Nick-Trag/wili',
+        ariaLabel: 'GitHub link for Wili Wishlist',
       },
       {
         faIcons: 'fa-brands fa-google-play',
         link: 'https://play.google.com/store/apps/details?id=csd.nikos.wili',
-      }
-    ]
+        ariaLabel: 'Play Store link for Wili Wishlist',
+      },
+    ],
   },
   { // TODO: The actual project, with the correct image and links when it is complete
     name: 'nikostragkas.eu',
@@ -52,10 +55,12 @@ export const projects: Project[] = [
       {
         faIcons: "fa-brands fa-github",
         link: "https://github.com/Nick-Trag/nikos",
+        ariaLabel: 'GitHub link for nikostragkas.eu',
       },
       {
         faIcons: "fa-solid fa-link",
         link: "#",
+        ariaLabel: 'Link to nikostragkas.eu',
       },
     ],
   },
@@ -72,6 +77,7 @@ export const projects: Project[] = [
       {
         faIcons: "fa-solid fa-link",
         link: "https://cavaaxaikosfaros.gr",
+        ariaLabel: 'Link to the Achaikos Faros website',
       },
     ],
   },
@@ -88,6 +94,7 @@ export const projects: Project[] = [
       {
         faIcons: "fa-solid fa-link",
         link: "https://nick-trag.github.io/thessmetro",
+        ariaLabel: 'Link to Thessmetro',
       },
     ],
   },
