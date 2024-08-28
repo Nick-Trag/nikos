@@ -78,7 +78,7 @@ export const projects: Project[] = [
   {
     name: "Thessmetro",
     mainLink: "https://nick-trag.github.io/thessmetro",
-    imageLink: "images/compressed/thessmetro_logo_small.jpg", // TODO: Photoshop this so that it doesn't look ugly as shit
+    imageLink: "images/compressed/thessmetro_logo_small.png",
     imageAlt: "Thessmetro logo",
     bulletPoints: [
       "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
