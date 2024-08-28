@@ -22,13 +22,13 @@
 </div>
 <div class="md:hidden"> <!-- Mobile navbar -->
   <nav class="mobile-navbar-closed animate-fade-in">
-    <button class="burger-button" (click)="toggleNav()">
+    <button class="burger-button" (click)="toggleNav()" aria-label="Open navigation">
       <i class="fa-solid fa-bars text-3xl"></i>
     </button>
   </nav>
   @if (navOpen) {
     <nav class="mobile-navbar-open" @toggleNav cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
-      <button class="close-button enter-transition animate-fade-in" (click)="closeNav()">
+      <button class="close-button enter-transition animate-fade-in" (click)="closeNav()" aria-label="Close navigation">
         <i class="fa-solid fa-xmark text-2xl"></i>
       </button>
       <div class="nav-item opacity-0 animate-fade-in">
