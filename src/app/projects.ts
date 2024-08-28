@@ -40,7 +40,7 @@ export const projects: Project[] = [
   { // TODO: The actual project, with the correct image and links when it is complete
     name: 'nikostragkas.eu',
     mainLink: "#",
-    imageLink: "images/site_logos/nikos_logo_full_small.png",
+    imageLink: "images/site_logos/nikos_logo_full_small_horizontal.png",
     imageAlt: "nikostragkas.eu logo",
     bulletPoints: [
       'Personal website, including a portfolio, and featuring multiple pages about my interests',
@@ -78,7 +78,7 @@ export const projects: Project[] = [
   {
     name: "Thessmetro",
     mainLink: "https://nick-trag.github.io/thessmetro",
-    imageLink: "images/compressed/thessmetro_logo_small.png",
+    imageLink: "images/compressed/thessmetro_logo_small_horizontal.png",
     imageAlt: "Thessmetro logo",
     bulletPoints: [
       "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
