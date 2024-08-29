@@ -10,6 +10,7 @@ export class ImageLoaderService {
 
   }
 
+  // TODO: Test this on slow connections
   loadImages() {
     photos.forEach((photo: Photo) => {
       const image = new Image();
