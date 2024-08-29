@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
-import { animate, style, transition, trigger } from "@angular/animations";
+import { animate, query, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-loading',
@@ -16,17 +16,15 @@ import { animate, style, transition, trigger } from "@angular/animations";
         style({ opacity: 0 }),
         animate('3s linear', style({ opacity: 1 })),
       ]),
-    ]),
-    trigger('topLeave', [
       transition(':leave', [
-        style({ translate: '0 0'}),
-        animate('1s linear', style({ translate: '0 -100px' })),
-      ]),
-    ]),
-    trigger('bottomLeave', [
-      transition(':leave', [
-        style({ translate: '0 0'}),
-        animate('1s linear', style({ translate: '0 100px' })),
+        query(':self .top-half', [
+          style({ translate: '0 0'}),
+          animate('1s linear', style({ translate: '0 -100px' })),
+        ]),
+        query(':self .bottom-half', [
+          style({ translate: '0 0'}),
+          animate('1s linear', style({ translate: '0 100px' })),
+        ]),
       ]),
     ]),
   ],
