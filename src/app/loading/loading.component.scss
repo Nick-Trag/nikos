@@ -1,9 +1,15 @@
 .loading-screen {
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  width: 150px;
+  display: block;
 }
 
 .spinner {

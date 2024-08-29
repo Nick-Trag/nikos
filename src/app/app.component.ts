@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000);
+    // setTimeout(() => {
+    //   this.loading = false;
+    // }, 5000);
     this.loaderService.loadImages();
   }
 }
