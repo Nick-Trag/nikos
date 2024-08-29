@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
-import { animate, query, style, transition, trigger } from "@angular/animations";
+import { animate, group, query, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-loading',
@@ -11,24 +11,24 @@ import { animate, query, style, transition, trigger } from "@angular/animations"
   templateUrl: './loading.component.html',
   styleUrl: './loading.component.scss',
   animations: [
-    trigger('enter', [
+    trigger('enterLeave', [
       transition(':enter', [
         style({ opacity: 0 }),
         animate('3s linear', style({ opacity: 1 })),
       ]),
       transition(':leave', [
-        query(':self .top-half', [
-          style({ translate: '0 0'}),
-          animate('1s linear', style({ translate: '0 -100px' })),
-        ]),
-        query(':self .bottom-half', [
-          style({ translate: '0 0'}),
-          animate('1s linear', style({ translate: '0 100px' })),
+        group([
+          query('.top-half', [
+            animate('0.5s ease-out', style({ translate: '0 -400px' })),
+          ]),
+          query('.bottom-half', [
+            animate('0.5s ease-out', style({ translate: '0 400px' })),
+          ]),
         ]),
       ]),
     ]),
   ],
 })
 export class LoadingComponent {
-
+  @HostBinding('@enterLeave') animate = true;
 }
