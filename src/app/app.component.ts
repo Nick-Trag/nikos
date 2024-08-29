@@ -4,6 +4,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { RoutedService } from "./routed.service";
 import { LoadingComponent } from "./loading/loading.component";
+import { ImageLoaderService } from "./image-loader.service";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { LoadingComponent } from "./loading/loading.component";
 export class AppComponent implements OnInit {
   loading = true;
   private routedService = inject(RoutedService); // We need to start the service from here, so that it starts tracking from the start
+  private loaderService = inject(ImageLoaderService);
 
   constructor() {
     this.routedService.isFirstLoadedPage(); // Doesn't actually do anything, just forces Angular to use the service
@@ -24,5 +26,6 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 1000);
+    this.loaderService.loadImages();
   }
 }
