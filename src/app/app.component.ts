@@ -17,7 +17,7 @@ import { animate, group, query, style, transition, trigger } from "@angular/anim
     trigger('enterLeave', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('1s ease-out', style({ opacity: 1 })),
+        animate('2s ease-out', style({ opacity: 1 })),
       ]),
       transition(':leave', [
         group([
