@@ -102,26 +102,26 @@
 
   <script src="https://kit.fontawesome.com/f9cc1cdbce.js" crossorigin="anonymous"></script>
 
-  <!-- Preload all the images used in the photography page, to cache them -->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0788.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0191_crop.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0065.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0186.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0269.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0351.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0403.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0497.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0555.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0587.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0693.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0773.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0953_1.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_1158.jpg">-->
-<!--  <link rel="preload" as="image" href="photos/medium/compressed/DSC_0276.jpg">-->
   <!-- Preload the Capriola font, which is very important to the layout -->
   <link rel="preload" as="font" href="fonts/Capriola-Regular.ttf" crossorigin>
-</head>
+</head> <!-- TODO: Avoid FOUC. Maybe some loading screen or something -->
 <body>
+  <!-- Load all the images used in the photography page, to cache them -->
+  <img src="photos/medium/compressed/DSC_0788.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0191_crop.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0065.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0186.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0269.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0351.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0403.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0497.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0555.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0587.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0693.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0773.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0953_1.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_1158.jpg" class="hidden" alt="">
+  <img src="photos/medium/compressed/DSC_0276.jpg" class="hidden" alt="">
   <app-root></app-root>
 </body>
 </html>
