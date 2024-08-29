@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { NavigationEnd, Router } from "@angular/router";
+import { NavigationStart, Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,12 @@ export class RoutedService {
 
   constructor() {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.firstLoadedPage = false;
+      if (event instanceof NavigationStart) {
+        const currentUrl = this.router.url; // Get the current URL, before navigation
+        if (currentUrl !== event.url) { // If the target URL is different
+          // Note: As I am redirecting 404s to the homepage, this does not work then. However, I will create a dedicated 404 page, so no need to worry
+          this.firstLoadedPage = false;
+        }
       }
     });
   }
