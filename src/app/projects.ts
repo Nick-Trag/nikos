@@ -9,6 +9,8 @@ export interface Project {
   mainLink: string;
   imageLink: string;
   imageAlt: string;
+  imageHeight: number;
+  imageWidth: number;
   bulletPoints: string[];
   projectLinks: ProjectLink[];
 }
@@ -20,6 +22,8 @@ export const projects: Project[] = [
     mainLink: 'https://play.google.com/store/apps/details?id=csd.nikos.wili',
     imageLink: 'images/compressed/wili_small.png',
     imageAlt: 'Wili Wishlist logo',
+    imageHeight: 512,
+    imageWidth: 512,
     bulletPoints: [
       'Android App created using Flutter',
       'Create a list of items to purchase, and add images, prices, categories, etc.',
@@ -45,6 +49,8 @@ export const projects: Project[] = [
     mainLink: "#", // TODO: Proper link (here and down). Some joke about recursion would be cool
     imageLink: "images/site_logos/nikos_logo_full_small_horizontal.png",
     imageAlt: "nikostragkas.eu logo",
+    imageHeight: 300,
+    imageWidth: 500,
     bulletPoints: [
       'Personal website, including a portfolio, and featuring multiple pages about my interests',
       'Every page was built to show off a different skill in web development',
@@ -69,6 +75,8 @@ export const projects: Project[] = [
     mainLink: "https://nick-trag.github.io/thessmetro",
     imageLink: "images/compressed/thessmetro_logo_small_horizontal.png",
     imageAlt: "Thessmetro logo",
+    imageHeight: 200,
+    imageWidth: 250,
     bulletPoints: [
       "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
       "Used Angular framework and Bootstrap",
@@ -87,6 +95,8 @@ export const projects: Project[] = [
     mainLink: "https://cavaaxaikosfaros.gr",
     imageLink: "images/compressed/axaikos_faros_small.png",
     imageAlt: "Achaikos Faros logo",
+    imageHeight: 147,
+    imageWidth: 250,
     bulletPoints: [
       'A liquor store\'s website, containing its contact info, hours of operation, and location on Google Maps',
       'Used HTML and CSS',

@@ -1,11 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { ObserverDirective } from "../observer.directive";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-experience',
   standalone: true,
   imports: [
-    ObserverDirective
+    ObserverDirective,
+    NgOptimizedImage
   ],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss'

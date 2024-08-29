@@ -1,11 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { ObserverDirective } from "../observer.directive";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-education',
   standalone: true,
   imports: [
-    ObserverDirective
+    ObserverDirective,
+    NgOptimizedImage
   ],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
