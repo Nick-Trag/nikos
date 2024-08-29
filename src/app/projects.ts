@@ -64,7 +64,25 @@ export const projects: Project[] = [
       },
     ],
   },
-  { // TODO: More yapping on these 2 projects
+  {
+    name: "Thessmetro",
+    mainLink: "https://nick-trag.github.io/thessmetro",
+    imageLink: "images/compressed/thessmetro_logo_small_horizontal.png",
+    imageAlt: "Thessmetro logo",
+    bulletPoints: [
+      "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
+      "Used Angular framework and Bootstrap",
+      "Utilized Angular concepts, such as components, services, and routing, to create a fast and fully responsive web application",
+    ],
+    projectLinks: [
+      {
+        faIcons: "fa-solid fa-link",
+        link: "https://nick-trag.github.io/thessmetro",
+        ariaLabel: 'Link to Thessmetro',
+      },
+    ],
+  },
+  {
     name: "Achaikos Faros website",
     mainLink: "https://cavaaxaikosfaros.gr",
     imageLink: "images/compressed/axaikos_faros_small.png",
@@ -78,23 +96,6 @@ export const projects: Project[] = [
         faIcons: "fa-solid fa-link",
         link: "https://cavaaxaikosfaros.gr",
         ariaLabel: 'Link to the Achaikos Faros website',
-      },
-    ],
-  },
-  {
-    name: "Thessmetro",
-    mainLink: "https://nick-trag.github.io/thessmetro",
-    imageLink: "images/compressed/thessmetro_logo_small_horizontal.png",
-    imageAlt: "Thessmetro logo",
-    bulletPoints: [
-      "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
-      "Used Angular framework and Bootstrap",
-    ],
-    projectLinks: [
-      {
-        faIcons: "fa-solid fa-link",
-        link: "https://nick-trag.github.io/thessmetro",
-        ariaLabel: 'Link to Thessmetro',
       },
     ],
   },
