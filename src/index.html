@@ -104,8 +104,8 @@
 
   <!-- Preload the Capriola font, which is very important to the layout -->
   <link rel="preload" as="font" href="fonts/Capriola-Regular.ttf" crossorigin>
-</head> <!-- Avoids FOUC by hiding the body until the CSS has been loaded. -->
-<body style="opacity: 0">
+</head> <!-- TODO: Avoid FOUC -->
+<body>
   <!-- TODO: This might be making the entire site too slow -->
   <!-- Load all the images used in the photography page, to cache them -->
   <img src="photos/medium/compressed/DSC_0788.jpg" class="hidden" alt="">
