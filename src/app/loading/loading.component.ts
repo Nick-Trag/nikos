@@ -20,13 +20,13 @@ import { animate, style, transition, trigger } from "@angular/animations";
     trigger('topLeave', [
       transition(':leave', [
         style({ translate: '0 0'}),
-        animate('1s linear', style({ translate: '0 -1000px' })),
+        animate('1s linear', style({ translate: '0 -100px' })),
       ]),
     ]),
     trigger('bottomLeave', [
       transition(':leave', [
         style({ translate: '0 0'}),
-        animate('1s linear', style({ translate: '0 1000px' })),
+        animate('1s linear', style({ translate: '0 100px' })),
       ]),
     ]),
   ],
