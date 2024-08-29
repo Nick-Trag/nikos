@@ -1,5 +1,15 @@
 @if (loading) {
-  <app-loading></app-loading>
+  <!-- Loading screen. This really belongs in its own component, but Angular animations are extremely buggy at this time, so it needs to be here -->
+  <!--DO NOT USE TAILWIND CLASSES IN THIS COMPONENT. THIS IS USED IN LARGE PART BECAUSE TAILWIND IS TOO SLOW TO LOAD-->
+  <div class="loading-screen" @enterLeave>
+    <!--  <div class="spinner"></div>-->
+    <div class="top-half">
+      <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small_top_half.png" alt="Website logo" class="logo" height="172" width="500" priority>
+    </div>
+    <div class="bottom-half">
+      <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small_bottom_half.png" alt="Website logo" class="logo" height="172" width="500" priority>
+    </div>
+  </div>
 }
 @else {
   <app-navbar></app-navbar>
