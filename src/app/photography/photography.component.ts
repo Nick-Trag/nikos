@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Photo, photos } from "../photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
+import { RoutedService } from "../routed.service";
 
 @Component({
   selector: 'app-photography',
@@ -15,8 +16,12 @@ import { NgOptimizedImage, NgStyle } from "@angular/common";
 export class PhotographyComponent implements OnInit {
   photos: Photo[] = this.shuffle(photos);
   styles: Record<string, string>[] = [];
+  // TODO: routedService does not work properly. Find a way to delay the animations here
+  routedService = inject(RoutedService);
+  protected isFirstLoadedPage = this.routedService.isFirstLoadedPage();
 
   ngOnInit(): void {
+    const delay = this.isFirstLoadedPage ? 500 : 100;
     for (let i = 0; i < this.photos.length; i++) {
       let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 
@@ -39,7 +44,7 @@ export class PhotographyComponent implements OnInit {
           'translate': translationX + 'px ' + translationY + 'px',
           'rotate': rotation + 'deg',
         });
-      }, 100); // Not the cleanest solution, but I could not find a better one. If I don't put this in a setTimeout, the styles are applied immediately, so no transition occurs
+      }, delay); // Not the cleanest solution, but I could not find a better one. If I don't put this in a setTimeout, the styles are applied immediately, so no transition occurs
       // I'm also adding a small delay of 100ms, to give time for the mobile navbar to get out of the way and not hide the transitions
     }
   }
