@@ -13,19 +13,21 @@ import { animate, group, query, style, transition, trigger } from "@angular/anim
   imports: [RouterOutlet, NavbarComponent, FooterComponent, NgOptimizedImage],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  animations: [ // TODO: Make the animations a bit smoother
-    trigger('enterLeave', [
+  animations: [
+    trigger('loading', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate('2s ease-out', style({ opacity: 1 })),
+        query('.logo',  [
+          style({ opacity: 0 }),
+          animate('1.5s ease-out', style({ opacity: 1 })),
+        ]),
       ]),
       transition(':leave', [
         group([
           query('.top-half', [
-            animate('0.5s ease-in', style({ translate: '0 -700px' })),
+            animate('0.5s cubic-bezier(.73,.04,.85,.76)', style({ translate: '0 -700px' })),
           ]),
           query('.bottom-half', [
-            animate('0.5s ease-in', style({ translate: '0 700px' })),
+            animate('0.5s cubic-bezier(.73,.04,.85,.76)', style({ translate: '0 700px' })),
           ]),
         ]),
       ]),
@@ -34,6 +36,7 @@ import { animate, group, query, style, transition, trigger } from "@angular/anim
 })
 export class AppComponent implements OnInit {
   loading = true;
+  animationEnded = false;
   private routedService = inject(RoutedService); // We need to start the service from here, so that it starts tracking from the start
   private loaderService = inject(ImageLoaderService);
 
@@ -42,10 +45,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: Preferably not hardcoded to 5 seconds (either less, or dynamic, probably just less)
+    // TODO: Check if 3 seconds is good for slow connections and no cache
     setTimeout(() => {
       this.loading = false;
-    }, 5000);
+    }, 3000);
     this.loaderService.loadImages();
   }
 }
