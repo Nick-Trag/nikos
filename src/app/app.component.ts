@@ -16,7 +16,7 @@ import { LoadingScreenService } from "./loading-screen.service";
   animations: [
     trigger('loading', [
       transition(':enter', [
-        query('.logo',  [
+        query('.logo', [
           style({ opacity: 0 }),
           animate('1.5s ease-out', style({ opacity: 1 })),
         ]),
@@ -36,7 +36,7 @@ import { LoadingScreenService } from "./loading-screen.service";
 })
 export class AppComponent implements OnInit {
   loading = true;
-  animationEnded = false;
+  animation1Ended = false;
   private loadingScreenService = inject(LoadingScreenService);
   private loaderService = inject(ImageLoaderService);
 
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
   }
 
   finishAnimation(event: AnimationEvent): void {
-    this.animationEnded = true;
+    this.animation1Ended = true;
     if (event.toState === "void") { // There are two animations, the second and last one has toState === "void", the first has toState === null
       this.loadingScreenService.markLoadingScreenAsShown();
     }
