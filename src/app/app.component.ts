@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: Check if 3 seconds is good for slow connections and no cache
     setTimeout(() => {
       this.loading = false;
     }, 3000);
