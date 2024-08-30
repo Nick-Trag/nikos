@@ -17,4 +17,17 @@ export class ProjectsComponent {
   projects: Project[] = projects;
   inView: WritableSignal<boolean>[] = Array.from(this.projects, () => signal(false));
   protected threshold = window.innerWidth > 768 ? 0.4 : 0.2; // A smaller threshold for smaller screens (smaller than md)
+
+  linkClicked(event: MouseEvent, link: string) {
+    if (link === "#") {
+      event.preventDefault();
+      this.recurse();
+    }
+    event.stopPropagation();
+  }
+
+  recurse(): void {
+    // TODO: Show some modal or an icon or something about recursion
+    window.scrollTo({top: 0, behavior: "smooth"});
+  }
 }

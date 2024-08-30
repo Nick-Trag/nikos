@@ -46,7 +46,7 @@ export const projects: Project[] = [
   },
   {
     name: 'nikostragkas.eu',
-    mainLink: "#", // TODO: Proper link (here and down). Some joke about recursion would be cool
+    mainLink: "#",
     imageLink: "images/site_logos/nikos_logo_full_small_horizontal.png",
     imageAlt: "nikostragkas.eu logo",
     imageHeight: 300,
