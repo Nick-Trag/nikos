@@ -16,7 +16,6 @@ import { LoadingScreenService } from "../loading-screen.service";
 export class PhotographyComponent implements OnInit {
   photos: Photo[] = this.shuffle(photos);
   styles: Record<string, string>[] = [];
-  // TODO: routedService does not work properly. Find a way to delay the animations here
   private loadingScreenService = inject(LoadingScreenService);
   protected loadingScreenShown = this.loadingScreenService.hasLoadingScreenBeenShown();
 

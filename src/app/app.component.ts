@@ -4,7 +4,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { ImageLoaderService } from "./image-loader.service";
 import { NgOptimizedImage } from "@angular/common";
-import { animate, group, query, style, transition, trigger } from "@angular/animations";
+import { animate, group, query, style, transition, trigger, AnimationEvent } from "@angular/animations";
 import { LoadingScreenService } from "./loading-screen.service";
 
 @Component({
@@ -51,8 +51,10 @@ export class AppComponent implements OnInit {
     this.loaderService.loadImages();
   }
 
-  finishAnimation() {
+  finishAnimation(event: AnimationEvent): void {
     this.animationEnded = true;
-    this.loadingScreenService.markLoadingScreenAsShown();
+    if (event.toState === "void") { // There are two animations, the second and last one has toState === "void", the first has toState === null
+      this.loadingScreenService.markLoadingScreenAsShown();
+    }
   }
 }

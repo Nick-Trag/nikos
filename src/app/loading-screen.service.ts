@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 // Used to tell if the loading screen has already been shown. This is useful so that components can adjust their animations and everything to not get hidden by the loading screen
 export class LoadingScreenService {
   // If the loading screen has already been shown
-  loadingScreenShown = false;
+  private loadingScreenShown = false;
 
   constructor() { }
 
