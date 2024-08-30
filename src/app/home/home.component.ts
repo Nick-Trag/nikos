@@ -4,7 +4,7 @@ import { ExperienceComponent } from "../experience/experience.component";
 import { ProjectsComponent } from "../projects/projects.component";
 import { AboutMeComponent } from "../about-me/about-me.component";
 import { NgClass } from "@angular/common";
-import { RoutedService } from "../routed.service";
+import { LoadingScreenService } from "../loading-screen.service";
 
 @Component({
   selector: 'app-home',
@@ -20,7 +20,7 @@ import { RoutedService } from "../routed.service";
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  private routedService = inject(RoutedService);
-  protected firstLoadedPage = this.routedService.isFirstLoadedPage();
+  private loadingScreenService = inject(LoadingScreenService);
+  protected loadingScreenShown = this.loadingScreenService.hasLoadingScreenBeenShown();
 
 }

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Photo, photos } from "../photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
-import { RoutedService } from "../routed.service";
+import { LoadingScreenService } from "../loading-screen.service";
 
 @Component({
   selector: 'app-photography',
@@ -17,11 +17,11 @@ export class PhotographyComponent implements OnInit {
   photos: Photo[] = this.shuffle(photos);
   styles: Record<string, string>[] = [];
   // TODO: routedService does not work properly. Find a way to delay the animations here
-  routedService = inject(RoutedService);
-  protected isFirstLoadedPage = this.routedService.isFirstLoadedPage();
+  private loadingScreenService = inject(LoadingScreenService);
+  protected loadingScreenShown = this.loadingScreenService.hasLoadingScreenBeenShown();
 
   ngOnInit(): void {
-    const delay = this.isFirstLoadedPage ? 500 : 100;
+    const delay = this.loadingScreenShown ? 100 : 500;
     for (let i = 0; i < this.photos.length; i++) {
       let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 

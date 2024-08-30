@@ -2,10 +2,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
-import { RoutedService } from "./routed.service";
 import { ImageLoaderService } from "./image-loader.service";
 import { NgOptimizedImage } from "@angular/common";
 import { animate, group, query, style, transition, trigger } from "@angular/animations";
+import { LoadingScreenService } from "./loading-screen.service";
 
 @Component({
   selector: 'app-root',
@@ -37,11 +37,10 @@ import { animate, group, query, style, transition, trigger } from "@angular/anim
 export class AppComponent implements OnInit {
   loading = true;
   animationEnded = false;
-  private routedService = inject(RoutedService); // We need to start the service from here, so that it starts tracking from the start
+  private loadingScreenService = inject(LoadingScreenService);
   private loaderService = inject(ImageLoaderService);
 
   constructor() {
-    this.routedService.isFirstLoadedPage(); // Doesn't actually do anything, just forces Angular to use the service
   }
 
   ngOnInit(): void {
@@ -50,5 +49,10 @@ export class AppComponent implements OnInit {
       this.loading = false;
     }, 3000);
     this.loaderService.loadImages();
+  }
+
+  finishAnimation() {
+    this.animationEnded = true;
+    this.loadingScreenService.markLoadingScreenAsShown();
   }
 }
