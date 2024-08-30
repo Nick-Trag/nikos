@@ -33,5 +33,5 @@ import { NgOptimizedImage } from "@angular/common";
 })
 export class EducationComponent {
   protected inView = signal(false);
-  protected threshold = window.innerWidth > 768 ? 0.4 : 0.2; // A smaller threshold for smaller screens (smaller than md)
+  protected threshold = window.innerWidth > 850 ? 0.4 : 0.2; // A smaller threshold for smaller screens (smaller than almost-lg)
 }
