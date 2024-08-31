@@ -7,6 +7,15 @@
   flex-direction: column;
 }
 
+.full-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
 .top-half {
   display: flex;
   align-items: end;
