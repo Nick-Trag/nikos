@@ -1,3 +1,8 @@
+@if (showRecursion) {
+  <div class="fixed top-8 right-8" @recursion>
+    <i class="fa-solid fa-arrows-rotate fa-spin text-5xl"></i>
+  </div>
+}
 <div class="my-24 max-w-5xl mx-auto">
   <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-slide-in-down]="!inView[0]()">Projects</h1> <!-- Showing this along with the first project -->
   <div class="projects-container">
