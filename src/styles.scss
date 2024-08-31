@@ -98,24 +98,14 @@ body, html {
 }
 
 @layer utilities {
-  // Sets the height to the remaining size of the screen, without the navbar, using svh
+  // Sets the height to the remaining size of the screen, without the navbar
   .h-screen-no-navbar {
     height: calc(100svh - $nav-height);
   }
 
-  // Sets the minimum height to the remaining size of the screen, without the navbar, using svh
+  // Sets the minimum height to the remaining size of the screen, without the navbar
   .min-h-screen-no-navbar {
     min-height: calc(100svh - $nav-height);
-  }
-
-  // Sets the height to the remaining size of the screen, without the navbar, using vh
-  .h-screen-no-navbar-vh {
-    height: calc(100vh - $nav-height);
-  }
-
-  // Sets the minimum height to the remaining size of the screen, without the navbar, using svh
-  .min-h-screen-no-navbar-vh {
-    min-height: calc(100vh - $nav-height);
   }
 }
 
