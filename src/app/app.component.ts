@@ -44,15 +44,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
     this.loaderService.loadImages();
   }
 
   finishAnimation(event: AnimationEvent): void {
     this.animation1Ended = true;
-    if (event.toState === "void") { // There are two animations, the second and last one has toState === "void", the first has toState === null
+    if (event.toState === null) { // There are two animations. The first has toState === null, the second and last one has toState === "void"
+      // 1 second after the first animation finishes, exit the loading screen
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
+    }
+    else if (event.toState === "void") {
       this.loadingScreenService.markLoadingScreenAsShown();
     }
   }
