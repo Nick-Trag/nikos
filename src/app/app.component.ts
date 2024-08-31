@@ -18,7 +18,7 @@ import { LoadingScreenService } from "./loading-screen.service";
       transition(':enter', [
         query('.logo', [
           style({ opacity: 0 }),
-          animate('1.5s ease-out', style({ opacity: 1 })),
+          animate('1.5s ease-in-out', style({ opacity: 1 })),
         ]),
       ]),
       transition(':leave', [
