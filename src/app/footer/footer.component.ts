@@ -14,5 +14,5 @@ import { Platform } from "@angular/cdk/platform";
 export class FooterComponent {
   private platform = inject(Platform);
   protected inView = signal(false);
-  protected threshold = this.platform.FIREFOX ? 0.1 : 0.5; // Firefox mobile has some issues, so we use as smaller threshold for it
+  protected threshold = this.platform.FIREFOX ? 0.1 : 0.5; // Firefox mobile has some issues, so we use a smaller threshold for it
 }
