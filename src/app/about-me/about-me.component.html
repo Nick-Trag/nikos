@@ -1,16 +1,17 @@
 <div class="mt-12 p-3 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4" appObserver [inViewSignal]="inView" [threshold]="threshold">
-  <div class="text-justify enter-transition" [class.to-slide-in-left]="!inView()">
+  <div class="enter-transition" [class.to-slide-in-left]="!inView()">
     <h1 class="font-capriola text-3xl">About me!</h1>
     <div>
       <p>
         I am a software engineer, with a passion for web development.
       </p>
       <p class="pt-1">
-        I have a Bachelor's degree in Computer Science, and a Master's degree in Artificial Intelligence, both from the Aristotle University of Thessaloniki.
-        During my studies, I worked as an intern web developer at the university's IT center, working on an updated <span class="text-nowrap">open-source</span> student information system, and
-        I also spent a semester in Madrid, doing an Erasmus+ exchange at the <span lang="es">Universidad Politécnica de Madrid</span>.
-        After finishing my studies, I spent one year in the army, as is required in Greece, and started working full-time at INCA Hellas, where I worked on large
-        projects...
+        I studied Computer Science at the Aristotle University of Thessaloniki, and later got a Master's degree in Artificial Intelligence, from the same university.
+        During my Master's studies, I also completed an Erasmus+ exchange semester at the <span lang="es">Universidad Politécnica de Madrid</span>.
+      </p>
+      <p class="pt-1">
+        I have worked as an intern web developer at the university's IT center, working on an updated <span class="text-nowrap">open-source</span> student information system,
+        and as a software engineer at INCA Hellas, where I primarily worked on queueing system used by large companies in Greece, as well as modernized the company website.
       </p>
       <p class="pt-2">
         Other than <a routerLink="/coding" class="text-nowrap"><i class="fa-solid fa-laptop-code text-xs"></i> coding</a>, my hobbies include
