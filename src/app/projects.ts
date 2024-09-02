@@ -79,7 +79,7 @@ export const projects: Project[] = [
     imageWidth: 250,
     bulletPoints: [
       "Website meant for posting news, articles, and images regarding the construction of Thessaloniki’s subway",
-      "Used Angular framework and Bootstrap",
+      "Built using Angular framework and Bootstrap",
       "Utilized Angular concepts, such as components, services, and routing, to create a fast and fully responsive web application",
     ],
     projectLinks: [
