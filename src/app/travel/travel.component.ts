@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { map, Map, tileLayer } from 'leaflet';
+import { geoJSON, map, Map, tileLayer } from 'leaflet';
+import { greece } from "../countries";
 
 @Component({
   selector: 'app-travel',
@@ -20,5 +21,8 @@ export class TravelComponent implements AfterViewInit {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(leafletMap);
     // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
+
+    // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
+    geoJSON(greece).addTo(leafletMap);
   }
 }
