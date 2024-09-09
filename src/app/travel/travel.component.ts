@@ -24,6 +24,8 @@ export class TravelComponent implements AfterViewInit {
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
     geoJSON(greece).addTo(leafletMap);
-    geoJSON(italy).addTo(leafletMap);
+    setTimeout(() => {
+      geoJSON(italy).addTo(leafletMap);
+    }, 3000);
   }
 }
