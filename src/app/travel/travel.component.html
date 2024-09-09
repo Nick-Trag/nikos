@@ -1,4 +1,13 @@
-<main class="min-h-screen-no-navbar flex justify-center items-stretch">
-  <div class="m-6 mt-2 rounded-sm w-full" #map></div>
+<main class="h-screen-no-navbar min-h-96">
+  <div class="h-full w-full flex flex-col gap-3 p-6 pt-2">
+    <div class="flex-1 rounded-sm w-full" #map></div>
+    <div>
+      <hr class="border-lavender/30 relative">
+      <!-- TODO: Decide which icon to use -->
+      <svg class="inline rotate-90" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 -960 960 960"><path fill="rgb(var(--lavender))" d="M340-80v-60l80-60v-220L80-320v-80l340-200v-220q0-25 17.5-42.5T480-880t42.5 17.5T540-820v220l340 200v80L540-420v220l80 60v60l-140-40z"/></svg>
+      &nbsp;
+      <i class="fa-solid fa-plane text-3xl"></i>
+    </div>
+  </div>
   <!-- TODO: fa-plane under the map, moving to the right, with years noted (on the line, or dynamically changing or something) -->
 </main>
