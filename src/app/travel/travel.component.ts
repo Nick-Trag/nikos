@@ -16,9 +16,13 @@ export class TravelComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 4);
 
+    leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank"' +
+      ' title="A JavaScript library for interactive maps">Leaflet</a>');
+    // leafletMap.attributionControl.setPrefix(false); // Completely hides/disables the 'Leaflet' attribution
+
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
     }).addTo(leafletMap);
     // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
 
