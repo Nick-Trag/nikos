@@ -19,5 +19,6 @@ export class TravelComponent implements AfterViewInit {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(leafletMap);
+    // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
   }
 }
