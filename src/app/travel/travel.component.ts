@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { geoJSON, map, Map, tileLayer } from 'leaflet';
-import { greece } from "../countries";
+import { greece, italy } from "../countries";
 
 @Component({
   selector: 'app-travel',
@@ -24,5 +24,6 @@ export class TravelComponent implements AfterViewInit {
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
     geoJSON(greece).addTo(leafletMap);
+    geoJSON(italy).addTo(leafletMap);
   }
 }
