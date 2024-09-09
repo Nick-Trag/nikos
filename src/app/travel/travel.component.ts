@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { map, Map, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-travel',
@@ -7,7 +8,16 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './travel.component.html',
   styleUrl: './travel.component.scss'
 })
-export class TravelComponent {
+export class TravelComponent implements AfterViewInit {
   @ViewChild('map')
   private mapElement!: ElementRef<HTMLElement>;
+
+  ngAfterViewInit(): void {
+    const leafletMap: Map = map('map').setView([51.505, -0.09], 13);
+
+    tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(leafletMap);
+  }
 }
