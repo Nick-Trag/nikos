@@ -13,7 +13,7 @@ export class TravelComponent implements AfterViewInit {
   private mapElement!: ElementRef<HTMLElement>;
 
   ngAfterViewInit(): void {
-    const leafletMap: Map = map(this.mapElement.nativeElement).setView([51.505, -0.09], 13);
+    const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 4);
 
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
