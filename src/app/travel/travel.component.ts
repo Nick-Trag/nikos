@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-travel',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './travel.component.scss'
 })
 export class TravelComponent {
-
+  @ViewChild('map')
+  private mapElement!: ElementRef<HTMLElement>;
 }
