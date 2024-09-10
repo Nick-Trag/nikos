@@ -14,7 +14,7 @@ export class TravelComponent implements AfterViewInit {
   private mapElement!: ElementRef<HTMLElement>;
 
   ngAfterViewInit(): void {
-    const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 4);
+    const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 3);
 
     leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank"' +
       ' title="A JavaScript library for interactive maps">Leaflet</a>');
@@ -28,13 +28,14 @@ export class TravelComponent implements AfterViewInit {
     // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
-    let i = 0;
+    geoJSON(countries[0]).addTo(leafletMap); // Immediately add Greece to the map, without waiting
+    let i = 1;
     const intervalID = setInterval(() => {
       geoJSON(countries[i]).addTo(leafletMap); // Medium resolution. I think I am going to prefer this
       i++;
       if (i === countries.length) {
         clearInterval(intervalID);
       }
-    }, (30 * 1000) / countries.length); // Split the 30 seconds into equally sized chunks
+    }, (30 * 1000) / (countries.length - 1)); // Split the 30 seconds into equally sized chunks
   }
 }
