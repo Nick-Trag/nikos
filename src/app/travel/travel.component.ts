@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { geoJSON, map, Map, tileLayer } from 'leaflet';
-import { greece, italy } from "../countries";
+import { countries } from "../countries";
 
 @Component({
   selector: 'app-travel',
@@ -21,15 +21,20 @@ export class TravelComponent implements AfterViewInit {
     // leafletMap.attributionControl.setPrefix(false); // Completely hides/disables the 'Leaflet' attribution
 
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
+      minZoom: 2,
+      maxZoom: 11,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
     }).addTo(leafletMap);
     // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
-    geoJSON(greece).addTo(leafletMap);
-    setTimeout(() => {
-      geoJSON(italy).addTo(leafletMap);
-    }, 3000);
+    let i = 0;
+    const intervalID = setInterval(() => {
+      geoJSON(countries[i]).addTo(leafletMap); // Medium resolution. I think I am going to prefer this
+      i++;
+      if (i === countries.length) {
+        clearInterval(intervalID);
+      }
+    }, (30 * 1000) / countries.length); // Split the 30 seconds into chunks, based on when
   }
 }
