@@ -35,6 +35,6 @@ export class TravelComponent implements AfterViewInit {
       if (i === countries.length) {
         clearInterval(intervalID);
       }
-    }, (30 * 1000) / countries.length); // Split the 30 seconds into chunks, based on when
+    }, (30 * 1000) / countries.length); // Split the 30 seconds into equally sized chunks
   }
 }
