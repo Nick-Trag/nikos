@@ -9,6 +9,11 @@
 <!--      &nbsp;-->
 <!--      <i class="fa-solid fa-plane text-3xl"></i>-->
     </div>
+    <div class="flex flex-wrap items-center gap-5">
+      @for (flag of flags; track $index) {
+        <img class="inline rounded-full" ngSrc="flags/1x1/{{flag}}" alt="" height="25" width="25">
+      }
+    </div>
   </div>
   <!-- TODO: fa-plane under the map, moving to the right, with years noted (on the line, or dynamically changing or something) -->
 </main>

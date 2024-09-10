@@ -1,15 +1,20 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { geoJSON, map, Map, tileLayer } from 'leaflet';
-import { countries } from "../countries";
+import { countries, flags } from "../countries";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-travel',
   standalone: true,
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './travel.component.html',
   styleUrl: './travel.component.scss'
 })
 export class TravelComponent implements AfterViewInit {
+  protected readonly allFlags = flags;
+  protected flags = [this.allFlags[0]];
   @ViewChild('map')
   private mapElement!: ElementRef<HTMLElement>;
 
@@ -32,6 +37,7 @@ export class TravelComponent implements AfterViewInit {
     let i = 1;
     const intervalID = setInterval(() => {
       geoJSON(countries[i]).addTo(leafletMap); // Medium resolution. I think I am going to prefer this
+      this.flags.push(this.allFlags[i]);
       i++;
       if (i === countries.length) {
         clearInterval(intervalID);
