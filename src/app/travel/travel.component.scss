@@ -8,3 +8,9 @@
     translate: 93vw;
   }
 }
+
+// Used to make the hr and the svg overlap in the same grid position
+.grid-col-row-1 {
+  grid-row: 1;
+  grid-column: 1;
+}
