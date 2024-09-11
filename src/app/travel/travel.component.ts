@@ -14,7 +14,7 @@ import { NgOptimizedImage } from "@angular/common";
 })
 export class TravelComponent implements AfterViewInit {
   protected readonly allFlags = flags;
-  protected flags = [this.allFlags[0]];
+  protected flags = [this.allFlags[0]]; // Start by only including Greece's flag under the map
   @ViewChild('map')
   private mapElement!: ElementRef<HTMLElement>;
 

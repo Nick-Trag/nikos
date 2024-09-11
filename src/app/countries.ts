@@ -18,7 +18,7 @@ import { austria } from "./countries/austria";
 import { spain } from "./countries/spain";
 import { liechtenstein } from "./countries/liechtenstein";
 import { portugal } from "./countries/portugal";
-// import { gibraltar } from "./countries/gibraltar";
+import { gibraltar } from "./countries/gibraltar";
 import { andorra } from "./countries/andorra";
 import { slovakia } from "./countries/slovakia";
 import { malta } from "./countries/malta";
@@ -49,6 +49,7 @@ export const countries: GeoJSON.GeoJSON[] = [
   spain,
   liechtenstein,
   portugal,
+  gibraltar,
   andorra,
   slovakia,
   malta,
@@ -80,7 +81,7 @@ export const flags: string[] = [
   'es.svg',
   'li.svg',
   'pt.svg',
-  // 'gi.svg',
+  'gi.svg',
   'ad.svg',
   'sk.svg',
   'mt.svg',
