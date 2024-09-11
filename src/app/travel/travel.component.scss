@@ -16,3 +16,25 @@
   @apply rounded;
   opacity: 0.8;
 }
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  top: -3rem;
+  text-align: center;
+  background-color: rgb(var(--charcoal));
+  color: rgb(var(--lavender));
+  border-radius: 2px;
+  @apply p-2;
+  text-wrap: nowrap;
+  @apply text-xs;
+}
+
+.tooltip-container:hover .tooltip {
+  display: block;
+}
