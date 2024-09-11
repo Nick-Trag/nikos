@@ -1,6 +1,7 @@
 @if (loading) {
   <!-- Loading screen. This really belongs in its own component, but Angular animations are extremely buggy at this time, so it needs to be here -->
-  <!--DO NOT USE TAILWIND CLASSES IN THIS COMPONENT. THIS IS USED IN LARGE PART BECAUSE TAILWIND IS TOO SLOW TO LOAD-->
+  <!-- DO NOT USE TAILWIND CLASSES IN THIS COMPONENT. THIS IS USED IN LARGE PART BECAUSE TAILWIND IS TOO SLOW TO LOAD -->
+  <!-- https://stackoverflow.com/questions/76731627/tailwindcss-doesnt-load-styles-on-time -->
   <div class="loading-screen" @loading (@loading.done)="finishAnimation($event)">
     @if (animation1Ended) {
       <div class="top-half">
