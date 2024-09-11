@@ -25,12 +25,12 @@
   display: none;
   position: absolute;
   z-index: 5;
-  top: -3rem;
+  top: -2.25rem;
   text-align: center;
   background-color: rgb(var(--charcoal));
   color: rgb(var(--lavender));
   border-radius: 2px;
-  @apply p-2;
+  @apply p-1.5;
   text-wrap: nowrap;
   @apply text-xs;
 }
