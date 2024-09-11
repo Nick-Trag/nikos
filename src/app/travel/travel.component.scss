@@ -9,8 +9,10 @@
   }
 }
 
-// Used to make the hr and the svg overlap in the same grid position
-.grid-col-row-1 {
-  grid-row: 1;
-  grid-column: 1;
+.runway {
+  background-image: url("/images/Airport-Runway-Top-View-cropped.svg"); // TODO: This path will not work in production mode
+  background-repeat: repeat-x;
+  background-position: center;
+  @apply rounded;
+  opacity: 0.8;
 }
