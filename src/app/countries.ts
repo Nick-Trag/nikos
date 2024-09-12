@@ -1,4 +1,4 @@
-// TODO: Serve the countries a JSON files from a server, when needed, instead of saving them all here
+// TODO: Serve the countries as JSON files from a server, when needed, instead of saving them all here
 
 // Imports all the individual country files and exports them as an array
 import { greece } from './countries/greece';
