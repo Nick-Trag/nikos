@@ -51,3 +51,14 @@
     outline: 1px rgb(var(--lavender)) solid;
   }
 }
+
+// Pseudo-class, used for programmatically simulating the :hover state
+.hovered-tooltip-container {
+  .tooltip {
+    display: block;
+  }
+
+  .flag-icon {
+    outline: 1px rgb(var(--lavender)) solid;
+  }
+}
