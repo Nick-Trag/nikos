@@ -25,7 +25,7 @@
   display: none;
   position: absolute;
   z-index: 5;
-  top: -2.25rem;
+  top: -2.5rem;
   left: 50%;
   translate: -50%;
   text-align: center;
@@ -35,7 +35,7 @@
   @apply p-1.5;
   text-wrap: nowrap;
   white-space: nowrap;
-  @apply text-xs;
+  @apply text-sm;
 
   &::after { // Reference: https://www.w3schools.com/css/css_tooltip.asp
     content: " ";

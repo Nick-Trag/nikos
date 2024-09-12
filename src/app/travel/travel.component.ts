@@ -1,14 +1,13 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { geoJSON, map, Map, tileLayer } from 'leaflet';
 import { countries, countryNames, flags } from "../countries";
-import { NgOptimizedImage, UpperCasePipe } from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-travel',
   standalone: true,
   imports: [
     NgOptimizedImage,
-    UpperCasePipe
   ],
   templateUrl: './travel.component.html',
   styleUrl: './travel.component.scss'
