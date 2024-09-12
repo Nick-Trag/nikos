@@ -1,12 +1,5 @@
 .plane-animation {
-  animation: plane-animation 30s linear forwards;
-}
-
-// TODO: Make this animation responsive (it goes too far on mobile)
-@keyframes plane-animation {
-  to {
-    translate: 93vw;
-  }
+  transition: translate 30s linear;
 }
 
 .runway {

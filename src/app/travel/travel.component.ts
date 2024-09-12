@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { geoJSON, map, Map, tileLayer } from 'leaflet';
 import { countries, countryNames, flags } from "../countries";
 import { NgOptimizedImage } from "@angular/common";
@@ -18,8 +18,17 @@ export class TravelComponent implements AfterViewInit {
   protected flags = [this.allFlags[0]]; // Start by only including Greece's flag under the map
   @ViewChild('map')
   private mapElement!: ElementRef<HTMLElement>;
+  @ViewChild('runway')
+  private runwayElement!: ElementRef<HTMLElement>;
+  protected planeTranslation = 0;
+  protected animationFinished = false;
 
   ngAfterViewInit(): void {
+    const runwayWidth = this.runwayElement.nativeElement.offsetWidth;
+    setTimeout(() => {
+      this.planeTranslation = runwayWidth - 40;
+    }); // Avoids ExpressionChangedAfterItHasBeenCheckedError
+
     const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 3);
 
     leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank"' +
@@ -42,7 +51,14 @@ export class TravelComponent implements AfterViewInit {
       i++;
       if (i === countries.length) {
         clearInterval(intervalID);
+        this.animationFinished = true;
       }
     }, (30 * 1000) / (countries.length - 1)); // Split the 30 seconds into equally sized chunks
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    const runwayWidth = this.runwayElement.nativeElement.offsetWidth;
+    this.planeTranslation = runwayWidth - 40;
   }
 }
