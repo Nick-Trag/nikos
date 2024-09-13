@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { geoJSON, map, Map, tileLayer } from 'leaflet';
+import { geoJSON, Layer, LeafletMouseEvent, map, Map, tileLayer } from 'leaflet';
 import { countries, countryNames, flags } from "../countries";
 import { NgOptimizedImage } from "@angular/common";
+import { Feature } from "geojson";
 
 @Component({
   selector: 'app-travel',
@@ -22,6 +23,14 @@ export class TravelComponent implements AfterViewInit {
   private runwayElement!: ElementRef<HTMLElement>;
   protected planeTranslation = 0;
   protected animationFinished = false;
+  private geoJSONLayer = geoJSON(null, {
+    style: {
+      weight: 2,
+      // color: 'red',
+      // opacity: 0.6,
+    },
+    onEachFeature: (feature, layer) => this.onEachFeature(feature, layer), // Arrow function, to not mess up the 'this' context
+  });
 
   ngAfterViewInit(): void {
     const runwayWidth = this.runwayElement.nativeElement.offsetWidth;
@@ -43,20 +52,11 @@ export class TravelComponent implements AfterViewInit {
     // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
-    const geoJSONLayer = geoJSON(null, {
-      style: {
-        color: 'red',
-        weight: 3,
-        opacity: 0.6,
-      },
-      onEachFeature: (feature) => {
-        console.log(feature);
-      },
-    }).addTo(leafletMap);
-    geoJSONLayer.addData(countries[0]); // Immediately add Greece to the map, without waiting
+    this.geoJSONLayer.addTo(leafletMap);
+    this.geoJSONLayer.addData(countries[0]); // Immediately add Greece to the map, without waiting
     let i = 1;
     const intervalID = setInterval(() => {
-      geoJSONLayer.addData(countries[i]);
+      this.geoJSONLayer.addData(countries[i]);
       this.flags.push(this.allFlags[i]);
       i++;
       if (i === countries.length) {
@@ -70,5 +70,27 @@ export class TravelComponent implements AfterViewInit {
   onResize(): void {
     const runwayWidth = this.runwayElement.nativeElement.offsetWidth;
     this.planeTranslation = runwayWidth - 40;
+  }
+
+  onEachFeature(feature: Feature, layer: Layer): void {
+    layer.on({
+      mouseover: this.highlightFeature.bind(this),
+      mouseout: this.resetHighlight.bind(this),
+    }); // bind(this) is needed, because the 'this' context can get messed up without it
+  }
+
+  highlightFeature(event: LeafletMouseEvent): void {
+    const layer: any = event.target; // Leaflet does not declare a type for this, so it has to be 'any'
+
+    layer.setStyle({
+      weight: 3,
+      color: 'darkblue',
+    });
+
+    layer.bringToFront();
+  }
+
+  resetHighlight(event: LeafletMouseEvent): void {
+    this.geoJSONLayer.resetStyle(event.target);
   }
 }
