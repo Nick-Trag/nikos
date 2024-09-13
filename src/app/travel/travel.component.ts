@@ -106,4 +106,13 @@ export class TravelComponent implements AfterViewInit {
     const index: number = layer.feature.properties['index'];
     this.hoveredFlags[index] = false;
   }
+
+  // TODO: Style the countries on the map correctly
+  flagHovered(index: number) {
+    console.log('Hovered ' + index);
+  }
+
+  flagUnhovered(index: number) {
+    console.log('Unhovered ' + index);
+  }
 }
