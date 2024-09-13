@@ -1,4 +1,6 @@
-export const greece: GeoJSON.GeoJSON = {
+import { Feature } from "geojson";
+
+export const greece: Feature = {
   "type": "Feature", "properties": {
     "featurecla": "Admin-0 country",
     "scalerank": 3,

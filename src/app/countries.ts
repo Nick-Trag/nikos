@@ -1,4 +1,5 @@
 // TODO: Serve the countries as JSON files from a server, when needed, instead of saving them all here
+import { Feature } from "geojson";
 
 // Imports all the individual country files and exports them as an array
 import { greece } from './countries/greece';
@@ -31,7 +32,7 @@ import { romania } from "./countries/romania";
 import { bulgaria } from "./countries/bulgaria";
 import { albania } from "./countries/albania";
 
-export const countries: GeoJSON.GeoJSON[] = [
+export const countries: Feature[] = [
   greece,
   italy,
   vatican,

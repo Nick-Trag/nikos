@@ -1,5 +1,7 @@
 // Got this from the full file (countries.geojson), since it doesn't exist in medium res. Still very small, so doesn't really matter
-export const gibraltar: GeoJSON.GeoJSON = {
+import { Feature } from "geojson";
+
+export const gibraltar: Feature = {
   "type": "Feature",
   "properties": {
     "ADMIN": "Gibraltar",
