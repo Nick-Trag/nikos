@@ -10,7 +10,7 @@
   opacity: 0.8;
 }
 
-.tooltip-container {
+.flag-container {
   position: relative;
 }
 
@@ -42,7 +42,7 @@
   }
 }
 
-.tooltip-container:hover {
+.flag-container:hover {
   .tooltip {
     display: block;
   }
@@ -53,7 +53,8 @@
 }
 
 // Pseudo-class, used for programmatically simulating the :hover state
-.hovered-tooltip-container {
+.hovered-flag-container {
+  // TODO: Might look better without the tooltip here
   .tooltip {
     display: block;
   }

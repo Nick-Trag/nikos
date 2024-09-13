@@ -17,10 +17,13 @@ export class TravelComponent implements AfterViewInit {
   protected readonly allFlags = flags;
   protected readonly countryNames = countryNames;
   protected flags = [this.allFlags[0]]; // Start by only including Greece's flag under the map
+  protected hoveredFlags = Array(this.allFlags.length).fill(false);
+
   @ViewChild('map')
   private mapElement!: ElementRef<HTMLElement>;
   @ViewChild('runway')
   private runwayElement!: ElementRef<HTMLElement>;
+
   protected planeTranslation = 0;
   protected animationFinished = false;
   private geoJSONLayer = geoJSON(null, {
@@ -53,9 +56,11 @@ export class TravelComponent implements AfterViewInit {
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
     this.geoJSONLayer.addTo(leafletMap);
+    countries[0].properties!['index'] = 0; // Manually save the index of every country in its properties, for better interconnectivity with the flag icons
     this.geoJSONLayer.addData(countries[0]); // Immediately add Greece to the map, without waiting
     let i = 1;
     const intervalID = setInterval(() => {
+      countries[i].properties!['index'] = i;
       this.geoJSONLayer.addData(countries[i]);
       this.flags.push(this.allFlags[i]);
       i++;
@@ -88,9 +93,17 @@ export class TravelComponent implements AfterViewInit {
     });
 
     layer.bringToFront();
+
+    const index: number = layer.feature.properties['index'];
+    this.hoveredFlags[index] = true;
   }
 
   resetHighlight(event: LeafletMouseEvent): void {
-    this.geoJSONLayer.resetStyle(event.target);
+    const layer = event.target;
+
+    this.geoJSONLayer.resetStyle(layer);
+
+    const index: number = layer.feature.properties['index'];
+    this.hoveredFlags[index] = false;
   }
 }
