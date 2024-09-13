@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { GeoJSON, geoJSON, map, Map, tileLayer } from 'leaflet';
+import { geoJSON, map, Map, tileLayer } from 'leaflet';
 import { countries, countryNames, flags } from "../countries";
 import { NgOptimizedImage } from "@angular/common";
 
@@ -22,7 +22,6 @@ export class TravelComponent implements AfterViewInit {
   private runwayElement!: ElementRef<HTMLElement>;
   protected planeTranslation = 0;
   protected animationFinished = false;
-  private geoJSONs: GeoJSON[] = [];
 
   ngAfterViewInit(): void {
     const runwayWidth = this.runwayElement.nativeElement.offsetWidth;
@@ -44,12 +43,20 @@ export class TravelComponent implements AfterViewInit {
     // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
 
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
-    this.geoJSONs.push(geoJSON(countries[0]));
-    this.geoJSONs[0].addTo(leafletMap); // Immediately add Greece to the map, without waiting
+    const geoJSONLayer = geoJSON(null, {
+      style: {
+        color: 'red',
+        weight: 3,
+        opacity: 0.6,
+      },
+      onEachFeature: (feature) => {
+        console.log(feature);
+      },
+    }).addTo(leafletMap);
+    geoJSONLayer.addData(countries[0]); // Immediately add Greece to the map, without waiting
     let i = 1;
     const intervalID = setInterval(() => {
-      this.geoJSONs.push(geoJSON(countries[i]));
-      this.geoJSONs[i].addTo(leafletMap); // Medium resolution. I think I am going to prefer this
+      geoJSONLayer.addData(countries[i]);
       this.flags.push(this.allFlags[i]);
       i++;
       if (i === countries.length) {
