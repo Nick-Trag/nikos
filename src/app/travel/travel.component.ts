@@ -4,6 +4,7 @@ import { countries, countryNames, flags } from "../countries";
 import { NgOptimizedImage } from "@angular/common";
 import { Feature } from "geojson";
 
+// TODO: Find the best styles
 // Default style for the country outlines
 const defaultStyle: PathOptions = {
   weight: 2,
