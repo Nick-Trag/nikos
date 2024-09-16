@@ -3,7 +3,7 @@
 }
 
 .runway {
-  background-image: url("/images/Airport-Runway-Top-View-cropped.svg"); // TODO: This path will not work in production mode
+  background-image: url(../../../public/images/Airport-Runway-Top-View-cropped.svg); // TODO: This path will not work in production mode
   background-repeat: repeat-x;
   background-position: center;
   @apply rounded;
