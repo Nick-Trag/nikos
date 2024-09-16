@@ -56,6 +56,7 @@ export class TravelComponent implements AfterViewInit {
 
   // Initialize the map and add the first tile layer. Returns the reference to the new map
   initMap(): Map {
+    // TODO: Select tiles and center/zoom to use in production
     const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 3);
 
     leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank"' +
