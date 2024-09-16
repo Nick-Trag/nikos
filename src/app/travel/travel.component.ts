@@ -56,8 +56,9 @@ export class TravelComponent implements AfterViewInit {
 
   // Initialize the map and add the first tile layer. Returns the reference to the new map
   initMap(): Map {
-    // TODO: Select tiles and center/zoom to use in production
-    const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 3);
+    const leafletMap: Map = map(this.mapElement.nativeElement, {
+      worldCopyJump: true,
+    }).setView([47, 14], 3);
 
     leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank"' +
       ' title="A JavaScript library for interactive maps">Leaflet</a>');
@@ -68,6 +69,13 @@ export class TravelComponent implements AfterViewInit {
       maxZoom: 11,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
     }).addTo(leafletMap);
+
+    // Stadia Maps: looks really good, is dark-mode by default, but has usage limits (generous, but still...)
+    // tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    //   minZoom: 2,
+    //   maxZoom: 11,
+    //   attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+    // })
 
     return leafletMap;
   }
