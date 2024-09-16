@@ -1,8 +1,18 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { geoJSON, Layer, LeafletMouseEvent, map, Map, tileLayer } from 'leaflet';
+import { geoJSON, Layer, LeafletMouseEvent, map, Map, PathOptions, tileLayer } from 'leaflet';
 import { countries, countryNames, flags } from "../countries";
 import { NgOptimizedImage } from "@angular/common";
 import { Feature } from "geojson";
+
+// Default style for the country outlines
+const defaultStyle: PathOptions = {
+  weight: 2,
+};
+// Style for hovered countries
+const hoveredStyle: PathOptions = {
+  weight: 3,
+  color: 'darkblue',
+};
 
 @Component({
   selector: 'app-travel',
@@ -26,14 +36,12 @@ export class TravelComponent implements AfterViewInit {
 
   protected planeTranslation = 0;
   protected animationFinished = false;
+
   private geoJSONLayer = geoJSON(null, {
-    style: {
-      weight: 2,
-      // color: 'red',
-      // opacity: 0.6,
-    },
+    style: defaultStyle,
     onEachFeature: (feature, layer) => this.onEachFeature(feature, layer), // Arrow function, to not mess up the 'this' context
   });
+  private geoJSONItems: any[] = []; // Have to declare it as 'any', becase Leaflet does not have proper signatures, so functions like setStyle cannot be found otherwise
 
   ngAfterViewInit(): void {
     const runwayWidth = this.runwayElement.nativeElement.offsetWidth;
@@ -41,6 +49,13 @@ export class TravelComponent implements AfterViewInit {
       this.planeTranslation = runwayWidth - 40;
     }); // Avoids ExpressionChangedAfterItHasBeenCheckedError
 
+    const leafletMap: Map = this.initMap();
+
+    this.addCountriesToMap(leafletMap);
+  }
+
+  // Initialize the map and add the first tile layer. Returns the reference to the new map
+  initMap(): Map {
     const leafletMap: Map = map(this.mapElement.nativeElement).setView([49, 14], 3);
 
     leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank"' +
@@ -52,17 +67,25 @@ export class TravelComponent implements AfterViewInit {
       maxZoom: 11,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
     }).addTo(leafletMap);
-    // TODO: Paint/overlay visited countries, based on when I visited them, and show a timeline
 
+    return leafletMap;
+  }
+
+  // Adds a GeoJSON layer to the map and schedules the addition of all countries to it
+  addCountriesToMap(leafletMap: Map): void {
     // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
     this.geoJSONLayer.addTo(leafletMap);
+
     countries[0].properties!['index'] = 0; // Manually save the index of every country in its properties, for better interconnectivity with the flag icons
+
     this.geoJSONLayer.addData(countries[0]); // Immediately add Greece to the map, without waiting
+
     let i = 1;
     const intervalID = setInterval(() => {
       countries[i].properties!['index'] = i;
       this.geoJSONLayer.addData(countries[i]);
       this.flags.push(this.allFlags[i]);
+
       i++;
       if (i === countries.length) {
         clearInterval(intervalID);
@@ -82,15 +105,13 @@ export class TravelComponent implements AfterViewInit {
       mouseover: this.highlightFeature.bind(this),
       mouseout: this.resetHighlight.bind(this),
     }); // bind(this) is needed, because the 'this' context can get messed up without it
+    this.geoJSONItems.push(layer);
   }
 
   highlightFeature(event: LeafletMouseEvent): void {
     const layer: any = event.target; // Leaflet does not declare a type for this, so it has to be 'any'
 
-    layer.setStyle({
-      weight: 3,
-      color: 'darkblue',
-    });
+    layer.setStyle(hoveredStyle);
 
     layer.bringToFront();
 
@@ -107,12 +128,12 @@ export class TravelComponent implements AfterViewInit {
     this.hoveredFlags[index] = false;
   }
 
-  // TODO: Style the countries on the map correctly
   flagHovered(index: number) {
-    console.log('Hovered ' + index);
+    this.geoJSONItems[index].setStyle(hoveredStyle);
+    this.geoJSONItems[index].bringToFront();
   }
 
   flagUnhovered(index: number) {
-    console.log('Unhovered ' + index);
+    this.geoJSONLayer.resetStyle(this.geoJSONItems[index]);
   }
 }
