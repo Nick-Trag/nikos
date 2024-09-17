@@ -84,7 +84,6 @@ export class TravelComponent implements AfterViewInit {
 
   // Adds a GeoJSON layer to the map and schedules the addition of all countries to it
   addCountriesToMap(leafletMap: Map): void {
-    // TODO: Works, but it's probably too heavy. Should find a lighter GeoJSON representation of countries
     this.geoJSONLayer.addTo(leafletMap);
 
     countries[0].properties!['index'] = 0; // Manually save the index of every country in its properties, for better interconnectivity with the flag icons

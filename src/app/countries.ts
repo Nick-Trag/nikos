@@ -1,4 +1,4 @@
-// TODO: Serve the countries as JSON files from a server, when needed, instead of saving them all here
+// Possible TODO: Serve the countries as JSON files from a server, when needed, instead of saving them all here
 import { Feature } from "geojson";
 
 // Imports all the individual country files and exports them as an array
