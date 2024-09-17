@@ -4,15 +4,16 @@ import { countries, countryNames, flags } from "../countries";
 import { NgOptimizedImage } from "@angular/common";
 import { Feature } from "geojson";
 
-// TODO: Find the best styles
 // Default style for the country outlines
 const defaultStyle: PathOptions = {
   weight: 2,
+  color: '#1865a1',
 };
 // Style for hovered countries
 const hoveredStyle: PathOptions = {
   weight: 3,
-  color: 'darkblue',
+  color: '#0a2d43',
+  fillOpacity: 0.5,
 };
 
 @Component({
