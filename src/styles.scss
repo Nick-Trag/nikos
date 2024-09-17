@@ -117,3 +117,18 @@ body, html {
     transform: translateY(-50%);
   }
 }
+
+// Inverted styles for a makeshift dark mode
+// References:
+// https://github.com/openstreetmap/openstreetmap-website/issues/2332#issuecomment-727266980
+// https://dev.to/deepakdevanand/leaflet-map-dark-theme-5ej0
+.leaflet-layer, // also inverts the map tiles themselves, to be used to create a dark mode out of a light-mode map
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+.leaflet-container {
+  background: #222222 !important;
+}
