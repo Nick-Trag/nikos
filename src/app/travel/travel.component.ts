@@ -89,6 +89,7 @@ export class TravelComponent implements AfterViewInit {
     countries[0].properties!['index'] = 0; // Manually save the index of every country in its properties, for better interconnectivity with the flag icons
 
     this.geoJSONLayer.addData(countries[0]); // Immediately add Greece to the map, without waiting
+    this.preloadFlagIcon(1);
 
     let i = 1;
     const intervalID = setInterval(() => {
@@ -100,8 +101,16 @@ export class TravelComponent implements AfterViewInit {
       if (i === countries.length) {
         clearInterval(intervalID);
         this.animationFinished = true;
+      } else {
+        this.preloadFlagIcon(i);
       }
     }, (30 * 1000) / (countries.length - 1)); // Split the 30 seconds into equally sized chunks
+  }
+
+  // Used for preloading the flag icons before they are needed, to ensure they are ready in time
+  preloadFlagIcon(i: number): void {
+    const image = new Image();
+    image.src = 'flags/1x1/' + this.allFlags[i];
   }
 
   @HostListener('window:resize')
