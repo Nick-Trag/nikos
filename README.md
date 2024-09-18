@@ -1,4 +1,4 @@
-# <p style="text-align: center;">Nikos</p>
+# Nikos
 
 This is my personal website. It includes a portfolio as the home page, and
 multiple other pages about my interests. This website is used to practice and
