@@ -2,7 +2,8 @@
   "git": {
     "deploymentEnabled": {
       "gh-pages": false,
-      "dev": false
+      "dev": false,
+      "update-readme": false
     }
   }
 }
