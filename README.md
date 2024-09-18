@@ -1,31 +1,24 @@
 # Nikos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+This is my personal website. It includes a portfolio as the home page, and
+multiple other pages about my interests. This website is used to practice and
+showcase my skills in web development, including:
 
-## Development server
+* Animations
+* Responsiveness
+* UI/UX
+* Interactivity
+* Mapping
+* and more to come...
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The live website is available at https://nikostragkas.eu!
 
-## Code scaffolding
+## Tech stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The website is primarily built using **Angular framework** and **TypeScript**.
 
-## Build
+**Sass** is used for pre-processing CSS and **Tailwind CSS** is used for utility
+CSS classes.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-## Useful resources for development
-
-https://stackoverflow.com/a/76283048/7400287
+The live version of the website is deployed on **Vercel**, while **GitHub Pages**
+is used as a staging environment.
