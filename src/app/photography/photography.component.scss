@@ -28,3 +28,46 @@
     rotate: 0deg;
   }
 }
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 150;
+  @apply backdrop-blur;
+}
+
+.arrow-button {
+  width: 4rem;
+  height: 4rem;
+  @apply text-3xl;
+  position: fixed;
+  top: 50%;
+}
+
+.left-button {
+  @apply left-0;
+  @apply md:left-4;
+}
+
+.right-button {
+  @apply right-0;
+  @apply md:right-4;
+}
+
+.close-button {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+.current-image {
+  max-height: 100%;
+  @apply rounded;
+}
