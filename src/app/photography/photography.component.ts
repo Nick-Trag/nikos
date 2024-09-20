@@ -1,23 +1,40 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { Photo, photos } from "../photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
 import { LoadingScreenService } from "../loading-screen.service";
+import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-photography',
   standalone: true,
   imports: [
     NgStyle,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   templateUrl: './photography.component.html',
-  styleUrl: './photography.component.scss'
+  styleUrl: './photography.component.scss',
+  animations: [
+    trigger('modal', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.15s ease-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.15s ease-out', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class PhotographyComponent implements OnInit {
   photos: Photo[] = this.shuffle(photos);
   styles: Record<string, string>[] = [];
   private loadingScreenService = inject(LoadingScreenService);
   protected loadingScreenShown = this.loadingScreenService.hasLoadingScreenBeenShown();
+  modalOpen: boolean = false;
+  currentImageIndex = 0;
+  @ViewChild('modal')
+  private modal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
     const delay = this.loadingScreenShown ? 100 : 500;
@@ -48,6 +65,44 @@ export class PhotographyComponent implements OnInit {
     }
   }
 
+  openModal(event: MouseEvent, index: number) {
+    event.preventDefault();
+    this.modalOpen = true;
+    this.currentImageIndex = index;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+  }
+
+  modalClicked(event: MouseEvent) {
+    // Checks if the clicked area was actually the gutter, or an element inside the modal, in which case the modal should not be closed
+    if (event.target === this.modal.nativeElement) {
+      this.modalOpen = false;
+    }
+  }
+
+  modalKeyPressed(event: KeyboardEvent) {
+    if (!this.modalOpen) {
+      return;
+    }
+
+    switch (event.key) {
+      case 'Escape':
+        this.closeModal();
+        break;
+      case 'ArrowLeft':
+        if (this.currentImageIndex > 0) {
+          this.currentImageIndex--;
+        }
+        break;
+      case 'ArrowRight':
+        if (this.currentImageIndex < this.photos.length - 1) {
+          this.currentImageIndex++;
+        }
+        break;
+    }
+  }
 
   // Shuffle an array and return the shuffled version. Reference: https://stackoverflow.com/a/2450976/7400287
   private shuffle(array: Photo[]) {
