@@ -1,4 +1,4 @@
-<main (keydown)="modalKeyPressed($event)">
+<main>
   @if (modalOpen) {
     <div class="modal" @modal (click)="modalClicked($event)" #modal>
       <button class="close-button" (click)="closeModal()" aria-label="Close photo gallery">

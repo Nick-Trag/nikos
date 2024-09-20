@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { Photo, photos } from "../photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
 import { LoadingScreenService } from "../loading-screen.service";
@@ -82,7 +82,8 @@ export class PhotographyComponent implements OnInit {
     }
   }
 
-  modalKeyPressed(event: KeyboardEvent) {
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
     if (!this.modalOpen) {
       return;
     }
