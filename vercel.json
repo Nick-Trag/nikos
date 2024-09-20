@@ -3,7 +3,8 @@
     "deploymentEnabled": {
       "gh-pages": false,
       "dev": false,
-      "update-readme": false
+      "update-readme": false,
+      "photo-modal": false
     }
   }
 }
