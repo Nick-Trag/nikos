@@ -18,7 +18,7 @@ interface Command {
 })
 export class CodingComponent implements OnInit {
   currentDirectory: string = "~";
-  commandHistory: Command[] = [ // Sample history to make sure it is working. Will start blank, or with some help command(s)
+  previousCommands: Command[] = [ // Sample history to make sure it is working. Will start blank, or with some help command(s)
     {
       command: 'pwd',
       directory: '~',
@@ -31,6 +31,7 @@ export class CodingComponent implements OnInit {
     }
   ];
   currentCommand: string = '';
+  commandHistory: string[] = []; // Command history for the up and down buttons. TODO: Use this
 
   ngOnInit(): void {
 
@@ -44,7 +45,7 @@ export class CodingComponent implements OnInit {
         console.log(this.currentDirectory);
         break;
       case "clear":
-        this.commandHistory = [];
+        this.previousCommands = [];
         break;
       default:
         console.log(command + " has not been implemented");
