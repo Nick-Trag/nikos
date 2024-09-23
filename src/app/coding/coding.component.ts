@@ -70,8 +70,11 @@ export class CodingComponent implements OnInit {
 
     this.terminalInput.nativeElement.focus();
 
-    const innerTerminalHeight = this.terminalInput.nativeElement.scrollHeight;
-    this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // TODO: Does not scroll it in time
+    setTimeout(() => {
+      const innerTerminalHeight = this.innerTerminal.nativeElement.scrollHeight;
+      this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // TODO: Test this more and make it better on mobile
+    }); // In a setTimeout, to force the UI to update first, before scrolling
+
     // this.terminalInput.nativeElement.scrollIntoView();
   }
 
