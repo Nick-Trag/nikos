@@ -38,21 +38,50 @@ export class CodingComponent implements OnInit {
   }
 
   handleCommand(): void {
-    const command: string = this.currentCommand;
+    const fullCommand: string = this.currentCommand;
 
-    switch (command) {
+    if (fullCommand === '') { // TODO: Might let the empty command go through, currently not doing this
+      return;
+    }
+
+    const commandNoArgs: string = fullCommand.split(' ')[0];
+
+    switch (commandNoArgs) {
       case "pwd":
-        console.log(this.currentDirectory);
+        this.pwd(fullCommand);
         break;
       case "clear":
-        this.previousCommands = [];
+        this.clear();
         break;
       default:
-        console.log(command + " has not been implemented");
+        this.commandNotImplemented(fullCommand, commandNoArgs);
         break;
     }
+
+    this.commandHistory.push(fullCommand);
 
     this.currentCommand = '';
   }
 
+  pwd(fullCommand: string): void {
+    const command: Command = {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: this.currentDirectory,
+    };
+    this.previousCommands.push(command);
+  }
+
+  clear(): void {
+    this.previousCommands = [];
+  }
+
+  commandNotImplemented(fullCommand: string, commandNoArgs: string): void {
+    const command: Command = {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: commandNoArgs + " has not been implemented",
+    }
+    this.previousCommands.push(command);
+  }
 }

@@ -3,7 +3,7 @@
     <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50"> <!-- Terminal --> <!-- TODO: Scrollable -->
       <div class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</div> <!-- Terminal window title -->
       @for (command of previousCommands; track $index) {
-        <div class="py-1 px-2 flex flex-row gap-2"> <!-- Terminal line -->
+        <div class="py-1 px-2 flex flex-row gap-2"> <!-- Terminal line --> <!-- TODO: Custom class, to avoid repetition and enforce single source of truth -->
           <div>
             user&#64;nikostragkas.eu<span class="text-blue-500">{{command.directory}}</span><span class="text-blue-200">$</span>
           </div>
