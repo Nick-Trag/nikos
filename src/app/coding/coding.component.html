@@ -2,11 +2,21 @@
   <div class="p-4 h-full w-full flex items-center justify-center"> <!-- Terminal container -->
     <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50"> <!-- Terminal -->
       <div class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</div> <!-- Terminal window title -->
+      @for (command of commandHistory; track $index) {
+        <div class="py-1 px-2 flex flex-row gap-2"> <!-- Terminal line -->
+          <div>
+            user&#64;nikostragkas.eu<span class="text-blue-500">{{command.directory}}</span><span class="text-blue-200">$</span>
+          </div>
+          <div class="terminal-input">{{command.command}}</div>
+        </div>
+        <div class="px-2 -mt-2 whitespace-pre">{{command.result}}</div> <!-- TODO: Responsive line margins (ie one line), inspo from DaedalOS-->
+      }
       <div class="py-1 px-2 flex flex-row gap-2"> <!-- Terminal line -->
         <div>
-          user&#64;nikostragkas.eu<span class="text-blue-500">~</span><span class="text-blue-200">$</span>
+          user&#64;nikostragkas.eu<span class="text-blue-500">{{currentDirectory}}</span><span class="text-blue-200">$</span>
         </div>
-        <input type="text" class="terminal-input">
+        <input type="text" class="terminal-input" (keydown.enter)="handleCommand()" [(ngModel)]="currentCommand"
+               spellcheck="false" autocorrect="off" autocapitalize="none" autocomplete="off">
       </div>
     </div>
   </div>
