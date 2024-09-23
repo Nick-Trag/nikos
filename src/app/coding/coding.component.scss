@@ -14,3 +14,11 @@
   scrollbar-width: thin;
   scrollbar-color: gray black;
 }
+
+.terminal-line {
+  @apply py-1;
+  @apply px-2;
+  @apply flex;
+  @apply flex-row;
+  @apply gap-2;
+}
