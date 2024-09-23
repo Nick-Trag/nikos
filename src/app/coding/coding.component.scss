@@ -1,6 +1,8 @@
 .terminal-input {
   background-color: inherit;
   flex: 1 1 0;
+  max-width: 100%;
+  width: 100%;
 
   &:focus, &:active {
     border: none;
