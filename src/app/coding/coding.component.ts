@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 
 interface Command {
@@ -32,9 +32,15 @@ export class CodingComponent implements OnInit {
   ];
   currentCommand: string = '';
   commandHistory: string[] = []; // Command history for the up and down buttons. TODO: Use this
+  @ViewChild('terminalInput')
+  private terminalInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('innerTerminal')
+  private innerTerminal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-
+    setTimeout(() => {
+      this.terminalInput.nativeElement.focus();
+    }, 1000); // TODO: Use the loading screen shown logic to use a better timeout (this fucks up the loading screen animations)
   }
 
   handleCommand(): void {
@@ -61,6 +67,12 @@ export class CodingComponent implements OnInit {
     this.commandHistory.push(fullCommand);
 
     this.currentCommand = '';
+
+    this.terminalInput.nativeElement.focus();
+
+    const innerTerminalHeight = this.terminalInput.nativeElement.scrollHeight;
+    this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // TODO: Does not scroll it in time
+    // this.terminalInput.nativeElement.scrollIntoView();
   }
 
   pwd(fullCommand: string): void {

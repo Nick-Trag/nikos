@@ -2,7 +2,7 @@
   <div class="p-4 h-full w-full flex items-center justify-center"> <!-- Terminal container -->
     <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col"> <!-- Terminal -->
       <div class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</div> <!-- Terminal window title -->
-      <div class="overflow-y-auto inner-terminal"> <!-- Inner terminal --> <!-- TODO: Scroll to bottom and focus new input when submitting -->
+      <div class="overflow-y-auto inner-terminal" #innerTerminal> <!-- Inner terminal --> <!-- TODO: Scroll to bottom and focus new input when submitting -->
         @for (command of previousCommands; track $index) {
           <div class="py-1 px-2 flex flex-row gap-2"> <!-- Terminal line --> <!-- TODO: Custom class, to avoid repetition and enforce single source of truth -->
             <div class="text-nowrap">
@@ -17,7 +17,7 @@
             <span class="text-emerald-500">user&#64;nikostragkas.eu</span>: <span class="text-blue-500 mr-[0.05rem]">{{currentDirectory}}</span><span class="text-blue-200">$</span>
           </div>
           <input type="text" class="terminal-input" (keydown.enter)="handleCommand()" [(ngModel)]="currentCommand"
-                 spellcheck="false" autocorrect="off" autocapitalize="none" autocomplete="off">
+                 spellcheck="false" autocorrect="off" autocapitalize="none" autocomplete="off" #terminalInput>
         </div>
       </div>
     </div>
