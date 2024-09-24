@@ -49,6 +49,8 @@ export class CodingComponent implements OnInit {
 
     const commandNoArgs: string = fullCommand === '' ? '' : fullCommand.split(' ')[0];
 
+    // TODO commands: cat, ls, cd (with .. and . and even ./ or ../), help, sudo, !!, whois/whoami
+    // TODO files: about-me, code samples, w/e, we'll see
     switch (commandNoArgs) {
       case "":
         this.emptyCommand();
