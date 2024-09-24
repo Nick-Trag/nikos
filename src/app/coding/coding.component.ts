@@ -107,4 +107,9 @@ export class CodingComponent implements OnInit {
     }
     this.previousCommands.push(command);
   }
+
+  // Used to give focus to the input element whenever any place on the terminal is clicked
+  focusTerminal(): void {
+    this.terminalInput.nativeElement.focus();
+  }
 }

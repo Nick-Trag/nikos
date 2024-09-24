@@ -1,6 +1,6 @@
 <main class="h-screen-no-navbar min-h-96"> <!-- Full page content -->
   <div class="p-4 h-full w-full flex items-center justify-center"> <!-- Terminal container -->
-    <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col"> <!-- Terminal -->
+    <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col" (click)="focusTerminal()"> <!-- Terminal -->
       <header class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</header> <!-- Terminal window title -->
       <div class="overflow-y-auto inner-terminal" #innerTerminal> <!-- Inner terminal -->
         @for (command of previousCommands; track $index) {
