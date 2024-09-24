@@ -46,13 +46,12 @@ export class CodingComponent implements OnInit {
   handleCommand(): void {
     const fullCommand: string = this.currentCommand.trim();
 
-    if (fullCommand === '') { // TODO: Might let the empty command go through, currently not doing this
-      return;
-    }
-
-    const commandNoArgs: string = fullCommand.split(' ')[0];
+    const commandNoArgs: string = fullCommand === '' ? '' : fullCommand.split(' ')[0];
 
     switch (commandNoArgs) {
+      case "":
+        this.emptyCommand();
+        break;
       case "pwd":
         this.pwd(fullCommand);
         break;
@@ -64,7 +63,9 @@ export class CodingComponent implements OnInit {
         break;
     }
 
-    this.commandHistory.push(fullCommand);
+    if (fullCommand !== '') {
+      this.commandHistory.push(fullCommand);
+    }
 
     this.currentCommand = '';
 
@@ -75,6 +76,14 @@ export class CodingComponent implements OnInit {
       this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // Inner scroll in the terminal
       this.terminalInput.nativeElement.scrollIntoView({block: "nearest"}); // Outer scroll if needed
     }); // In a setTimeout, to force the UI to update first, before scrolling
+  }
+
+  emptyCommand(): void {
+    this.previousCommands.push({
+      command: '',
+      directory: this.currentDirectory,
+      result: '',
+    });
   }
 
   pwd(fullCommand: string): void {
