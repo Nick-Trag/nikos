@@ -1,7 +1,7 @@
 <main class="h-screen-no-navbar min-h-96"> <!-- Full page content -->
   <div class="p-4 h-full w-full flex items-center justify-center"> <!-- Terminal container -->
     <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col"> <!-- Terminal -->
-      <div class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</div> <!-- Terminal window title -->
+      <header class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</header> <!-- Terminal window title -->
       <div class="overflow-y-auto inner-terminal" #innerTerminal> <!-- Inner terminal -->
         @for (command of previousCommands; track $index) {
           <div class="terminal-line"> <!-- Terminal line -->
@@ -11,7 +11,7 @@
             <div class="terminal-input">{{command.command}}</div>
           </div>
           <!-- Possible TODO: Add slight breathing room on the right when the content overflows (can add mr-2 to inner-terminal) -->
-          <div class="px-2 -mt-2 whitespace-pre">{{command.result}}</div> <!-- TODO: Responsive line margins (ie one line), inspo from DaedalOS-->
+          <div class="px-2 -my-2 whitespace-pre">{{command.result}}</div>
         }
         <div class="terminal-line"> <!-- Terminal line -->
           <div class="text-nowrap">
