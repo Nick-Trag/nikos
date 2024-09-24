@@ -17,16 +17,16 @@ interface Command {
   styleUrl: './coding.component.scss',
 })
 export class CodingComponent implements OnInit {
-  currentDirectory: string = "~";
+  currentDirectory: string = "/home/nikos";
   previousCommands: Command[] = [ // Sample history to make sure it is working. Will start blank, or with some help command(s)
     {
       command: 'pwd',
-      directory: '~',
-      result: '~',
+      directory: '/home/nikos',
+      result: '/home/nikos',
     },
     {
       command: 'ls',
-      directory: '~',
+      directory: '/home/nikos',
       result: `fileA.txt\nfileB.txt\nfileC.txt`,
     }
   ];

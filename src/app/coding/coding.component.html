@@ -6,7 +6,9 @@
         @for (command of previousCommands; track $index) {
           <div class="terminal-line"> <!-- Terminal line -->
             <div class="text-nowrap">
-              <span class="text-emerald-500">user&#64;nikostragkas.eu</span>: <span class="text-blue-500 mr-[0.05rem]">{{command.directory}}</span><span class="text-blue-200">$</span>
+              <span class="text-emerald-500">user&#64;nikostragkas.eu</span>:
+              <span class="text-blue-500 mr-[0.05rem]">{{command.directory  === '/home/nikos' ? '~' : command.directory}}</span>
+              <span class="text-blue-200">$</span>
             </div>
             <div class="terminal-input">{{command.command}}</div>
           </div>
@@ -15,7 +17,9 @@
         }
         <div class="terminal-line"> <!-- Terminal line -->
           <div class="text-nowrap">
-            <span class="text-emerald-500">user&#64;nikostragkas.eu</span>: <span class="text-blue-500 mr-[0.05rem]">{{currentDirectory}}</span><span class="text-blue-200">$</span>
+            <span class="text-emerald-500">user&#64;nikostragkas.eu</span>:
+            <span class="text-blue-500 mr-[0.05rem]">{{currentDirectory === '/home/nikos' ? '~' : currentDirectory}}</span>
+            <span class="text-blue-200">$</span>
           </div>
           <input type="text" class="terminal-input" (keydown.enter)="handleCommand()" (keydown.arrowUp)="goToPreviousCommand()"
                  (keydown.arrowDown)="goToNextCommand()" [(ngModel)]="currentCommand" spellcheck="false" autocorrect="off"
