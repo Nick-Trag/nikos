@@ -44,7 +44,7 @@ export class CodingComponent implements OnInit {
   }
 
   handleCommand(): void {
-    const fullCommand: string = this.currentCommand;
+    const fullCommand: string = this.currentCommand.trim();
 
     if (fullCommand === '') { // TODO: Might let the empty command go through, currently not doing this
       return;
@@ -72,10 +72,9 @@ export class CodingComponent implements OnInit {
 
     setTimeout(() => {
       const innerTerminalHeight = this.innerTerminal.nativeElement.scrollHeight;
-      this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // TODO: Test this more and make it better on mobile
+      this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // Inner scroll in the terminal
+      this.terminalInput.nativeElement.scrollIntoView({block: "nearest"}); // Outer scroll if needed
     }); // In a setTimeout, to force the UI to update first, before scrolling
-
-    // this.terminalInput.nativeElement.scrollIntoView();
   }
 
   pwd(fullCommand: string): void {
