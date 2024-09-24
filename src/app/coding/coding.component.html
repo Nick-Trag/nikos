@@ -17,8 +17,9 @@
           <div class="text-nowrap">
             <span class="text-emerald-500">user&#64;nikostragkas.eu</span>: <span class="text-blue-500 mr-[0.05rem]">{{currentDirectory}}</span><span class="text-blue-200">$</span>
           </div>
-          <input type="text" class="terminal-input" (keydown.enter)="handleCommand()" [(ngModel)]="currentCommand"
-                 spellcheck="false" autocorrect="off" autocapitalize="none" autocomplete="off" #terminalInput>
+          <input type="text" class="terminal-input" (keydown.enter)="handleCommand()" (keydown.arrowUp)="goToPreviousCommand()"
+                 (keydown.arrowDown)="goToNextCommand()" [(ngModel)]="currentCommand" spellcheck="false" autocorrect="off"
+                 autocapitalize="none" autocomplete="off" #terminalInput>
         </div>
       </div>
     </div>

@@ -31,7 +31,8 @@ export class CodingComponent implements OnInit {
     }
   ];
   currentCommand: string = '';
-  commandHistory: string[] = []; // Command history for the up and down buttons. TODO: Use this
+  commandHistory: string[] = []; // Command history for the up and down buttons
+  currentCommandHistoryIndex: number = 0; // Which command history item we are currently editing. If it is equal to commandHistory.length, we are creating a new item
   @ViewChild('terminalInput')
   private terminalInput!: ElementRef<HTMLInputElement>;
   @ViewChild('innerTerminal')
@@ -63,8 +64,10 @@ export class CodingComponent implements OnInit {
         break;
     }
 
+    // Save the command history, for pressing the up and down arrow keys
     if (fullCommand !== '') {
       this.commandHistory.push(fullCommand);
+      this.currentCommandHistoryIndex = this.commandHistory.length;
     }
 
     this.currentCommand = '';
@@ -73,7 +76,7 @@ export class CodingComponent implements OnInit {
 
     setTimeout(() => {
       const innerTerminalHeight = this.innerTerminal.nativeElement.scrollHeight;
-      this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight}); // Inner scroll in the terminal
+      this.innerTerminal.nativeElement.scrollTo({top: innerTerminalHeight, left: 0}); // Inner scroll in the terminal
       this.terminalInput.nativeElement.scrollIntoView({block: "nearest"}); // Outer scroll if needed
     }); // In a setTimeout, to force the UI to update first, before scrolling
   }
@@ -111,5 +114,24 @@ export class CodingComponent implements OnInit {
   // Used to give focus to the input element whenever any place on the terminal is clicked
   focusTerminal(): void {
     this.terminalInput.nativeElement.focus();
+    this.innerTerminal.nativeElement.scrollTo({left: 0})
+  }
+
+  goToPreviousCommand(): void {
+    if (this.currentCommandHistoryIndex > 0) {
+      this.currentCommandHistoryIndex--;
+      this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
+    }
+  }
+
+  goToNextCommand(): void {
+    if (this.currentCommandHistoryIndex < this.commandHistory.length - 1) {
+      this.currentCommandHistoryIndex++;
+      this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
+    }
+    else if (this.currentCommandHistoryIndex === this.commandHistory.length - 1) {
+      this.currentCommandHistoryIndex++;
+      this.currentCommand = '';
+    }
   }
 }
