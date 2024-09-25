@@ -273,10 +273,12 @@ export class CodingComponent implements OnInit {
     this.innerTerminal.nativeElement.scrollTo({left: 0})
   }
 
-  goToPreviousCommand(): void { // TODO: Put the caret on the end of the line
+  goToPreviousCommand(): void { // TODO: Put the caret on the end of the line. Also when focusing the terminal again
     if (this.currentCommandHistoryIndex > 0) {
       this.currentCommandHistoryIndex--;
       this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
+      // Trying to place the caret at the end
+      // this.terminalInput.nativeElement.setSelectionRange(this.currentCommand.length, this.currentCommand.length);
     }
   }
 
@@ -284,6 +286,8 @@ export class CodingComponent implements OnInit {
     if (this.currentCommandHistoryIndex < this.commandHistory.length - 1) {
       this.currentCommandHistoryIndex++;
       this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
+      // Trying to place the caret at the end
+      // this.terminalInput.nativeElement.setSelectionRange(this.currentCommand.length, this.currentCommand.length);
     }
     else if (this.currentCommandHistoryIndex === this.commandHistory.length - 1) {
       this.currentCommandHistoryIndex++;
