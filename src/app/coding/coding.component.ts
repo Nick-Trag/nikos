@@ -270,15 +270,16 @@ export class CodingComponent implements OnInit {
   // Used to give focus to the input element whenever any place on the terminal is clicked
   focusTerminal(): void {
     this.terminalInput.nativeElement.focus();
-    this.innerTerminal.nativeElement.scrollTo({left: 0})
+    this.innerTerminal.nativeElement.scrollTo({left: 0});
   }
 
-  goToPreviousCommand(): void { // TODO: Put the caret on the end of the line. Also when focusing the terminal again
+  goToPreviousCommand(): void {
     if (this.currentCommandHistoryIndex > 0) {
       this.currentCommandHistoryIndex--;
       this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
-      // Trying to place the caret at the end
-      // this.terminalInput.nativeElement.setSelectionRange(this.currentCommand.length, this.currentCommand.length);
+      setTimeout(() => {
+        this.terminalInput.nativeElement.setSelectionRange(this.currentCommand.length, this.currentCommand.length);
+      }); // Set the caret to the end of the input element. Needs the setTimeout, to happen on the next tick
     }
   }
 
@@ -286,8 +287,9 @@ export class CodingComponent implements OnInit {
     if (this.currentCommandHistoryIndex < this.commandHistory.length - 1) {
       this.currentCommandHistoryIndex++;
       this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
-      // Trying to place the caret at the end
-      // this.terminalInput.nativeElement.setSelectionRange(this.currentCommand.length, this.currentCommand.length);
+      setTimeout(() => {
+        this.terminalInput.nativeElement.setSelectionRange(this.currentCommand.length, this.currentCommand.length);
+      }); // Set the caret to the end of the input element. Needs the setTimeout, to happen on the next tick
     }
     else if (this.currentCommandHistoryIndex === this.commandHistory.length - 1) {
       this.currentCommandHistoryIndex++;
