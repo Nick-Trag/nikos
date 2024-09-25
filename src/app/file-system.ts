@@ -8,7 +8,7 @@ export interface Directory {
   children: FileSystemEntity[];
 }
 
-type FileSystemEntity = Directory | File;
+export type FileSystemEntity = Directory | File;
 
 export const root: Directory = {
   name: '',

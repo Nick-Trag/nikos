@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { Directory, root } from "../file-system";
+import { Directory, FileSystemEntity, root } from "../file-system";
 
 interface Command {
   command: string;
@@ -166,6 +166,8 @@ export class CodingComponent implements OnInit {
         searchPath.push(directory);
       }
     }
+
+    let currentDirectory: FileSystemEntity = root;
 
     fullFilePath = searchPath.join('/');
 
