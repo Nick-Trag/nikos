@@ -8,6 +8,13 @@ export interface Directory {
   children: FileSystemEntity[];
 }
 
+// TODO: This interface
+// export interface FileSystemEntity {
+//   name: string;
+//   type: 'file' | 'directory';
+//   children: FileSystemEntity[];
+// }
+
 export type FileSystemEntity = Directory | File;
 
 export const root: Directory = {
