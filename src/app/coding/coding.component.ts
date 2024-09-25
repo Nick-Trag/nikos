@@ -117,6 +117,7 @@ export class CodingComponent implements OnInit {
     this.previousCommands = [];
   }
 
+  // DOES NOT HANDLE SPACES. Spaces are not allowed in paths in this filesystem
   locateFile(fileName: string): string {
     if (fileName === '/') { // Return the root directory itself
       return '/';
