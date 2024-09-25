@@ -1,11 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+import { Directory, root } from "../file-system";
 
 interface Command {
   command: string;
   directory: string;
   result: string;
 }
+
+const homeDirectory = '/home/nikos';
 
 @Component({
   selector: 'app-coding',
@@ -17,16 +20,17 @@ interface Command {
   styleUrl: './coding.component.scss',
 })
 export class CodingComponent implements OnInit {
-  currentDirectory: string = "/home/nikos";
+  fileSystemRoot: Directory = root;
+  currentDirectory: string = homeDirectory;
   previousCommands: Command[] = [ // Sample history to make sure it is working. Will start blank, or with some help command(s)
     {
       command: 'pwd',
-      directory: '/home/nikos',
-      result: '/home/nikos',
+      directory: homeDirectory,
+      result: homeDirectory,
     },
     {
       command: 'ls',
-      directory: '/home/nikos',
+      directory: homeDirectory,
       result: `fileA.txt\nfileB.txt\nfileC.txt`,
     }
   ];
@@ -57,6 +61,15 @@ export class CodingComponent implements OnInit {
         break;
       case "pwd":
         this.pwd(fullCommand);
+        break;
+      case "cat":
+        this.cat(fullCommand);
+        break;
+      case "cd":
+        this.cd(fullCommand);
+        break;
+      case "ls":
+        this.ls(fullCommand);
         break;
       case "clear":
         this.clear();
@@ -102,6 +115,109 @@ export class CodingComponent implements OnInit {
 
   clear(): void {
     this.previousCommands = [];
+  }
+
+  locateFile(fileName: string): string {
+    if (fileName === '/') { // Return the root directory itself
+      return '/';
+    }
+    if (fileName === '~') { // Return the home directory itself
+      return homeDirectory;
+    }
+
+    let fullFilePath = '';
+
+    let searchPath: string[];
+
+    if (fileName.startsWith('/')) {
+      searchPath = ['']; // Start the search from the root directory
+      fileName = fileName.slice(1, fileName.length);
+    }
+    else if (fileName.startsWith('~/')) { // We are in the home directory, so we start the search from there
+      searchPath = homeDirectory.split('/');
+      fileName = fileName.slice(2, fileName.length);
+    }
+    else {
+      searchPath = this.currentDirectory.split('/'); // We've been given a relative path, so we start the search from the current directory
+    }
+    // TODO: Check if file actually exists
+    // TODO: Check if it ends with /
+
+    const directories = fileName.split('/');
+
+    for (let directory of directories) { // TODO: Special treatment for the last part of the directory, which could be a file
+      if (directory === '' || directory === '.') {
+        continue; // We are staying in the same directory
+      }
+
+      if (directory === '..') {
+        if (searchPath.length === 1) { // We are in the root directory
+          continue; // Cannot go up any further from the root directory, so stay in it
+        }
+
+        searchPath = searchPath.slice(0, searchPath.length - 1); // Go up and search in the parent directory
+      }
+      else {
+        if (false) { // If this directory doesn't exist
+          return '';
+        }
+
+        searchPath.push(directory);
+      }
+    }
+
+    fullFilePath = searchPath.join('/');
+
+    if (false) { // TODO: If the path we've arrived to is a directory
+      fullFilePath += '/';
+    }
+
+    return fullFilePath;
+  }
+
+  cat(fullCommand: string): void {
+    const commandArgs: string[] = fullCommand.split(' ').slice(1);
+
+    let result = '';
+
+    if (commandArgs.length === 0) {
+      result = 'cat: no file name given';
+    }
+
+    for (let fileName of commandArgs) {
+      if (fileName === '') {
+        continue;
+      }
+      const fullFilePath = this.locateFile(fileName);
+      if (fullFilePath === '') {
+        result += 'cat: ' + fileName + ': No such file or directory'; // TODO: \n
+      }
+      else if (fileName.endsWith('/')) {
+        if (fullFilePath.endsWith('/')) {
+          result += 'cat: ' + fileName + ': Is a directory';
+        }
+        else { // TODO: If fullFilePath is actually a file and not a dir
+          result += 'cat: ' + fileName + ': Not a directory';
+        }
+      }
+      else {
+        result += fullFilePath; // TODO: File contents
+      }
+    }
+
+    this.previousCommands.push({
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: result,
+    });
+  }
+
+  ls(fullCommand: string): void {
+
+  }
+
+  cd(fullCommand: string): void {
+
   }
 
   commandNotImplemented(fullCommand: string, commandNoArgs: string): void {
