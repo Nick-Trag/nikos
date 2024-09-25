@@ -50,6 +50,9 @@ describe('CodingComponent', () => {
     result = component.getAbsolutePath('/home///./.././');
     expect(result).toBe('/');
 
+    result = component.getAbsolutePath('/../.././..////./home/nikos/../././//./nikos/.//./test2.txt/');
+    expect(result).toBe('/home/nikos/test2.txt');
+
     // Paths including ~
     result = component.getAbsolutePath('~');
     expect(result).toBe('/home/nikos');

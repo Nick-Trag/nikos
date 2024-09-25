@@ -169,21 +169,45 @@ export class CodingComponent implements OnInit {
     return fullFilePath;
   }
 
-  getFileSystemEntityByAbsolutePath(absolutePath: string): FileSystemEntity {
-    // TODO: Make this work
-    // let currentDirectory: FileSystemEntity = this.fileSystemRoot;
-    // for (let i = 1; i < searchPath.length - 1; i++) { // Starting from i = 0, as i = 0 is always the root path: ''
-    //   if (currentDirectory.type === 'directory') {
-    //     for (let child of currentDirectory.children!) {
-    //       if (child.name === searchPath[i]) {
-    //         currentDirectory = child;
-    //         break;
-    //       }
-    //     }
-    //   }
-    // }
+  getFileSystemEntityByAbsolutePath(absolutePath: string): FileSystemEntity | null {
+    if (absolutePath === '/') {
+      return this.fileSystemRoot;
+    }
 
-    return this.fileSystemRoot;
+    let pathSegments: string[] = absolutePath.split('/');
+    let searchedDirectory: FileSystemEntity = this.fileSystemRoot; // Start searching from the root directory
+
+    for (let i = 1; i < pathSegments.length - 1; i++) { // Starting from i = 1, as i = 0 is always the root path: ''
+      let pathFound: boolean = false;
+      if (searchedDirectory.type === 'directory') {
+        for (let child of searchedDirectory.children!) {
+          if (child.name === pathSegments[i]) {
+            searchedDirectory = child;
+            pathFound = true;
+            break;
+          }
+        }
+      }
+      if (!pathFound) {
+        return null;
+      }
+    }
+
+    let fileName = pathSegments[pathSegments.length - 1]; // The final part of the path, which is the actual file
+    // e.g. in /home/nikos/index.html, this is index.html
+
+    let result: FileSystemEntity | null = null;
+
+    if (searchedDirectory.type === 'directory') {
+      for (let child of searchedDirectory.children!) {
+        if (child.name === fileName) {
+          result = child;
+          break;
+        }
+      }
+    }
+
+    return result;
 
   }
 
@@ -200,21 +224,23 @@ export class CodingComponent implements OnInit {
       if (fileName === '') {
         continue;
       }
-      const fullFilePath = this.getAbsolutePath(fileName);
-      if (fullFilePath === '') {
-        result += 'cat: ' + fileName + ': No such file or directory'; // TODO: \n
-      } // TODO: Check if it ends with /
-      else if (fileName.endsWith('/')) {
-        if (fullFilePath.endsWith('/')) {
-          result += 'cat: ' + fileName + ': Is a directory';
-        }
-        else { // TODO: If fullFilePath is actually a file and not a dir
-          result += 'cat: ' + fileName + ': Not a directory';
-        }
+      const absolutePath = this.getAbsolutePath(fileName);
+      const fileSystemEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
+
+      if (fileSystemEntity === null) {
+        result += 'cat: ' + fileName + ': No such file or directory';
+      }
+      else if (fileSystemEntity.type === 'directory') {
+        result += 'cat: ' + fileName + ': Is a directory';
+      }
+      else if (fileName.endsWith('/')) { // The user gave us a path that ends in /, which actually resolves, but the resolved path is a file, not a directory
+        result += 'cat: ' + fileName + ': Not a directory';
       }
       else {
-        result += fullFilePath; // TODO: File contents
+        result += fileSystemEntity.content;
       }
+
+      result += '\n';
     }
 
     this.previousCommands.push({
@@ -247,7 +273,7 @@ export class CodingComponent implements OnInit {
     this.innerTerminal.nativeElement.scrollTo({left: 0})
   }
 
-  goToPreviousCommand(): void {
+  goToPreviousCommand(): void { // TODO: Put the caret on the end of the line
     if (this.currentCommandHistoryIndex > 0) {
       this.currentCommandHistoryIndex--;
       this.currentCommand = this.commandHistory[this.currentCommandHistoryIndex];
