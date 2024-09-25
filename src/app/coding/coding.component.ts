@@ -55,6 +55,7 @@ export class CodingComponent implements OnInit {
 
     // TODO commands: cat, ls, cd (with .. and . and even ./ or ../), help, sudo, !!, whois/whoami
     // TODO files: about-me, code samples, w/e, we'll see
+    // TODO: Flags (ignore for now)
     switch (commandNoArgs) {
       case "":
         this.emptyCommand();
