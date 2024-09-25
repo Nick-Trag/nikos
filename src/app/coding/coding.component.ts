@@ -117,16 +117,15 @@ export class CodingComponent implements OnInit {
     this.previousCommands = [];
   }
 
+  // Returns the absolute path that a given path resolves to. This path does not necessarily exist, it is checked by other functions
   // DOES NOT HANDLE SPACES. Spaces are not allowed in paths in this filesystem
-  locateFile(fileName: string): string {
+  getAbsolutePath(fileName: string): string {
     if (fileName === '/') { // Return the root directory itself
       return '/';
     }
     if (fileName === '~') { // Return the home directory itself
       return homeDirectory;
     }
-
-    let fullFilePath = '';
 
     let searchPath: string[];
 
@@ -141,12 +140,10 @@ export class CodingComponent implements OnInit {
     else {
       searchPath = this.currentDirectory.split('/'); // We've been given a relative path, so we start the search from the current directory
     }
-    // TODO: Check if file actually exists
-    // TODO: Check if it ends with /
 
     const directories = fileName.split('/');
 
-    for (let directory of directories) { // TODO: Special treatment for the last part of the directory, which could be a file
+    for (let directory of directories) {
       if (directory === '' || directory === '.') {
         continue; // We are staying in the same directory
       }
@@ -159,23 +156,35 @@ export class CodingComponent implements OnInit {
         searchPath = searchPath.slice(0, searchPath.length - 1); // Go up and search in the parent directory
       }
       else {
-        if (false) { // If this directory doesn't exist
-          return '';
-        }
-
         searchPath.push(directory);
       }
     }
 
-    let currentDirectory: FileSystemEntity = root;
+    let fullFilePath = searchPath.join('/');
 
-    fullFilePath = searchPath.join('/');
-
-    if (false) { // TODO: If the path we've arrived to is a directory
-      fullFilePath += '/';
+    if (fullFilePath === '') { // The empty path is the root path
+      fullFilePath = '/';
     }
 
     return fullFilePath;
+  }
+
+  getFileSystemEntityByAbsolutePath(absolutePath: string): FileSystemEntity {
+    // TODO: Make this work
+    // let currentDirectory: FileSystemEntity = this.fileSystemRoot;
+    // for (let i = 1; i < searchPath.length - 1; i++) { // Starting from i = 0, as i = 0 is always the root path: ''
+    //   if (currentDirectory.type === 'directory') {
+    //     for (let child of currentDirectory.children!) {
+    //       if (child.name === searchPath[i]) {
+    //         currentDirectory = child;
+    //         break;
+    //       }
+    //     }
+    //   }
+    // }
+
+    return this.fileSystemRoot;
+
   }
 
   cat(fullCommand: string): void {
@@ -191,10 +200,10 @@ export class CodingComponent implements OnInit {
       if (fileName === '') {
         continue;
       }
-      const fullFilePath = this.locateFile(fileName);
+      const fullFilePath = this.getAbsolutePath(fileName);
       if (fullFilePath === '') {
         result += 'cat: ' + fileName + ': No such file or directory'; // TODO: \n
-      }
+      } // TODO: Check if it ends with /
       else if (fileName.endsWith('/')) {
         if (fullFilePath.endsWith('/')) {
           result += 'cat: ' + fileName + ': Is a directory';
