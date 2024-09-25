@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { Directory, FileSystemEntity, root } from "../file-system";
+import { FileSystemEntity, root } from "../file-system";
 
 interface Command {
   command: string;
@@ -20,7 +20,7 @@ const homeDirectory = '/home/nikos';
   styleUrl: './coding.component.scss',
 })
 export class CodingComponent implements OnInit {
-  fileSystemRoot: Directory = root;
+  fileSystemRoot: FileSystemEntity = root;
   currentDirectory: string = homeDirectory;
   previousCommands: Command[] = [ // Sample history to make sure it is working. Will start blank, or with some help command(s)
     {
