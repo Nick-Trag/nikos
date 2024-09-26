@@ -263,23 +263,81 @@ export class CodingComponent implements OnInit {
     });
   }
 
+  // Helper function for when we need to run ls on the current directory. Returns the result directly as a string
+  lsCurrentDir(): string {
+    let result = '';
+    const currentDirectoryEntity = this.getFileSystemEntityByAbsolutePath(this.currentDirectory);
+    for (let child of currentDirectoryEntity!.children!) {
+      result += child.name;
+      if (child.type === 'directory') {
+        result += '/';
+      }
+      result += '\n';
+    }
+    return result;
+  }
+
   ls(fullCommand: string): void {
     const commandArgs: string[] = fullCommand.split(' ').slice(1);
 
     let result = '';
 
     if (commandArgs.length === 0) { // No file name or directory name was given, so we ls the current directory
-      const currentDirectoryEntity = this.getFileSystemEntityByAbsolutePath(this.currentDirectory);
-      for (let child of currentDirectoryEntity!.children!) {
-        result += child.name;
-        if (child.type === 'directory') {
-          result += '/';
-        }
-        result += '\n';
-      }
+      result = this.lsCurrentDir();
     }
-    else {
-      // TODO: If we get one or more dirs given to us, ignoring flags
+    else { // If we get one or more dirs given to us
+      const resultingLists: string[][] = []; // Used to store the result of each individual ls operation
+
+      for (let commandArg of commandArgs) {
+        if (commandArg === '' || commandArg.startsWith('-')) { // Ignore all flags and whitespace
+          continue;
+        }
+
+        const absolutePath = this.getAbsolutePath(commandArg);
+        const directoryEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
+
+        if (directoryEntity === null) {
+          resultingLists.push([`ls: cannot access '${commandArg}': No such file or directory`]);
+          continue;
+        }
+
+        if (directoryEntity.type === 'file') {
+          resultingLists.push([commandArg + ':', directoryEntity.name]);
+          continue;
+        }
+
+        const directoryChildren: string[] = [commandArg + ':']; // Start by pushing the file/dir name that was requested
+
+        for (let child of directoryEntity.children!) {
+          let fileName = child.name;
+          if (child.type === 'directory') {
+            fileName += '/';
+          }
+          directoryChildren.push(fileName);
+        }
+
+        resultingLists.push(directoryChildren);
+
+      }
+
+      if (resultingLists.length === 0) { // The only arguments we have been given are flags and whitespaces, so we ls the current directory
+        result = this.lsCurrentDir();
+      }
+      else if (resultingLists.length === 1) {
+        for (let i = 1; i < resultingLists[0].length; i++) { // Ignore the first item in the list, as it is the file name, which we won't show if it is the only one
+          result += resultingLists[0][i] + '\n'; // TODO: This causes the error message to not appear properly when looking up a single invalid thing (e.g. ls docs)
+        }
+      }
+      else if (resultingLists.length > 1) {
+        for (let outputList of resultingLists) {
+          for (let output of outputList) {
+            result += output + '\n';
+          }
+          result += '\n';
+        }
+        result = result.slice(0, result.length - 1); // Remove the final \n, to make it look better and more consistent
+      }
+
     }
 
     this.previousCommands.push({
