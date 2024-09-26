@@ -324,8 +324,13 @@ export class CodingComponent implements OnInit {
         result = this.lsCurrentDir();
       }
       else if (resultingLists.length === 1) {
+        if (resultingLists[0].length === 1) {
+          // This means that this is an error message, so the file name has not been given. Therefore, we don't ignore the first (and only) item
+          // This if statement is only satisfied if we use ls with a single error-causing argument, such as: ls /home/fakeDir or ls  -x  /home  -la --hello
+          result = resultingLists[0][0];
+        }
         for (let i = 1; i < resultingLists[0].length; i++) { // Ignore the first item in the list, as it is the file name, which we won't show if it is the only one
-          result += resultingLists[0][i] + '\n'; // TODO: This causes the error message to not appear properly when looking up a single invalid thing (e.g. ls docs)
+          result += resultingLists[0][i] + '\n';
         }
       }
       else if (resultingLists.length > 1) {
