@@ -353,7 +353,15 @@ export class CodingComponent implements OnInit {
   }
 
   cd(fullCommand: string): void {
+    const startingDirectory = this.currentDirectory;
+    const commandArgs: string[] = fullCommand.split(' ').slice(1);
 
+
+    this.previousCommands.push({
+      command: fullCommand,
+      directory: startingDirectory,
+      result: '',
+    });
   }
 
   commandNotImplemented(fullCommand: string, commandNoArgs: string): void {
