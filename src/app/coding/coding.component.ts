@@ -31,7 +31,7 @@ export class CodingComponent implements OnInit {
     {
       command: 'ls',
       directory: homeDirectory,
-      result: `fileA.txt\nfileB.txt\nfileC.txt`,
+      result: `test1.txt\ntest2.txt\ntest3.txt`,
     }
   ];
   currentCommand: string = '';
@@ -116,6 +116,11 @@ export class CodingComponent implements OnInit {
 
   clear(): void {
     this.previousCommands = [];
+  }
+
+  // Formats the home directory and its sub-dirs to use the ~ representation
+  formatHomeSubDirs(directory: string): string {
+    return directory.startsWith(homeDirectory) ? directory.replace(homeDirectory, '~') : directory;
   }
 
   // Returns the absolute path that a given path resolves to. This path does not necessarily exist, it is checked by other functions
@@ -209,7 +214,6 @@ export class CodingComponent implements OnInit {
     }
 
     return result;
-
   }
 
   cat(fullCommand: string): void {
@@ -221,10 +225,14 @@ export class CodingComponent implements OnInit {
       result = 'cat: no file name given';
     }
 
+    let fileNamesGiven = 0;
+
     for (let fileName of commandArgs) {
-      if (fileName === '') {
+      if (fileName === '' || fileName.startsWith('-')) { // Ignore all flags and whitespace
         continue;
       }
+
+      fileNamesGiven++;
       const absolutePath = this.getAbsolutePath(fileName);
       const fileSystemEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
 
@@ -242,6 +250,10 @@ export class CodingComponent implements OnInit {
       }
 
       result += '\n';
+    }
+
+    if (fileNamesGiven === 0) {
+      result = 'cat: no file name given';
     }
 
     this.previousCommands.push({

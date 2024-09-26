@@ -7,10 +7,10 @@
           <div class="terminal-line"> <!-- Terminal line -->
             <div class="text-nowrap">
               <span class="text-emerald-500">user&#64;nikostragkas.eu</span>:
-              <span class="text-blue-500 mr-[0.05rem]">{{command.directory  === '/home/nikos' ? '~' : command.directory}}</span>
+              <span class="text-blue-500 mr-[0.05rem]">{{formatHomeSubDirs(command.directory)}}</span>
               <span class="text-blue-200">$</span>
             </div>
-            <div class="terminal-input whitespace-pre">{{command.command}}</div>
+            <div class="terminal-input whitespace-pre text-nowrap">{{command.command}}</div> <!-- TODO: Test this nowrap on mobile -->
           </div>
           <!-- Possible TODO: Add slight breathing room on the right when the content overflows (can add mr-2 to inner-terminal) -->
           <div class="px-2 -my-2 whitespace-pre">{{command.result}}</div>
@@ -18,7 +18,7 @@
         <div class="terminal-line"> <!-- Terminal line -->
           <div class="text-nowrap">
             <span class="text-emerald-500">user&#64;nikostragkas.eu</span>:
-            <span class="text-blue-500 mr-[0.05rem]">{{currentDirectory === '/home/nikos' ? '~' : currentDirectory}}</span>
+            <span class="text-blue-500 mr-[0.05rem]">{{formatHomeSubDirs(currentDirectory)}}</span>
             <span class="text-blue-200">$</span>
           </div>
           <input type="text" class="terminal-input" (keydown.enter)="handleCommand()" (keydown.arrowUp)="goToPreviousCommand()"
