@@ -264,7 +264,29 @@ export class CodingComponent implements OnInit {
   }
 
   ls(fullCommand: string): void {
+    const commandArgs: string[] = fullCommand.split(' ').slice(1);
 
+    let result = '';
+
+    if (commandArgs.length === 0) { // No file name or directory name was given, so we ls the current directory
+      const currentDirectoryEntity = this.getFileSystemEntityByAbsolutePath(this.currentDirectory);
+      for (let child of currentDirectoryEntity!.children!) {
+        result += child.name;
+        if (child.type === 'directory') {
+          result += '/';
+        }
+        result += '\n';
+      }
+    }
+    else {
+      // TODO: If we get one or more dirs given to us, ignoring flags
+    }
+
+    this.previousCommands.push({
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: result,
+    });
   }
 
   cd(fullCommand: string): void {
