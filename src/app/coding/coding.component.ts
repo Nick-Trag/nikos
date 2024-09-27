@@ -51,33 +51,10 @@ export class CodingComponent implements OnInit {
   handleCommand(): void {
     const fullCommand: string = this.currentCommand.trim();
 
-    const commandNoArgs: string = fullCommand === '' ? '' : fullCommand.split(' ')[0];
+    const commandResult = this.getCommandResult(fullCommand);
 
-    // TODO commands: cat, ls, cd (with .. and . and even ./ or ../), help, sudo, !!, whois/whoami
-    // TODO files: about-me, code samples, w/e, we'll see
-    // TODO: Flags (ignore for now)
-    switch (commandNoArgs) {
-      case "":
-        this.emptyCommand();
-        break;
-      case "pwd":
-        this.pwd(fullCommand);
-        break;
-      case "cat":
-        this.cat(fullCommand);
-        break;
-      case "cd":
-        this.cd(fullCommand);
-        break;
-      case "ls":
-        this.ls(fullCommand);
-        break;
-      case "clear":
-        this.clear();
-        break;
-      default:
-        this.commandNotImplemented(fullCommand, commandNoArgs);
-        break;
+    if (commandResult !== null) {
+      this.previousCommands.push(commandResult);
     }
 
     // Save the command history, for pressing the up and down arrow keys
@@ -97,25 +74,31 @@ export class CodingComponent implements OnInit {
     }); // In a setTimeout, to force the UI to update first, before scrolling
   }
 
-  emptyCommand(): void {
-    this.previousCommands.push({
+  emptyCommand(): Command {
+    return {
       command: '',
       directory: this.currentDirectory,
       result: '',
-    });
+    };
+    // this.previousCommands.push({
+    //   command: '',
+    //   directory: this.currentDirectory,
+    //   result: '',
+    // });
   }
 
-  pwd(fullCommand: string): void {
-    const command: Command = {
+  pwd(fullCommand: string): Command {
+    return {
       command: fullCommand,
       directory: this.currentDirectory,
       result: this.currentDirectory,
     };
-    this.previousCommands.push(command);
+    // this.previousCommands.push(command);
   }
 
-  clear(): void {
+  clear(): null {
     this.previousCommands = [];
+    return null;
   }
 
   // Formats the home directory and its sub-dirs to use the ~ representation
@@ -216,7 +199,69 @@ export class CodingComponent implements OnInit {
     return result;
   }
 
-  cat(fullCommand: string): void {
+  sudo(fullCommand: string): Command | null {
+    const sudoArgs: string[] = fullCommand.split(' ').filter((sudoArg) => sudoArg !== '' && !sudoArg.startsWith('-')).slice(1);
+    let resultingCommand: Command | null = {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: '',
+    };
+
+    if (sudoArgs.length === 0) {
+      resultingCommand.result = 'sudo: no command given'
+      return resultingCommand;
+    }
+
+    const sudoCommand: string = sudoArgs.join(' ');
+
+    resultingCommand = this.getCommandResult(sudoCommand);
+
+    if (resultingCommand !== null) {
+      resultingCommand.command = fullCommand;
+    }
+
+    return resultingCommand;
+  }
+
+  getCommandResult(fullCommand: string): Command | null {
+    const commandNoArgs: string = fullCommand === '' ? '' : fullCommand.split(' ')[0];
+
+    let commandResult: Command | null;
+
+    // TODO commands: cat, ls, cd (with .. and . and even ./ or ../), help, sudo, !!, whois/whoami
+    // TODO files: about-me, code samples, w/e, we'll see
+    // TODO: Flags (ignore for now)
+    switch (commandNoArgs) {
+      case "":
+        commandResult = this.emptyCommand();
+        break;
+      case "sudo":
+        commandResult = this.sudo(fullCommand);
+        break;
+      case "pwd":
+        commandResult = this.pwd(fullCommand);
+        break;
+      case "cat":
+        commandResult = this.cat(fullCommand);
+        break;
+      case "cd":
+        commandResult = this.cd(fullCommand);
+        break;
+      case "ls":
+        commandResult = this.ls(fullCommand);
+        break;
+      case "clear":
+        commandResult = this.clear();
+        break;
+      default:
+        commandResult = this.commandNotImplemented(fullCommand, commandNoArgs);
+        break;
+    }
+
+    return commandResult;
+  }
+
+  cat(fullCommand: string): Command {
     const commandArgs: string[] = fullCommand.split(' ').slice(1);
 
     let result = '';
@@ -256,11 +301,16 @@ export class CodingComponent implements OnInit {
       result = 'cat: no file name given';
     }
 
-    this.previousCommands.push({
+    return {
       command: fullCommand,
       directory: this.currentDirectory,
       result: result,
-    });
+    };
+    // this.previousCommands.push({
+    //   command: fullCommand,
+    //   directory: this.currentDirectory,
+    //   result: result,
+    // });
   }
 
   // Helper function for when we need to run ls on the current directory. Returns the result directly as a string
@@ -277,7 +327,7 @@ export class CodingComponent implements OnInit {
     return result;
   }
 
-  ls(fullCommand: string): void {
+  ls(fullCommand: string): Command {
     const commandArgs: string[] = fullCommand.split(' ').slice(1);
 
     let result = '';
@@ -345,14 +395,19 @@ export class CodingComponent implements OnInit {
 
     }
 
-    this.previousCommands.push({
+    return {
       command: fullCommand,
       directory: this.currentDirectory,
       result: result,
-    });
+    };
+    // this.previousCommands.push({
+    //   command: fullCommand,
+    //   directory: this.currentDirectory,
+    //   result: result,
+    // });
   }
 
-  cd(fullCommand: string): void {
+  cd(fullCommand: string): Command {
     const startingDirectory = this.currentDirectory;
     let commandArgs: string[] = fullCommand.split(' ').slice(1);
     let errorMessage: string = ''; // Successful invocations do not trigger an output. This is used to output any error messages
@@ -381,20 +436,25 @@ export class CodingComponent implements OnInit {
       errorMessage = 'cd: Too many arguments';
     }
 
-    this.previousCommands.push({
+    return {
       command: fullCommand,
       directory: startingDirectory,
       result: errorMessage,
-    });
+    };
+    // this.previousCommands.push({
+    //   command: fullCommand,
+    //   directory: startingDirectory,
+    //   result: errorMessage,
+    // });
   }
 
-  commandNotImplemented(fullCommand: string, commandNoArgs: string): void {
-    const command: Command = {
+  commandNotImplemented(fullCommand: string, commandNoArgs: string): Command {
+    return {
       command: fullCommand,
       directory: this.currentDirectory,
       result: commandNoArgs + " has not been implemented",
-    }
-    this.previousCommands.push(command);
+    };
+    // this.previousCommands.push(command);
   }
 
   // Used to give focus to the input element whenever any place on the terminal is clicked
