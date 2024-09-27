@@ -230,7 +230,6 @@ export class CodingComponent implements OnInit {
 
     // TODO commands: cat, ls, cd (with .. and . and even ./ or ../), help, sudo, !!, whois/whoami
     // TODO files: about-me, code samples, w/e, we'll see
-    // TODO: Flags (ignore for now)
     switch (commandNoArgs) {
       case "":
         commandResult = this.emptyCommand();
@@ -262,7 +261,8 @@ export class CodingComponent implements OnInit {
   }
 
   cat(fullCommand: string): Command {
-    const commandArgs: string[] = fullCommand.split(' ').slice(1);
+    // Ignore all flags and whitespace
+    const commandArgs: string[] = fullCommand.split(' ').slice(1).filter((commandArg) => commandArg !== '' && !commandArg.startsWith('-'));
 
     let result = '';
 
@@ -270,14 +270,9 @@ export class CodingComponent implements OnInit {
       result = 'cat: no file name given';
     }
 
-    let fileNamesGiven = 0;
 
     for (let fileName of commandArgs) {
-      if (fileName === '' || fileName.startsWith('-')) { // Ignore all flags and whitespace
-        continue;
-      }
 
-      fileNamesGiven++;
       const absolutePath = this.getAbsolutePath(fileName);
       const fileSystemEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
 
@@ -297,20 +292,11 @@ export class CodingComponent implements OnInit {
       result += '\n';
     }
 
-    if (fileNamesGiven === 0) {
-      result = 'cat: no file name given';
-    }
-
     return {
       command: fullCommand,
       directory: this.currentDirectory,
       result: result,
     };
-    // this.previousCommands.push({
-    //   command: fullCommand,
-    //   directory: this.currentDirectory,
-    //   result: result,
-    // });
   }
 
   // Helper function for when we need to run ls on the current directory. Returns the result directly as a string
@@ -328,7 +314,8 @@ export class CodingComponent implements OnInit {
   }
 
   ls(fullCommand: string): Command {
-    const commandArgs: string[] = fullCommand.split(' ').slice(1);
+    const commandArgs: string[] = fullCommand.split(' ').slice(1).filter((commandArg) => commandArg !== '' && !commandArg.startsWith('-'));
+    // Ignore all flags and whitespace
 
     let result = '';
 
@@ -339,10 +326,6 @@ export class CodingComponent implements OnInit {
       const resultingLists: string[][] = []; // Used to store the result of each individual ls operation
 
       for (let commandArg of commandArgs) {
-        if (commandArg === '' || commandArg.startsWith('-')) { // Ignore all flags and whitespace
-          continue;
-        }
-
         const absolutePath = this.getAbsolutePath(commandArg);
         const directoryEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
 
@@ -370,13 +353,10 @@ export class CodingComponent implements OnInit {
 
       }
 
-      if (resultingLists.length === 0) { // The only arguments we have been given are flags and whitespaces, so we ls the current directory
-        result = this.lsCurrentDir();
-      }
-      else if (resultingLists.length === 1) {
+      if (resultingLists.length === 1) {
         if (resultingLists[0].length === 1) {
           // This means that this is an error message, so the file name has not been given. Therefore, we don't ignore the first (and only) item
-          // This if statement is only satisfied if we use ls with a single error-causing argument, such as: ls /home/fakeDir or ls  -x  /home  -la --hello
+          // This if statement is only satisfied if we use ls with a single error-causing argument, such as: ls /home/fakeDir or ls  -x  /home/fakeDir  -la --hello
           result = resultingLists[0][0];
         }
         for (let i = 1; i < resultingLists[0].length; i++) { // Ignore the first item in the list, as it is the file name, which we won't show if it is the only one
@@ -400,11 +380,6 @@ export class CodingComponent implements OnInit {
       directory: this.currentDirectory,
       result: result,
     };
-    // this.previousCommands.push({
-    //   command: fullCommand,
-    //   directory: this.currentDirectory,
-    //   result: result,
-    // });
   }
 
   cd(fullCommand: string): Command {
@@ -441,11 +416,6 @@ export class CodingComponent implements OnInit {
       directory: startingDirectory,
       result: errorMessage,
     };
-    // this.previousCommands.push({
-    //   command: fullCommand,
-    //   directory: startingDirectory,
-    //   result: errorMessage,
-    // });
   }
 
   commandNotImplemented(fullCommand: string, commandNoArgs: string): Command {
@@ -454,7 +424,6 @@ export class CodingComponent implements OnInit {
       directory: this.currentDirectory,
       result: commandNoArgs + " has not been implemented",
     };
-    // this.previousCommands.push(command);
   }
 
   // Used to give focus to the input element whenever any place on the terminal is clicked
