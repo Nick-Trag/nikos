@@ -125,7 +125,7 @@ export class CodingComponent implements OnInit {
 
   // Returns the absolute path that a given path resolves to. This path does not necessarily exist, it is checked by other functions
   // DOES NOT HANDLE SPACES. Spaces are not allowed in paths in this filesystem
-  getAbsolutePath(fileName: string): string { // TODO: Bug found. When current dir is /, does not find home, or home/, or even ./home (probably all relative path to /)
+  getAbsolutePath(fileName: string): string {
     if (fileName === '/') { // Return the root directory itself
       return '/';
     }
@@ -144,7 +144,7 @@ export class CodingComponent implements OnInit {
       fileName = fileName.slice(2, fileName.length);
     }
     else {
-      searchPath = this.currentDirectory.split('/'); // We've been given a relative path, so we start the search from the current directory
+      searchPath = this.currentDirectory === '/' ? [''] : this.currentDirectory.split('/'); // We've been given a relative path, so we start the search from the current directory
     }
 
     const directories = fileName.split('/');
