@@ -74,33 +74,6 @@ export class CodingComponent implements OnInit {
     }); // In a setTimeout, to force the UI to update first, before scrolling
   }
 
-  emptyCommand(): Command {
-    return {
-      command: '',
-      directory: this.currentDirectory,
-      result: '',
-    };
-    // this.previousCommands.push({
-    //   command: '',
-    //   directory: this.currentDirectory,
-    //   result: '',
-    // });
-  }
-
-  pwd(fullCommand: string): Command {
-    return {
-      command: fullCommand,
-      directory: this.currentDirectory,
-      result: this.currentDirectory,
-    };
-    // this.previousCommands.push(command);
-  }
-
-  clear(): null {
-    this.previousCommands = [];
-    return null;
-  }
-
   // Formats the home directory and its sub-dirs to use the ~ representation
   formatHomeSubDirs(directory: string): string {
     return directory.startsWith(homeDirectory) ? directory.replace(homeDirectory, '~') : directory;
@@ -199,36 +172,12 @@ export class CodingComponent implements OnInit {
     return result;
   }
 
-  sudo(fullCommand: string): Command | null {
-    const sudoArgs: string[] = fullCommand.split(' ').filter((sudoArg) => sudoArg !== '' && !sudoArg.startsWith('-')).slice(1);
-    let resultingCommand: Command | null = {
-      command: fullCommand,
-      directory: this.currentDirectory,
-      result: '',
-    };
-
-    if (sudoArgs.length === 0) {
-      resultingCommand.result = 'sudo: no command given'
-      return resultingCommand;
-    }
-
-    const sudoCommand: string = sudoArgs.join(' ');
-
-    resultingCommand = this.getCommandResult(sudoCommand);
-
-    if (resultingCommand !== null) {
-      resultingCommand.command = fullCommand;
-    }
-
-    return resultingCommand;
-  }
-
   getCommandResult(fullCommand: string): Command | null {
     const commandNoArgs: string = fullCommand === '' ? '' : fullCommand.split(' ')[0];
 
     let commandResult: Command | null;
 
-    // TODO commands: cat, ls, cd (with .. and . and even ./ or ../), help, sudo, !!, whois/whoami
+    // TODO commands: cat, ls, cd, sudo,..., help, !!, whois/whoami
     // TODO files: about-me, code samples, w/e, we'll see
     switch (commandNoArgs) {
       case "":
@@ -258,6 +207,57 @@ export class CodingComponent implements OnInit {
     }
 
     return commandResult;
+  }
+
+  emptyCommand(): Command {
+    return {
+      command: '',
+      directory: this.currentDirectory,
+      result: '',
+    };
+    // this.previousCommands.push({
+    //   command: '',
+    //   directory: this.currentDirectory,
+    //   result: '',
+    // });
+  }
+
+  pwd(fullCommand: string): Command {
+    return {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: this.currentDirectory,
+    };
+    // this.previousCommands.push(command);
+  }
+
+  clear(): null {
+    this.previousCommands = [];
+    return null;
+  }
+
+  sudo(fullCommand: string): Command | null {
+    const sudoArgs: string[] = fullCommand.split(' ').filter((sudoArg) => sudoArg !== '' && !sudoArg.startsWith('-')).slice(1);
+    let resultingCommand: Command | null = {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: '',
+    };
+
+    if (sudoArgs.length === 0) {
+      resultingCommand.result = 'sudo: no command given'
+      return resultingCommand;
+    }
+
+    const sudoCommand: string = sudoArgs.join(' ');
+
+    resultingCommand = this.getCommandResult(sudoCommand);
+
+    if (resultingCommand !== null) {
+      resultingCommand.command = fullCommand;
+    }
+
+    return resultingCommand;
   }
 
   cat(fullCommand: string): Command {
