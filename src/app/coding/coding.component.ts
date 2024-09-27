@@ -22,18 +22,7 @@ const homeDirectory = '/home/nikos';
 export class CodingComponent implements OnInit {
   fileSystemRoot: FileSystemEntity = root;
   currentDirectory: string = homeDirectory;
-  previousCommands: Command[] = [ // Sample history to make sure it is working. Will start blank, or with some help command(s)
-    {
-      command: 'pwd',
-      directory: homeDirectory,
-      result: homeDirectory,
-    },
-    {
-      command: 'ls',
-      directory: homeDirectory,
-      result: `test1.txt\ntest2.txt\ntest3.txt`,
-    }
-  ];
+  previousCommands: Command[] = [];
   currentCommand: string = '';
   commandHistory: string[] = []; // Command history for the up and down buttons
   currentCommandHistoryIndex: number = 0; // Which command history item we are currently editing. If it is equal to commandHistory.length, we are creating a new item
@@ -43,6 +32,10 @@ export class CodingComponent implements OnInit {
   private innerTerminal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
+    // Adding some already ran commands to the history. TODO: Will probably actually start with some help command(s)
+    this.previousCommands.push(this.pwd('pwd'));
+    this.previousCommands.push(this.ls('ls'));
+
     setTimeout(() => {
       this.terminalInput.nativeElement.focus();
     }, 1000); // TODO: Use the loading screen shown logic to use a better timeout (this fucks up the loading screen animations)
