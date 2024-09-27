@@ -125,7 +125,7 @@ export class CodingComponent implements OnInit {
 
   // Returns the absolute path that a given path resolves to. This path does not necessarily exist, it is checked by other functions
   // DOES NOT HANDLE SPACES. Spaces are not allowed in paths in this filesystem
-  getAbsolutePath(fileName: string): string {
+  getAbsolutePath(fileName: string): string { // TODO: Bug found. When current dir is /, does not find home, or home/, or even ./home (probably all relative path to /)
     if (fileName === '/') { // Return the root directory itself
       return '/';
     }
@@ -352,46 +352,33 @@ export class CodingComponent implements OnInit {
     });
   }
 
-  cd(fullCommand: string): void { // TODO: Still kinda buggy
+  cd(fullCommand: string): void {
     const startingDirectory = this.currentDirectory;
-    const commandArgs: string[] = fullCommand.split(' ').slice(1);
-    let nArgs = 0; // Counts the number of arguments to the command (flags such as -h and --help don't count)
+    let commandArgs: string[] = fullCommand.split(' ').slice(1);
     let errorMessage: string = ''; // Successful invocations do not trigger an output. This is used to output any error messages
-    let newDir: string = ''; // The resolved new path if it is available
 
-    for (let commandArg of commandArgs) {
-      if (commandArg === '' || commandArg.startsWith('-')) { // Ignore all whitespace and flags
-        continue;
-      }
+    commandArgs = commandArgs.filter((commandArg) => commandArg !== '' && !commandArg.startsWith('-')); // Ignore all whitespace and flags
 
+    if (commandArgs.length === 0) {
+      this.currentDirectory = homeDirectory;
+    }
+    else if (commandArgs.length === 1) {
+      const commandArg = commandArgs[0];
       const absolutePath = this.getAbsolutePath(commandArg);
       const fileSystemEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
 
-      nArgs++;
-
-      if (nArgs > 1) { // This error message takes priority over all the others
-        errorMessage = 'cd: Too many arguments';
-        break;
-      }
-
       if (fileSystemEntity === null) {
         errorMessage = `cd: ${commandArg}: No such file or directory`;
-        continue;
       }
-
-      if (fileSystemEntity.type === 'file') {
+      else if (fileSystemEntity.type === 'file') {
         errorMessage = `cd: ${commandArg}: Not a directory`;
-        continue;
       }
-
-      newDir = absolutePath;
+      else {
+        this.currentDirectory = absolutePath;
+      }
     }
-
-    if (nArgs === 0) {
-      this.currentDirectory = homeDirectory;
-    }
-    else if (nArgs === 1) {
-      this.currentDirectory = newDir;
+    else if (commandArgs.length > 1) {
+      errorMessage = 'cd: Too many arguments';
     }
 
     this.previousCommands.push({
