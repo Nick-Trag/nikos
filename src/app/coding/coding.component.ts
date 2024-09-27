@@ -352,15 +352,52 @@ export class CodingComponent implements OnInit {
     });
   }
 
-  cd(fullCommand: string): void {
+  cd(fullCommand: string): void { // TODO: Still kinda buggy
     const startingDirectory = this.currentDirectory;
     const commandArgs: string[] = fullCommand.split(' ').slice(1);
+    let nArgs = 0; // Counts the number of arguments to the command (flags such as -h and --help don't count)
+    let errorMessage: string = ''; // Successful invocations do not trigger an output. This is used to output any error messages
+    let newDir: string = ''; // The resolved new path if it is available
 
+    for (let commandArg of commandArgs) {
+      if (commandArg === '' || commandArg.startsWith('-')) { // Ignore all whitespace and flags
+        continue;
+      }
+
+      const absolutePath = this.getAbsolutePath(commandArg);
+      const fileSystemEntity = this.getFileSystemEntityByAbsolutePath(absolutePath);
+
+      nArgs++;
+
+      if (nArgs > 1) { // This error message takes priority over all the others
+        errorMessage = 'cd: Too many arguments';
+        break;
+      }
+
+      if (fileSystemEntity === null) {
+        errorMessage = `cd: ${commandArg}: No such file or directory`;
+        continue;
+      }
+
+      if (fileSystemEntity.type === 'file') {
+        errorMessage = `cd: ${commandArg}: Not a directory`;
+        continue;
+      }
+
+      newDir = absolutePath;
+    }
+
+    if (nArgs === 0) {
+      this.currentDirectory = homeDirectory;
+    }
+    else if (nArgs === 1) {
+      this.currentDirectory = newDir;
+    }
 
     this.previousCommands.push({
       command: fullCommand,
       directory: startingDirectory,
-      result: '',
+      result: errorMessage,
     });
   }
 
