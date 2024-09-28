@@ -32,7 +32,7 @@ export class CodingComponent implements OnInit {
   private innerTerminal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    // Adding some already ran commands to the history. TODO: Will probably actually start with some help command(s)
+    // Adding some already run commands to the history. TODO: Will probably actually start with some help command(s). Also, might wanna put them in the commandHistory
     this.previousCommands.push(this.pwd('pwd'));
     this.previousCommands.push(this.ls('ls'));
 
@@ -42,7 +42,11 @@ export class CodingComponent implements OnInit {
   }
 
   handleCommand(): void {
-    const fullCommand: string = this.currentCommand.trim();
+    let fullCommand: string = this.currentCommand.trim();
+
+    if (this.commandHistory.length > 0) {
+      fullCommand = fullCommand.replaceAll('!!', this.commandHistory[this.commandHistory.length - 1]); // any instance of !! is replaced by the last command
+    }
 
     const commandResult = this.getCommandResult(fullCommand);
 
@@ -170,7 +174,7 @@ export class CodingComponent implements OnInit {
 
     let commandResult: Command | null;
 
-    // TODO commands: cat, ls, cd, sudo,..., help, !!, whois/whoami
+    // TODO commands: cat, ls, cd, sudo, !!, ..., help, whois/whoami
     // TODO files: about-me, code samples, w/e, we'll see
     switch (commandNoArgs) {
       case "":
