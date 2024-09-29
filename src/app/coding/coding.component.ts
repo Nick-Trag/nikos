@@ -195,6 +195,9 @@ export class CodingComponent implements OnInit {
       case "ls":
         commandResult = this.ls(fullCommand);
         break;
+      case "help":
+        commandResult = this.help(fullCommand);
+        break;
       case "clear":
         commandResult = this.clear();
         break;
@@ -413,6 +416,14 @@ export class CodingComponent implements OnInit {
       directory: startingDirectory,
       result: errorMessage,
     };
+  }
+
+  help(fullCommand: string): Command {
+    return {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: 'Available commands:\npwd\tPrints the current working directory\ncd\tChanges directory\nls\tLists the contents of a directory',
+    }
   }
 
   commandNotImplemented(fullCommand: string, commandNoArgs: string): Command {
