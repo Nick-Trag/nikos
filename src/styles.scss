@@ -59,6 +59,10 @@ body, html {
   overflow-x: clip;
 }
 
+html {
+  background-color: black;
+}
+
 .enter-transition {
   transition-property: all;
   transition-duration: 1s;
