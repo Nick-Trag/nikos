@@ -443,9 +443,12 @@ export class CodingComponent implements OnInit {
     if (commandArgs.length === 0) {
       // TODO: General info about this terminal before printing the command explanations
 
+      result += 'Available commands:\n';
       for (let [commandName, helpResult] of helpResults) {
-        result += commandName + ': ' + helpResult + '\n';
+        result += commandName + ': ' + helpResult + '\n\n';
       }
+
+      result = result.slice(0, result.length - 1); // Remove the final \n
 
       return {
         command: fullCommand,
@@ -456,12 +459,14 @@ export class CodingComponent implements OnInit {
 
     for (let commandName of commandArgs) {
       if (!helpResults.has(commandName)) {
-        result += commandName + ': Command does not exist\n';
+        result += commandName + ': Command does not exist\n\n';
         continue;
       }
 
-      result += commandName + ': ' + helpResults.get(commandName) + '\n';
+      result += commandName + ': ' + helpResults.get(commandName) + '\n\n';
     }
+
+    result = result.slice(0, result.length - 1); // Remove the final \n
 
     return {
       command: fullCommand,
