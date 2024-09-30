@@ -10,6 +10,17 @@ interface Command {
 
 const homeDirectory = '/home/nikos';
 
+const helpResults = new Map([
+  ['pwd', 'Print the current working directory to the console'],
+  ['cd', 'Change the current directory'],
+  ['ls', 'List all the items in a directory'],
+  ['cat', 'Show the contents of a file'],
+  ['help', 'Show help information about the terminal'],
+  ['whoami', 'Print information about the owner of this website'],
+  ['whois', 'Print information about other people'],
+  ['clear', 'Clear the terminal'],
+]);
+
 @Component({
   selector: 'app-coding',
   standalone: true,
@@ -197,6 +208,12 @@ export class CodingComponent implements OnInit {
         break;
       case "help":
         commandResult = this.help(fullCommand);
+        break;
+      case "whoami":
+        commandResult = this.whoami(fullCommand);
+        break;
+      case "vim":
+        commandResult = this.vim(fullCommand);
         break;
       case "clear":
         commandResult = this.clear();
@@ -419,11 +436,54 @@ export class CodingComponent implements OnInit {
   }
 
   help(fullCommand: string): Command {
+    const commandArgs: string[] = fullCommand.split(' ').slice(1).filter((commandArg) => commandArg !== '' && !commandArg.startsWith('-'));
+
+    let result: string = '';
+
+    if (commandArgs.length === 0) {
+      // TODO: General info about this terminal before printing the command explanations
+
+      for (let [commandName, helpResult] of helpResults) {
+        result += commandName + ': ' + helpResult + '\n';
+      }
+
+      return {
+        command: fullCommand,
+        directory: this.currentDirectory,
+        result: result,
+      };
+    }
+
+    for (let commandName of commandArgs) {
+      if (!helpResults.has(commandName)) {
+        result += commandName + ': Command does not exist\n';
+        continue;
+      }
+
+      result += commandName + ': ' + helpResults.get(commandName) + '\n';
+    }
+
     return {
       command: fullCommand,
       directory: this.currentDirectory,
-      result: 'Available commands:\npwd\tPrints the current working directory\ncd\tChanges directory\nls\tLists the contents of a directory',
+      result: result,
     }
+  }
+
+  whoami(fullCommand: string): Command {
+    return {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: 'I am Nikos Tragkas, a software engineer from Thessaloniki, Greece.', // TODO: More details, better text
+    };
+  }
+
+  vim(fullCommand: string): Command {
+    return {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: "Do you really expect me to implement Vim in this make-shift terminal? 💀",
+    };
   }
 
   commandNotImplemented(fullCommand: string, commandNoArgs: string): Command {
