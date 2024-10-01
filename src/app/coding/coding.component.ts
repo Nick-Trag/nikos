@@ -21,7 +21,7 @@ const helpResults = new Map([
   ['clear', 'Clear the terminal'],
 ]);
 
-const friends = new Map([
+const whoisResults = new Map([
   ['nikos', 'Nikos is ...'],
   ['stella', 'Stella is ...'],
   ['ariadni', 'Ariadni is ...'],
@@ -508,12 +508,12 @@ export class CodingComponent implements OnInit {
 
     for (let name of commandArgs) {
       const lowerName: string = name.toLowerCase();
-      if (!friends.has(lowerName)) {
+      if (!whoisResults.has(lowerName)) {
         result += 'No information on ' + name + '\n\n';
         continue;
       }
 
-      result += friends.get(lowerName) + '\n\n';
+      result += whoisResults.get(lowerName) + '\n\n';
     }
 
     result = result.slice(0, result.length - 1); // Remove the final \n
