@@ -11,6 +11,17 @@ export const root: FileSystemEntity = {
   type: 'directory',
   children: [
     {
+      name: 'dev',
+      type: 'directory',
+      children: [
+        {
+          name: 'null',
+          type: 'file',
+          content: '',
+        },
+      ],
+    },
+    {
       name: 'home',
       type: 'directory',
       children: [
