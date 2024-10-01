@@ -60,8 +60,8 @@ export class CodingComponent implements OnInit {
 
   ngOnInit(): void {
     // Adding some already run commands to the history. TODO: Will probably actually start with some help command(s). Also, might wanna put them in the commandHistory. cat welcome.txt perhaps
+    this.previousCommands.push(this.cat('cat welcome.txt'));
     this.previousCommands.push(this.pwd('pwd'));
-    this.previousCommands.push(this.ls('ls'));
 
     setTimeout(() => {
       this.terminalInput.nativeElement.focus();
@@ -201,8 +201,6 @@ export class CodingComponent implements OnInit {
 
     let commandResult: Command | null;
 
-    // TODO commands: cat, ls, cd, sudo, !!, ..., help, whois/whoami
-    // TODO files: about-me, code samples, w/e, we'll see
     switch (commandNoArgs) {
       case "":
         commandResult = this.emptyCommand();

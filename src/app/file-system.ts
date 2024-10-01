@@ -5,6 +5,7 @@ export interface FileSystemEntity {
   content?: string; // Used if the entity is a file
 }
 
+// TODO files: about-me, code samples, w/e, we'll see
 export const root: FileSystemEntity = {
   name: '',
   type: 'directory',
@@ -18,23 +19,17 @@ export const root: FileSystemEntity = {
           type: 'directory',
           children: [
             {
-              name: 'test1.txt',
+              name: 'about-me.txt',
               type: 'file',
-              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sagittis libero. Ut sit amet molestie eros. ' +
-                'Vivamus volutpat venenatis arcu. Vivamus porttitor metus ut erat consequat, non congue purus tempor. Suspendisse in massa ultrices, ' +
-                'vehicula magna sit amet, finibus ex. Duis ut tincidunt nisi. Aenean semper eros ipsum. Duis lobortis, libero ac tempor bibendum, quam ' +
-                'nisi congue ligula, et pellentesque augue mi sed quam. Donec in sagittis libero, vel lobortis dui. Praesent feugiat lacus lorem, ' +
-                'eget aliquam ligula euismod nec. Cras maximus lacinia tellus nec hendrerit. Donec mattis mi et euismod aliquam.',
+              content: 'My name is Nikos Tragkas. I am a software engineer from Thessaloniki, Greece, with a passion for web development. ' +
+              'I have studied Computer Science and Artificial Intelligence. Among my many hobbies, the ones I love the most ' +
+              'are travelling, photography, coding, playing sports, going to the gym, and playing video games.',
             },
             {
-              name: 'test2.txt',
+              name: 'welcome.txt',
               type: 'file',
-              content: 'small text content',
-            },
-            {
-              name: 'test3.txt',
-              type: 'file',
-              content: 'This is the third and final .txt file in the filesystem',
+              content: 'Welcome to the terminal! You can browse around using standard Linux commands, such as \'cd\', ' +
+              '\'ls\', and \'cat\'. Type \'help\' if you need a list of the commands and their uses.',
             },
             {
               name: 'documents',
