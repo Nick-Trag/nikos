@@ -17,15 +17,24 @@ const helpResults = new Map([
   ['cat', 'Show the contents of a file'],
   ['help', 'Show help information about the terminal'],
   ['whoami', 'Print information about the owner of this website'],
-  ['whois', 'Print information about other people'],
+  // ['whois', 'Print information about other people'],
   ['clear', 'Clear the terminal'],
 ]);
 
 const whoisResults = new Map([
-  ['nikos', 'Nikos is ...'],
-  ['stella', 'Stella is ...'],
-  ['ariadni', 'Ariadni is ...'],
-  ['kostas', 'Kostas is ...'],
+  ['nikos', 'Nikos is the software engineer who created this website (me!)'],
+  ['stella', 'Stella is my girlfriend, whom I love very much  ❤️️'],
+  ['ariadni', 'Ariadni is my mother. She has a degree in library science and she used to own the liquor store \'Achaikos Faros\''],
+  ['kostas', 'Kostas is my father. He is also a programmer and part of what got me in this field'],
+  ['maria', 'Maria is my younger sister. She is a mathematician'],
+  ['gerasimos', 'Gerasimos is my younger brother, and future football star'],
+  ['dimitris', 'Dimitris is my best friend from school, who is now a chef'],
+  ['ilias', 'Ilias is my best friend, currently studying to be an automation engineer'],
+  ['grigo', 'Grigo is my friend, who has studied sports science, specializing in basketball'],
+  ['rouk', 'Rouk is my friend. He is a sports scientist, specializing in football'],
+  ['vaggelis', 'Vaggelis is my friend and Dimitris\' brother. He is a musician, who plays the guitar'],
+  ['leonidas', 'Leonidas is my friend from university, who now lives in Berlin'],
+  ['irene', 'Irene is my friend from university, who now lives in Geneva'],
 ]);
 
 @Component({
@@ -489,7 +498,7 @@ export class CodingComponent implements OnInit {
     return {
       command: fullCommand,
       directory: this.currentDirectory,
-      result: 'I am Nikos Tragkas, a software engineer from Thessaloniki, Greece.', // TODO: More details, better text
+      result: 'I am Nikos Tragkas, a software engineer from Thessaloniki, Greece',
     };
   }
 
