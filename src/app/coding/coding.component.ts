@@ -21,6 +21,13 @@ const helpResults = new Map([
   ['clear', 'Clear the terminal'],
 ]);
 
+const friends = new Map([
+  ['nikos', 'Nikos is ...'],
+  ['stella', 'Stella is ...'],
+  ['ariadni', 'Ariadni is ...'],
+  ['kostas', 'Kostas is ...'],
+]);
+
 @Component({
   selector: 'app-coding',
   standalone: true,
@@ -43,7 +50,7 @@ export class CodingComponent implements OnInit {
   private innerTerminal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    // Adding some already run commands to the history. TODO: Will probably actually start with some help command(s). Also, might wanna put them in the commandHistory
+    // Adding some already run commands to the history. TODO: Will probably actually start with some help command(s). Also, might wanna put them in the commandHistory. cat welcome.txt perhaps
     this.previousCommands.push(this.pwd('pwd'));
     this.previousCommands.push(this.ls('ls'));
 
@@ -211,6 +218,9 @@ export class CodingComponent implements OnInit {
         break;
       case "whoami":
         commandResult = this.whoami(fullCommand);
+        break;
+      case "whois":
+        commandResult = this.whois(fullCommand);
         break;
       case "vim":
         commandResult = this.vim(fullCommand);
@@ -480,6 +490,38 @@ export class CodingComponent implements OnInit {
       command: fullCommand,
       directory: this.currentDirectory,
       result: 'I am Nikos Tragkas, a software engineer from Thessaloniki, Greece.', // TODO: More details, better text
+    };
+  }
+
+  whois(fullCommand: string): Command {
+    const commandArgs: string[] = fullCommand.split(' ').slice(1).filter((commandArg) => commandArg !== '' && !commandArg.startsWith('-'));
+
+    if (commandArgs.length === 0) {
+      return {
+        command: fullCommand,
+        directory: this.currentDirectory,
+        result: 'whois: no arguments given',
+      };
+    }
+
+    let result: string = '';
+
+    for (let name of commandArgs) {
+      const lowerName: string = name.toLowerCase();
+      if (!friends.has(lowerName)) {
+        result += 'No information on ' + name + '\n\n';
+        continue;
+      }
+
+      result += friends.get(lowerName) + '\n\n';
+    }
+
+    result = result.slice(0, result.length - 1); // Remove the final \n
+
+    return {
+      command: fullCommand,
+      directory: this.currentDirectory,
+      result: result,
     };
   }
 
