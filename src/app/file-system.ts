@@ -29,7 +29,7 @@ export const root: FileSystemEntity = {
           name: 'nikos',
           type: 'directory',
           children: [
-            {
+            { // TODO: Paragraphs as needed
               name: 'about-me.txt',
               type: 'file',
               content: 'My name is Nikos Tragkas. I am a software engineer from Thessaloniki, Greece, with a passion for web development. ' +
@@ -39,22 +39,39 @@ export const root: FileSystemEntity = {
             {
               name: 'education.txt',
               type: 'file',
-              content: '',
+              content: 'I have a Bachelor\'s degree in Computer Science from the Aristotle University of Thessaloniki, and a Master\'s degree in Artificial Intelligence ' +
+              'from the same university. During my Master\'s cycle, I also spent one semester studying at the Universidad Politécnica de Madrid, as an Erasmus+ ' +
+              'exchange student.',
             },
             {
               name: 'experience.txt',
               type: 'file',
-              content: '',
+              content: 'I have worked as an intern front-end web developer at the Aristotle University\'s IT center during my studies, where I contributed to the development of ' +
+              'the new and open-source student information system, called UniverSIS, which is now used by multiple universities in Greece. ' +
+              'I also worked as a Software Engineer at INCA Hellas, where I completely modernized the company website, and where I was responsible for the ' +
+              'refactoring of a queueing system that is used my large companies across Greece.',
             },
             {
               name: 'projects.txt',
               type: 'file',
-              content: '',
+              content: 'My most recent personal project is this very website, in which I highlight and practice my skills ' +
+              'in web development, while also showcasing many of my interests and hobbies. Another personal project that I am particularly proud of is \'Wili Wishlist\', ' +
+              'an Android app that I created using Flutter, which is useful for saving and organizing a user\'s personal wishlist, with all the things they would like to buy. ' +
+              'Other than those, throughout many years I have worked on multiple projects, big and small, including Thessmetro, the Achaikos Faros website, the Criminal ' +
+              'Maps Android application, and the Domino desktop game.',
             },
             {
               name: 'hobbies.txt',
               type: 'file',
-              content: '',
+              content: 'I can have a different hobby in any given week, but the ones that have most stood the test of time and remained constant are:\n' +
+              '1. Travelling\n' +
+              '2. Photography\n' +
+              '3. Coding\n' +
+              '4. Going to the gym\n' +
+              '5. Playing sports\n' +
+              '6. Playing video games\n' +
+              'This website has information on all of the above, each page featuring something about one of my interests. This page in particular is focused on coding, ' +
+              'so there is an extra directory in this terminal, with more information about my coding journey. You can explore it to learn more!',
             },
             {
               name: 'welcome.txt',
@@ -63,9 +80,14 @@ export const root: FileSystemEntity = {
               '\'ls\', and \'cat\'. Type \'help\' if you need a list of the commands and their uses.',
             },
             {
-              name: 'code',
+              name: 'coding',
               type: 'directory',
               children: [
+                {
+                  name: 'info.txt',
+                  type: 'file',
+                  content: '',
+                },
                 {
                   name: 'hello.py',
                   type: 'file',
