@@ -37,19 +37,39 @@ export const root: FileSystemEntity = {
               'are travelling, photography, coding, playing sports, going to the gym, and playing video games.',
             },
             {
+              name: 'education.txt',
+              type: 'file',
+              content: '',
+            },
+            {
+              name: 'experience.txt',
+              type: 'file',
+              content: '',
+            },
+            {
+              name: 'projects.txt',
+              type: 'file',
+              content: '',
+            },
+            {
+              name: 'hobbies.txt',
+              type: 'file',
+              content: '',
+            },
+            {
               name: 'welcome.txt',
               type: 'file',
               content: 'Welcome to the terminal! You can browse around using standard Linux commands, such as \'cd\', ' +
               '\'ls\', and \'cat\'. Type \'help\' if you need a list of the commands and their uses.',
             },
             {
-              name: 'documents',
+              name: 'code',
               type: 'directory',
               children: [
                 {
-                  name: 'doc1.docx',
+                  name: 'hello.py',
                   type: 'file',
-                  content: 'XSS Testing <script>alert("hacked")</script>',
+                  content: 'print("Hello world!")',
                 },
               ],
             },
