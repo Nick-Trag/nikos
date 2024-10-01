@@ -29,7 +29,7 @@ export const root: FileSystemEntity = {
           name: 'nikos',
           type: 'directory',
           children: [
-            { // TODO: Paragraphs as needed
+            {
               name: 'about-me.txt',
               type: 'file',
               content: 'My name is Nikos Tragkas. I am a software engineer from Thessaloniki, Greece, with a passion for web development. ' +
@@ -48,8 +48,8 @@ export const root: FileSystemEntity = {
               type: 'file',
               content: 'I have worked as an intern front-end web developer at the Aristotle University\'s IT center during my studies, where I contributed to the development of ' +
               'the new and open-source student information system, called UniverSIS, which is now used by multiple universities in Greece. ' +
-              'I also worked as a Software Engineer at INCA Hellas, where I completely modernized the company website, and where I was responsible for the ' +
-              'refactoring of a queueing system that is used my large companies across Greece.',
+              'I also worked as a Software Engineer at INCA Hellas, where I completely modernized the company\'s website, and where I was responsible for the ' +
+              'refactoring of a queueing system that is used by large companies across Greece.',
             },
             {
               name: 'projects.txt',
