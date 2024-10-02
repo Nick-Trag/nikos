@@ -1,7 +1,7 @@
 <div class="my-24 max-w-5xl mx-auto" appObserver [inViewSignal]="inView" [threshold]="threshold">
   <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-slide-in-down]="!inView()">Experience</h1>
   <div class="jobs-container">
-    <div class="job-card enter-transition delay-300" [class.to-slide-in-down]="!inView()">
+    <div class="card job-card enter-transition delay-300" [class.to-slide-in-down]="!inView()">
       <div class="job-info">
         <div class="job-dates hidden sm:block text-pretty">Oct 2023 - Sep 2024</div>
         <div class="job-dates sm:hidden text-pretty">10/2023 - 09/2024</div> <!-- Gets a bit tight on mobile, so using shorter form dates to save space -->
@@ -12,7 +12,7 @@
       </div>
       <h2>INCA Hellas</h2>
       <h3>Software Engineer</h3>
-      <ul>
+      <ul class="bullet-points">
         <li>
           Was solely responsible for the refactoring and modernization of the company website
           <a href="https://incahellas.infinityfreeapp.com" target="_blank" class="text-nowrap">incahellas.gr <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
@@ -31,7 +31,7 @@
         </li>
       </ul>
     </div>
-    <div class="job-card enter-transition delay-500" [class.to-slide-in-down]="!inView()">
+    <div class="card job-card enter-transition delay-500" [class.to-slide-in-down]="!inView()">
       <div class="job-info">
         <div class="job-dates hidden sm:block text-pretty">Jul 2019 - Feb 2020</div>
         <div class="job-dates sm:hidden text-pretty">07/2019 - 02/2020</div>
@@ -42,7 +42,7 @@
       </div>
       <h2>AUTH IT Center</h2>
       <h3>Intern Front-end Web Developer</h3>
-      <ul>
+      <ul class="bullet-points">
         <li>
           Resolved bugs and implemented new features on UniverSIS, an updated and
           open

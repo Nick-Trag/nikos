@@ -8,13 +8,13 @@
   <div class="projects-container">
     @for (project of projects; track $index) {
       <a href="{{project.mainLink}}" [attr.target]="project.mainLink === '#' ? '' : '_blank'"
-         class="project-card enter-transition delay-100" [class.to-slide-in-down]="!inView[$index]()"
+         class="card project-card enter-transition delay-100" [class.to-slide-in-down]="!inView[$index]()"
          appObserver [inViewSignal]="inView[$index]" [threshold]="threshold" (click)="linkClicked($event, project.mainLink)">
         <div class="flex items-center flex-col md:flex-row gap-4 md:gap-8">
           <img ngSrc="{{project.imageLink}}" alt="{{project.imageAlt}}" class="project-logo md:mt-4" width="{{project.imageWidth}}" height="{{project.imageHeight}}">
           <div class="md:w-full">
             <h2 class="font-bold text-xl">{{ project.name }}</h2>
-            <ul class="text-start">
+            <ul class="text-start bullet-points">
               @for (listItem of project.bulletPoints; track $index) {
                 <li>{{listItem}}</li>
               }

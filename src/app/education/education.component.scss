@@ -1,17 +1,16 @@
-@use '../../styles/home-styles' as *;
-
 .schools-container {
-  @extend .base-container;
+  @apply flex;
   @apply flex-col;
   @apply almost-lg:flex-row;
   @apply items-center;
   @apply almost-lg:items-stretch;
   @apply gap-4;
+  @apply pt-4;
+  @apply px-2;
   justify-content: space-around;
 }
 
 .school-card {
-  @extend .card;
   align-items: center;
   @apply max-w-80;
 
