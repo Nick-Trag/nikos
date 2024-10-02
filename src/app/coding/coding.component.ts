@@ -458,8 +458,6 @@ export class CodingComponent implements OnInit {
     let result: string = '';
 
     if (commandArgs.length === 0) {
-      // TODO: General info about this terminal before printing the command explanations
-
       result += 'Available commands:\n';
       for (let [commandName, helpResult] of helpResults) {
         result += commandName + ': ' + helpResult + '\n\n';
