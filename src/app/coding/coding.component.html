@@ -13,8 +13,11 @@
             </div>
             <div class="terminal-input whitespace-pre text-nowrap">{{command.command}}</div>
           </div>
-          <!-- Possible TODO: Add slight breathing room on the right when the content overflows (can add mr-2 to inner-terminal) -->
-          <div class="px-2 -my-2 whitespace-pre-wrap">{{command.result}}</div>
+          <!-- Note: There is not much breathing room on the right when the content overflows. For now, this is by design, since the only alternative is to give a margin
+          to the parent, which also affects the scrollbar. However, I'm posting a link here in case I ever wanna change it
+          Reference: https://stackoverflow.com/a/10055302/7400287 -->
+          <div class="px-2 -my-2 whitespace-pre-wrap max-h-[9999999px]">{{command.result}}</div>
+          <!-- Mobile Chrome boosts some elements' font sizes for no reason. We set a max-height to prevent this. Reference: https://stackoverflow.com/a/12965146/7400287 -->
         }
         <div class="terminal-line"> <!-- Terminal line -->
           <div class="text-nowrap">
