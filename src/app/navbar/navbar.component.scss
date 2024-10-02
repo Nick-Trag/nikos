@@ -1,12 +1,10 @@
-@use "../../variables" as *;
-
 .navbar {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
-  height: $nav-height;
+  height: var(--nav-height);
 }
 
 .nav-item {
@@ -24,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  height: $nav-height;
+  height: var(--nav-height);
 }
 
 .burger-button {

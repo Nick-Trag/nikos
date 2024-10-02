@@ -1,16 +1,15 @@
-@use '../../variables' as *;
-@use '../../styles/home-styles' as *;
-
 .project-card {
-  @extend .card;
+
 }
 
 .projects-container {
-  @extend .base-container;
+  @apply flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @apply gap-10;
+  @apply pt-4;
+  @apply px-2;
   max-width: 95%;
   margin: 0 auto;
 }
@@ -25,6 +24,6 @@
   width: 2.5rem;
 
   &:hover, &:active {
-    outline: 2px $charcoal dashed;
+    outline: 2px rgb(var(--charcoal)) dashed;
   }
 }
