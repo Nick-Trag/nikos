@@ -1,5 +1,3 @@
-@use '../../variables' as *;
-
 .project-card {
 
 }
@@ -26,6 +24,6 @@
   width: 2.5rem;
 
   &:hover, &:active {
-    outline: 2px $charcoal dashed;
+    outline: 2px rgb(var(--charcoal)) dashed;
   }
 }
