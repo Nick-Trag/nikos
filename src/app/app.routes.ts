@@ -4,6 +4,7 @@ import { PhotographyComponent } from "./photography/photography.component";
 import { UnderConstructionComponent } from "./under-construction/under-construction.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { TravelComponent } from "./travel/travel.component";
+import { CodingComponent } from "./coding/coding.component";
 
 export const routes: Routes = [ // TODO: Route animations
   {
@@ -12,7 +13,7 @@ export const routes: Routes = [ // TODO: Route animations
   },
   {
     path: 'coding',
-    component: UnderConstructionComponent,
+    component: CodingComponent,
   },
   {
     path: 'video-games',
