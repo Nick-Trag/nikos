@@ -1,6 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { FileSystemEntity, root } from "../file-system";
+import { LoadingScreenService } from "../loading-screen.service";
+import { NgClass } from "@angular/common";
 
 interface Command {
   command: string;
@@ -41,12 +43,16 @@ const whoisResults = new Map([
   selector: 'app-coding',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgClass
   ],
   templateUrl: './coding.component.html',
   styleUrl: './coding.component.scss',
 })
 export class CodingComponent implements OnInit {
+  private loadingScreenService = inject(LoadingScreenService);
+  protected loadingScreenShown = this.loadingScreenService.hasLoadingScreenBeenShown();
+
   fileSystemRoot: FileSystemEntity = root;
   currentDirectory: string = homeDirectory;
   previousCommands: Command[] = [];
@@ -63,9 +69,11 @@ export class CodingComponent implements OnInit {
     this.previousCommands.push(this.cat('cat welcome.txt'));
     this.previousCommands.push(this.pwd('pwd'));
 
+    const delay = this.loadingScreenShown ? 0 : 1000;
+
     setTimeout(() => {
       this.terminalInput.nativeElement.focus();
-    }, 1000); // TODO: Use the loading screen shown logic to use a better timeout (this fucks up the loading screen animations)
+    }, delay); // If I don't add a delay, this fucks up the loading screen animations
   }
 
   handleCommand(): void {

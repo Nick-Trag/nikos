@@ -1,6 +1,7 @@
 <main class="h-screen-no-navbar min-h-96"> <!-- Full page content -->
   <div class="p-4 h-full w-full flex items-center justify-center"> <!-- Terminal container -->
-    <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col" (click)="focusTerminal()"> <!-- Terminal -->
+    <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col  opacity-0 animation-delay-200 animate-fade-in"
+         [ngClass]="loadingScreenShown ? 'md:animation-delay-0' : 'md:animation-delay-1000'" (click)="focusTerminal()"> <!-- Terminal -->
       <header class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</header> <!-- Terminal window title -->
       <div class="overflow-y-auto inner-terminal" #innerTerminal> <!-- Inner terminal -->
         @for (command of previousCommands; track $index) {
@@ -10,7 +11,7 @@
               <span class="text-blue-500 mr-[0.05rem]">{{formatHomeSubDirs(command.directory)}}</span>
               <span class="text-blue-200">$</span>
             </div>
-            <div class="terminal-input whitespace-pre text-nowrap">{{command.command}}</div> <!-- TODO: Test this nowrap on mobile -->
+            <div class="terminal-input whitespace-pre text-nowrap">{{command.command}}</div>
           </div>
           <!-- Possible TODO: Add slight breathing room on the right when the content overflows (can add mr-2 to inner-terminal) -->
           <div class="px-2 -my-2 whitespace-pre-wrap">{{command.result}}</div>
