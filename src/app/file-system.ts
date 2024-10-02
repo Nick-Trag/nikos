@@ -121,7 +121,7 @@ export const root: FileSystemEntity = {
                   content: 'I\'ve always been fascinated by computers, and technology in general, ever since I was a little kid. ' +
                   'My first contact with coding came when I was as young as 10 years old, when I asked my dad, also a programmer, to teach me how to make websites. ' +
                   'He taught me the basics of HTML, and even a bit of JavaScript, and I created my first coding project, a simple website summing up the Pokémon movies, ' +
-                  'with pictures and videos. I loved working on that project so much that, from that point on, my path was clear. I wanted to become a developer!\n\n' +
+                  'with pictures and videos. I loved working on that project so much that, from that point on, my path was clear; I wanted to become a developer!\n\n' +
                   'As I got older, I followed online tutorials on Java and other languages to expand my knowledge, until I reached 18 years old and went to university. ' +
                   'Of course the choice of my field of study was obvious; Computer Science! Four years of studies only reinforced how much I loved coding, and ' +
                   'also gave me a newfound love for the field of Computer Science in general. So much so, that I decided to continue my studies even further, getting a ' +
