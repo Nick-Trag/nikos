@@ -65,9 +65,17 @@ export class CodingComponent implements OnInit {
   private innerTerminal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    // Adding some already run commands to the history. TODO: Will probably actually start with some help command(s). Also, might wanna put them in the commandHistory. cat welcome.txt perhaps
-    this.previousCommands.push(this.cat('cat welcome.txt'));
-    this.previousCommands.push(this.pwd('pwd'));
+    // Adding some already run commands to the history
+    const startingCommands = [
+      'cat welcome.txt',
+      'pwd',
+    ];
+    for (let command of startingCommands) {
+      this.previousCommands.push(this.getCommandResult(command)!);
+
+      this.commandHistory.push(command);
+      this.currentCommandHistoryIndex = this.commandHistory.length;
+    }
 
     const delay = this.loadingScreenShown ? 0 : 1000;
 
