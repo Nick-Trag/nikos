@@ -86,7 +86,15 @@ export const root: FileSystemEntity = {
                 {
                   name: 'info.py',
                   type: 'file',
-                  content: '',
+                  content:
+                    'languages_known = ["python", "javascript", "java", "c", "c++", "c#", "php", "dart"]\n' +
+                    'favorite_language = languages_known[0]\n' +
+                    '\n' +
+                    'print("The programming languages I know are:")\n' +
+                    'for language in languages:\n' +
+                    '\tprint(language)\n' +
+                    '\n' +
+                    'print("My favorite one of these is " + favorite_language)\n',
                 },
                 {
                   name: 'history.txt',
