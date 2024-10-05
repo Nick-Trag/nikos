@@ -112,7 +112,7 @@ export const root: FileSystemEntity = {
                     'university_entry_year = 2016\n' +
                     'current_year = datetime.now().year\n' +
                     '\n' +
-                    'print("I\'ve been coding for {} years, seriously for {} of those years!".format(current_year - coding_journey_started, current_year - university_entry_year))\n' +
+                    'print(f"I\'ve been coding for {current_year - coding_journey_started} years, seriously for {current_year - university_entry_year} of those years!")\n' +
                     '',
                 },
                 {
