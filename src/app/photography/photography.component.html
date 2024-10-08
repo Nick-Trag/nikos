@@ -4,7 +4,7 @@
       <button class="close-button" (click)="closeModal()" aria-label="Close photo gallery">
         <i class="fa-solid fa-xmark text-3xl"></i>
       </button>
-      <!-- TODO: Swipe navigation -> (touchend) -->
+      <!-- TODO: Swipe navigation -> (touchend) https://stackoverflow.com/a/44511007/7400287 -->
       @if (currentImageIndex !== 0) {
         <button class="arrow-button left-button" (click)="currentImageIndex = currentImageIndex - 1" aria-label="Previous photo">
           <i class="fa-solid fa-angle-left"></i>
