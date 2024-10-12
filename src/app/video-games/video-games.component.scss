@@ -1,0 +1,4 @@
+.rank-container {
+  @apply flex flex-col items-center justify-center py-4 px-10;
+  border: 1px solid rgb(var(--charcoal));
+}
