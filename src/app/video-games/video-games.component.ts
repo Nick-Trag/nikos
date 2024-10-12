@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RiotApiService } from "../riot-api.service";
 import { RankedStats } from "../rankedStats";
-import { NgOptimizedImage } from "@angular/common";
+import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 
 const tierImages: Map<string, string> = new Map([
   ['IRON', 'Rank=Iron.png'],
@@ -39,7 +39,8 @@ interface TierRankAndLp {
   selector: 'app-video-games',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    TitleCasePipe
   ],
   templateUrl: './video-games.component.html',
   styleUrl: './video-games.component.scss'
