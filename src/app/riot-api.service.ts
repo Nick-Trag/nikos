@@ -11,7 +11,7 @@ export class RiotApiService {
   private endPointUrl: string = '/lol/league/v4/entries/by-summoner/';
   private encryptedSummonerId = 'Hu8FVOEICrjmBhAhint4ToIf1mSyWwNPiAUK5nuz6ZZ1O6Q'; // The encrypted summoner ID for FNC Nick #EUNE (my account)
   // THIS IS A DEVELOPMENT KEY, THAT STOPS WORKING EVERY 24 HOURS. WHEN LAUNCHING, THE PRODUCTION KEY WILL ONLY EXIST ON THE BACKEND
-  private apiKey: string = 'RGAPI-c3a4e1f8-f7bb-493a-a8fe-6e7f2216bf9e';
+  private apiKey: string = 'RGAPI-0f3491e9-a57f-4cbe-b8bf-65a7fd425def';
   private http = inject(HttpClient);
   constructor() { }
 
