@@ -1,4 +1,29 @@
-<main class="h-screen-no-navbar flex flex-col items-center justify-center">
-  <p>Highest rank: {{season2024tier}}</p>
-  <img ngSrc="{{imageUrl}}" alt="{{season2024tier}}" height="1000" width="1000" priority class="w-40 h-40">
+<main class="h-screen-no-navbar flex items-center justify-around">
+  <div class="flex flex-col items-center justify-center">
+    <p>Peak rank: {{season2024tier}}</p>
+    <img ngSrc="{{maxTierImageUrl}}" alt="{{season2024tier}}" height="1000" width="1000" priority class="w-40 h-40">
+  </div>
+  <!-- TODO: Do not show unranked while loading (also causes an error to be logged by ngSrc) -->
+  @if (currentSoloRanking) {
+    <div class="flex flex-col items-center justify-center">
+      <p>Ranked Solo/Duo: {{currentSoloRanking.tier + ' ' + currentSoloRanking.rank}} - {{currentSoloRanking.lp}}LP</p>
+      <img ngSrc="{{currentSoloImageUrl}}" alt="{{currentSoloRanking.tier}}" height="1000" width="1000" priority class="w-40 h-40">
+    </div>
+  } @else {
+    <div class="flex flex-col items-center justify-center">
+      <p>Ranked Solo/Duo: UNRANKED</p>
+      <img ngSrc="images/ranked_emblems_2024/unranked.webp" alt="Unranked" height="500" width="500" priority class="w-40 h-40">
+    </div>
+  }
+  @if (currentFlexRanking) {
+    <div class="flex flex-col items-center justify-center">
+      <p>Ranked Flex: {{currentFlexRanking.tier + ' ' + currentFlexRanking.rank}} - {{currentFlexRanking.lp}}LP</p>
+      <img ngSrc="{{currentFlexImageUrl}}" alt="{{currentFlexRanking.tier}}" height="1000" width="1000" priority class="w-40 h-40">
+    </div>
+  } @else {
+    <div class="flex flex-col items-center justify-center">
+      <p>Ranked Flex: UNRANKED</p>
+      <img ngSrc="images/ranked_emblems_2024/unranked.webp" alt="Unranked" height="500" width="500" priority class="w-40 h-40">
+    </div>
+  }
 </main>
