@@ -58,6 +58,8 @@ export class VideoGamesComponent implements OnInit {
 
   private riotApiService = inject(RiotApiService);
 
+  statsLoaded: boolean = false;
+
   ngOnInit(): void {
     this.riotApiService.getRankedStats().subscribe({
       next: (data: RankedStats[]) => {
@@ -100,9 +102,11 @@ export class VideoGamesComponent implements OnInit {
             this.currentFlexImageUrl = 'images/ranked_emblems_2024/' + imageUrl;
           }
         }
+        this.statsLoaded = true;
       },
       error: (err) => {
         this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
+        this.statsLoaded = true;
         console.log(err);
       },
     });
