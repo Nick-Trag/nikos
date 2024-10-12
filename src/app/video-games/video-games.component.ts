@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RiotApiService } from "../riot-api.service";
 import { RankedStats } from "../rankedStats";
+import { NgOptimizedImage } from "@angular/common";
 
 const tierImages: Map<string, string> = new Map([
   ['IRON', 'Rank=Iron.png'],
@@ -8,6 +9,7 @@ const tierImages: Map<string, string> = new Map([
   ['SILVER', 'Rank=Silver.png'],
   ['GOLD', 'Rank=Gold.png'],
   ['PLATINUM', 'Rank=Platinum.png'],
+  ['EMERALD', 'Rank=Emerald.png'],
   ['DIAMOND', 'Rank=Diamond.png'],
   ['MASTER', 'Rank=Master.png'],
   ['GRANDMASTER', 'Rank=Grandmaster.png'],
@@ -30,13 +32,16 @@ const tierOrder: Map<string, number> = new Map([
 @Component({
   selector: 'app-video-games',
   standalone: true,
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './video-games.component.html',
   styleUrl: './video-games.component.scss'
 })
 export class VideoGamesComponent implements OnInit {
   season2024tier = 'EMERALD';
   maxTier: number = tierOrder.get(this.season2024tier)!;
+  imageUrl = '';
   private riotApiService = inject(RiotApiService);
 
   ngOnInit(): void {
@@ -45,10 +50,13 @@ export class VideoGamesComponent implements OnInit {
         for (let queueStats of data) {
           console.log(queueStats);
         }
+        // TODO: Check if current tier is larger and use this if it is.
+        this.imageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!;
       },
       error: (err) => {
+        this.imageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
         console.log(err);
-      }
+      },
     });
   }
 }
