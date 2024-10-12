@@ -29,6 +29,12 @@ const tierOrder: Map<string, number> = new Map([
   ['CHALLENGER', 9],
 ]);
 
+interface TierRankAndLp {
+  tier: string;
+  rank: string;
+  lp: number;
+}
+
 @Component({
   selector: 'app-video-games',
   standalone: true,
@@ -40,21 +46,63 @@ const tierOrder: Map<string, number> = new Map([
 })
 export class VideoGamesComponent implements OnInit {
   season2024tier = 'EMERALD';
-  maxTier: number = tierOrder.get(this.season2024tier)!;
-  imageUrl = '';
+
+  maxTier = this.season2024tier;
+  maxTierNumber: number = tierOrder.get(this.season2024tier)!;
+  maxTierImageUrl = '';
+
+  currentFlexRanking: TierRankAndLp | null = null;
+  currentSoloRanking: TierRankAndLp | null = null;
+  currentFlexImageUrl: string = '';
+  currentSoloImageUrl: string = '';
+
   private riotApiService = inject(RiotApiService);
 
   ngOnInit(): void {
     this.riotApiService.getRankedStats().subscribe({
       next: (data: RankedStats[]) => {
         for (let queueStats of data) {
-          console.log(queueStats);
+          // get the tier for every queue (solo/duo, flex) and check if it is higher than my highest past tier
+          const queueTier = queueStats.tier;
+          const queueTierRanking = tierOrder.get(queueTier);
+          if (queueTierRanking && queueTierRanking > this.maxTierNumber) {
+            this.maxTierNumber = queueTierRanking;
+            this.maxTier = queueTier;
+          }
+
+          // save the stats for solo and flex
+          if (queueStats.queueType.includes('FLEX')) { // currently is 'RANKED_FLEX_SR', but Riot often changes the name without documenting, so I'll just be safe and not check the exact value
+            this.currentFlexRanking = {
+              tier: queueStats.tier,
+              rank: queueStats.rank,
+              lp: queueStats.leaguePoints,
+            };
+          }
+          else if (queueStats.queueType.includes('SOLO')) { // currently 'RANKED_SOLO_5x5'
+            this.currentSoloRanking = {
+              tier: queueStats.tier,
+              rank: queueStats.rank,
+              lp: queueStats.leaguePoints,
+            };
+          }
         }
-        // TODO: Check if current tier is larger and use this if it is.
-        this.imageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!;
+
+        this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.maxTier)!;
+        if (this.currentSoloRanking !== null) {
+          const imageUrl = tierImages.get(this.currentSoloRanking.tier);
+          if (imageUrl !== undefined) {
+            this.currentSoloImageUrl = 'images/ranked_emblems_2024/' + imageUrl;
+          }
+        }
+        if (this.currentFlexRanking !== null) {
+          const imageUrl = tierImages.get(this.currentFlexRanking.tier);
+          if (imageUrl !== undefined) {
+            this.currentFlexImageUrl = 'images/ranked_emblems_2024/' + imageUrl;
+          }
+        }
       },
       error: (err) => {
-        this.imageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
+        this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
         console.log(err);
       },
     });
