@@ -57,6 +57,14 @@ export class VideoGamesComponent implements OnInit {
   currentFlexImageUrl: string = '';
   currentSoloImageUrl: string = '';
 
+  favoriteChampions: string[] = [ // TODO: Dynamic
+    'Xayah',
+    'Ezreal',
+    'Ahri',
+    'Senna',
+    'Jinx',
+  ];
+
   private riotApiService = inject(RiotApiService);
 
   statsLoaded: boolean = false;
@@ -68,7 +76,7 @@ export class VideoGamesComponent implements OnInit {
           // get the tier for every queue (solo/duo, flex) and check if it is higher than my highest past tier
           const queueTier = queueStats.tier;
           const queueTierRanking = tierOrder.get(queueTier);
-          if (queueTierRanking && queueTierRanking > this.maxTierNumber) {
+          if (queueTierRanking !== undefined && queueTierRanking > this.maxTierNumber) {
             this.maxTierNumber = queueTierRanking;
             this.maxTier = queueTier;
           }
