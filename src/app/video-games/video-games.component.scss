@@ -1,6 +1,19 @@
 .rank-container {
   @apply flex flex-col items-center justify-center py-4 px-10;
-  outline: 1px solid rgba(var(--lavender), 0.2);
+  border: 1px solid rgba(var(--lavender), 0.2);
+
+  // Avoid double borders
+  @media (min-width: 768px) { // md or larger
+    &:not(:last-of-type) {
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 767.99px) { // smaller than md
+    &:not(:last-of-type) {
+      border-bottom: 0;
+    }
+  }
 }
 
 .league-of-legends-box {
