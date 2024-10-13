@@ -21,6 +21,8 @@ module.exports = {
         convergence: ['Convergence', ...defaultTheme.fontFamily.sans],
         capriola: ['Capriola', 'Varela Round', ...defaultTheme.fontFamily.sans],
         roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
+        vt323: ['VT323', ...defaultTheme.fontFamily.mono],
+        'share-tech-mono': ['Share Tech Mono', ...defaultTheme.fontFamily.mono],
       },
       animation: {
         'rotate': 'rotate 2s linear infinite',
