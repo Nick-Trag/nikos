@@ -1,4 +1,14 @@
 .rank-container {
   @apply flex flex-col items-center justify-center py-4 px-10;
-  border: 1px solid rgb(var(--charcoal));
+  outline: 1px solid rgba(var(--lavender), 0.2);
+}
+
+.league-of-legends-box {
+  background: linear-gradient(135deg, #1c4a5f 35%, #55551b 100%);
+  border: 1px solid #121720;
+  @apply rounded-lg p-4 pb-8;
+}
+
+.profile-icon {
+  border: 2px solid rgb(34 110 125);
 }
