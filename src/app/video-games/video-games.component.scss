@@ -1,5 +1,5 @@
 .rank-container {
-  @apply flex flex-col items-center justify-center py-4 px-10;
+  @apply flex flex-col items-center justify-center py-4 px-10 sm:px-20 md:px-10;
   border: 1px solid rgba(var(--lavender), 0.2);
 
   // Avoid double borders
