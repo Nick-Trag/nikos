@@ -6,6 +6,7 @@ import { ImageLoaderService } from "./image-loader.service";
 import { NgOptimizedImage } from "@angular/common";
 import { animate, group, query, style, transition, trigger, AnimationEvent } from "@angular/animations";
 import { LoadingScreenService } from "./loading-screen.service";
+import { environment } from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ import { LoadingScreenService } from "./loading-screen.service";
   ],
 })
 export class AppComponent implements OnInit {
-  loading = true;
+  loading = environment.showLoadingScreen; // Do not show loading screen in dev mode, unless specifically needed, as it slows me down too much
   animation1Ended = false;
   private loadingScreenService = inject(LoadingScreenService);
   private loaderService = inject(ImageLoaderService);
