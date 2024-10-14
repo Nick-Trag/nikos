@@ -6,13 +6,15 @@
         League of Legends
       </h2>
       <div class="league-of-legends-box">
-        <h3 class="text-xl">FNC Nick #EUNE</h3>
-        <div class="w-full flex items-center justify-center">
+        <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
           <!-- TODO: Dynamic (also the name perhaps) -->
           <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/profileicon/3790.png" alt="Profile icon of FNC Nick" width="300" height="300"
                class="max-w-28 max-h-28 rounded profile-icon">
+          <div class="flex flex-col items-center sm:items-start">
+            <h3 class="text-2xl -mb-1">FNC Nick <span class="opacity-40">#EUNE</span></h3>
+            <h4 class="opacity-60">Level 348</h4>
+          </div>
         </div>
-        <h4>Level 348</h4>
         <div class="flex flex-col md:flex-row items-center justify-center mt-4">
           <div class="rank-container">
             <p>Peak rank</p>
@@ -49,7 +51,7 @@
         </div>
         <div>
           <h3 class="text-lg my-4">Most played champions</h3>
-          <div class="flex flex-wrap justify-around items-center gap-2 max-w-2xl px-4 mx-auto">
+          <div class="flex flex-wrap justify-center items-center gap-2 max-w-2xl px-4 mx-auto">
             @for (champion of favoriteChampions; track $index) {
               <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion}}.png" alt="champion" width="128" height="128"
                    class="max-w-20 max-h-20 rounded">
