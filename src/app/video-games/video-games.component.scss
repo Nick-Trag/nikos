@@ -3,15 +3,14 @@
   border: 1px solid rgba(var(--lavender), 0.2);
 
   // Avoid double borders
+  &:not(:last-of-type) {
+    border-bottom: 0;
+  }
+
   @media (min-width: 768px) { // md or larger
     &:not(:last-of-type) {
       border-right: 0;
-    }
-  }
-
-  @media (max-width: 767.99px) { // smaller than md
-    &:not(:last-of-type) {
-      border-bottom: 0;
+      border-bottom: 1px solid rgba(var(--lavender), 0.2)
     }
   }
 }
@@ -24,4 +23,36 @@
 
 .profile-icon {
   border: 2px solid rgb(34 110 125);
+}
+
+.champion-icons-container {
+  @apply grid justify-center items-center gap-2 max-w-2xl px-4 mx-auto;
+  grid-template-areas:
+    'first first second second third third'
+    '. fourth fourth fifth fifth .';
+
+  @media (min-width: 640px) { // sm or larger
+    grid-template-areas:
+      'first second third fourth fifth';
+  }
+
+  .champion-icon:nth-child(1) {
+    grid-area: first;
+  }
+
+  .champion-icon:nth-child(2) {
+    grid-area: second;
+  }
+
+  .champion-icon:nth-child(3) {
+    grid-area: third;
+  }
+
+  .champion-icon:nth-child(4) {
+    grid-area: fourth;
+  }
+
+  .champion-icon:nth-child(5) {
+    grid-area: fifth;
+  }
 }
