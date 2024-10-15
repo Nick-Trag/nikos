@@ -51,10 +51,10 @@
         </div>
         <div>
           <h3 class="text-lg my-4">Most played champions</h3>
-          <div class="flex flex-wrap justify-center items-center gap-2 max-w-2xl px-4 mx-auto">
+          <div class="champion-icons-container">
             @for (champion of favoriteChampions; track $index) {
               <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion}}.png" alt="champion" width="128" height="128"
-                   class="max-w-20 max-h-20 rounded" crossorigin="anonymous" referrerpolicy="no-referrer">
+                   class="max-w-20 max-h-20 rounded champion-icon" crossorigin="anonymous" referrerpolicy="no-referrer">
             }
           </div>
         </div>
