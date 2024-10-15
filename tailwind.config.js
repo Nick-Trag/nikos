@@ -84,6 +84,8 @@ module.exports = {
         },
       },
       screens: {
+        '2xs': '320px',
+        'xs': '400px',
         'almost-lg': '850px', // This works, but breakpoint order matters, so I'll keep an eye on it. If something breaks, this might be a possible culprit. Relevant thread(s): https://github.com/tailwindlabs/tailwindcss/pull/9558
         'h-xs': {
           'raw': '(min-height: 150px)'
