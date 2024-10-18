@@ -53,8 +53,11 @@
           <h3 class="text-xl mt-4 mb-2">Most played champions</h3>
           <div class="champion-icons-container">
             @for (champion of favoriteChampions; track $index) {
-              <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion}}.png" alt="champion" width="128" height="128"
-                   class="max-w-20 max-h-20 rounded champion-icon" crossorigin="anonymous" referrerpolicy="no-referrer">
+              <div class="champion-icon relative">
+                <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion}}.png" alt="{{champion}}" width="128" height="128"
+                     class="max-w-20 max-h-20 rounded" crossorigin="anonymous" referrerpolicy="no-referrer">
+                <div class="tooltip">{{champion}}</div>
+              </div>
             }
           </div>
         </div>
