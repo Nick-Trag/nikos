@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 import { LeagueOfLegendsComponent } from "../league-of-legends/league-of-legends.component";
+import { PokemonComponent } from "../pokemon/pokemon.component";
 
 @Component({
   selector: 'app-video-games',
   standalone: true,
   imports: [
-    NgOptimizedImage,
-    TitleCasePipe,
-    LeagueOfLegendsComponent
+    LeagueOfLegendsComponent,
+    PokemonComponent
   ],
   templateUrl: './video-games.component.html',
   styleUrl: './video-games.component.scss'
