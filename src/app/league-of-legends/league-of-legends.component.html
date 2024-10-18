@@ -1,0 +1,65 @@
+
+<section class="text-center py-12">
+  @if (statsLoaded) {
+    <h2 class="font-capriola text-2xl mb-8">
+      League of Legends
+    </h2>
+    <div class="league-of-legends-box">
+      <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 font-convergence">
+        <!-- TODO: Dynamic (also the name perhaps) -->
+        <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/profileicon/3790.png" alt="Profile icon of FNC Nick" width="300" height="300"
+             class="max-w-28 max-h-28 rounded profile-icon" crossorigin="anonymous" referrerpolicy="no-referrer" priority> <!-- Possible TODO: Preconnect to dDragon -->
+        <div class="flex flex-col items-center sm:items-start">
+          <h3 class="text-2xl -mb-1">FNC Nick <span class="opacity-40">#EUNE</span></h3>
+          <h4 class="opacity-60">Level 348</h4>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-center mt-4">
+        <div class="rank-container">
+          <h5 class="text-lg">Peak rank</h5>
+          <img ngSrc="{{maxTierImageUrl}}" alt="{{season2024tier}}" height="1000" width="1000" priority class="max-w-40 max-h-40">
+          <h5>{{season2024tier | titlecase}}</h5>
+        </div>
+        <!-- Possible TODO: Do not show unranked if errored (custom response from the backend if unranked) -->
+        @if (currentSoloRanking) {
+          <div class="rank-container">
+            <h5 class="text-lg">Ranked Solo/Duo</h5>
+            <img ngSrc="{{currentSoloImageUrl}}" alt="{{currentSoloRanking.tier}}" height="1000" width="1000" priority class="max-w-40 max-h-40">
+            <h5>{{ (currentSoloRanking.tier | titlecase) + ' ' + currentSoloRanking.rank }} - {{ currentSoloRanking.lp }}LP</h5>
+          </div>
+        } @else {
+          <div class="rank-container">
+            <h5 class="text-lg">Ranked Solo/Duo</h5>
+            <img ngSrc="images/ranked_emblems_2024/unranked.webp" alt="Unranked" height="500" width="500" priority class="max-w-40 max-h-40">
+            <h5>Unranked</h5>
+          </div>
+        }
+        @if (currentFlexRanking) {
+          <div class="rank-container">
+            <h5 class="text-lg">Ranked Flex</h5>
+            <img ngSrc="{{currentFlexImageUrl}}" alt="{{currentFlexRanking.tier}}" height="1000" width="1000" priority class="max-w-40 max-h-40">
+            <h5>{{ (currentFlexRanking.tier | titlecase) + ' ' + currentFlexRanking.rank }} - {{ currentFlexRanking.lp }}LP</h5>
+          </div>
+        } @else {
+          <div class="rank-container">
+            <h5 class="text-lg">Ranked Flex</h5>
+            <img ngSrc="images/ranked_emblems_2024/unranked.webp" alt="Unranked" height="500" width="500" priority class="max-w-40 max-h-40">
+            <h5>Unranked</h5>
+          </div>
+        }
+      </div>
+      <div>
+        <h3 class="text-xl mt-4 mb-2">Most played champions</h3>
+        <div class="champion-icons-container">
+          @for (champion of favoriteChampions; track $index) {
+            <div class="champion-icon relative">
+              <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion}}.png" alt="{{champion}}" width="128" height="128"
+                   class="max-w-20 max-h-20 rounded" crossorigin="anonymous" referrerpolicy="no-referrer">
+              <div class="tooltip">{{champion}}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</section>
