@@ -21,7 +21,7 @@
             <img ngSrc="{{maxTierImageUrl}}" alt="{{season2024tier}}" height="1000" width="1000" priority class="max-w-40 max-h-40">
             <h5>{{season2024tier | titlecase}}</h5>
           </div>
-          <!-- Possible TODO: Do not show unranked if errored -->
+          <!-- Possible TODO: Do not show unranked if errored (custom response from the backend if unranked) -->
           @if (currentSoloRanking) {
             <div class="rank-container">
               <h5 class="text-lg">Ranked Solo/Duo</h5>
