@@ -5,3 +5,13 @@
   border: 1px solid #121720;
   @apply rounded-lg p-4 pb-8 mx-3;
 }
+
+table, th, td {
+  border: 1px solid rgba(var(--charcoal), 0.4);
+  @apply p-2;
+  text-align: start;
+}
+
+table {
+  border-collapse: collapse;
+}
