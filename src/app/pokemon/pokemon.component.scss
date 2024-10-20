@@ -1,7 +1,7 @@
 .pokemon-box {
   color: #121720;
-  background: red;
-  background: linear-gradient(135deg, rgba(252,115,115,1) 0%, rgba(255,138,138,1) 40%, rgba(218,218,218,1) 100%); // Stats in a Pokéball instead?
+  background: rgba(252, 115, 115, 1);
+  background: linear-gradient(135deg, rgba(252,115,115,1) 0%, rgba(255,138,138,1) 40%, rgba(218,218,218,1) 100%);
   border: 1px solid #121720;
   @apply rounded-lg p-4 pb-8 mx-3;
 }
