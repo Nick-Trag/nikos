@@ -1,6 +1,5 @@
 <main class="h-screen-no-navbar min-h-96"> <!-- Full page content -->
   <div class="p-4 h-full w-full flex items-center justify-center"> <!-- Terminal container -->
-    <!-- TODO: Monospace font -->
     <div class="w-full h-full max-w-6xl max-h-[40rem] bg-black rounded text-blue-50 flex flex-col opacity-0 animation-delay-200 animate-fade-in font-share-tech-mono"
          [ngClass]="loadingScreenShown ? 'md:animation-delay-0' : 'md:animation-delay-1000'" (click)="focusTerminal()"> <!-- Terminal -->
       <header class="bg-gray-700 w-full py-1 px-2 rounded-t-sm"><i class="fa-solid fa-terminal"></i> Terminal</header> <!-- Terminal window title -->
@@ -21,7 +20,7 @@
           <!-- Mobile Chrome boosts some elements' font sizes for no reason. We set a max-height to prevent this. Reference: https://stackoverflow.com/a/12965146/7400287 -->
         }
         <div class="terminal-line"> <!-- Terminal line -->
-          <div class="text-nowrap">
+          <div class="text-nowrap"> <!-- TODO: Make sure this doesn't take up the entire line on mobile -->
             <span class="text-emerald-500">user&#64;nikostragkas.eu</span>:
             <span class="text-blue-500 mr-[0.05rem]">{{formatHomeSubDirs(currentDirectory)}}</span>
             <span class="text-blue-200">$</span>
