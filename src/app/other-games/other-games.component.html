@@ -3,7 +3,15 @@
     Other games
   </h2>
   <div>
-    More info about other games that didn't get their own section. Or some overall stats or something
+    Most played games on Steam
+    <div class="flex flex-wrap flex-row items-center justify-center gap-4">
+      @for (game of ['The Witcher', 'Hollow Knight', 'Elden Ring']; track $index) {
+        <div class="flex flex-col items-center justify-center">
+          <h3>{{game}}</h3>
+          <img src="images/lol_profile_icon.webp" alt="{{game}}" class="max-w-20 max-h-20">
+        </div>
+      }
+    </div>
     <!-- TODO: 10 most played games on Steam or something. And some info about like Megaman, Zelda, etc. -->
   </div>
 </section>
