@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-hollow-knight',
   standalone: true,
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './hollow-knight.component.html',
   styleUrl: './hollow-knight.component.scss'
 })
