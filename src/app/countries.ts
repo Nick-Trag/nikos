@@ -31,6 +31,7 @@ import { poland } from "./countries/poland";
 import { romania } from "./countries/romania";
 import { bulgaria } from "./countries/bulgaria";
 import { albania } from "./countries/albania";
+import { czechia } from "./countries/czechia";
 
 export const countries: Feature[] = [
   greece,
@@ -62,6 +63,7 @@ export const countries: Feature[] = [
   romania,
   bulgaria,
   albania,
+  czechia,
 ];
 
 export const flags: string[] = [
@@ -94,6 +96,7 @@ export const flags: string[] = [
   'ro.svg',
   'bg.svg',
   'al.svg',
+  'cz.svg',
 ];
 
 export const countryNames: string[] = [
@@ -126,4 +129,5 @@ export const countryNames: string[] = [
   'Romania',
   'Bulgaria',
   'Albania',
+  'Czechia',
 ];
