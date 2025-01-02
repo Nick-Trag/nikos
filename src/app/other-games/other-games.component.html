@@ -1,17 +1,17 @@
 <section class="text-center pb-12">
-  <h2 class="font-capriola text-2xl mb-8">
+  <h2 class="font-capriola text-2xl mb-4">
     Other games
   </h2>
   <div>
-    Most played games on Steam
+    <h3 class="text-lg mb-3 font-varela-round">Most played games on <span class="text-nowrap"><i class="fa-brands fa-steam text-sm"></i> Steam</span></h3>
     <div class="flex flex-col items-center justify-center gap-4">
-      @for (game of ['The Witcher', 'Hollow Knight', 'Elden Ring', 'Game 4', 'Game 5']; track $index) {
-        <div class="rounded-md bg-blue-800 border border-[rgba(255,255,255,0.2)] p-5 min-w-[30rem] max-w-2xl flex flex-row items-start justify-start gap-3">
+      @for (game of ['The Witcher 3: Wild Hunt', 'Hollow Knight', 'Elden Ring', 'Hogwarts Legacy', 'The Ruined King: A League of Legends Story']; track $index) {
+        <div class="rounded-md p-1 w-[30rem] flex flex-row items-center justify-start gap-3 game-card">
           <img ngSrc="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/hero_capsule.jpg" crossorigin="anonymous" referrerpolicy="no-referrer"
                alt="{{game}}" class="max-w-32 max-h-32 rounded" width="374" height="488">
-          <div class="flex flex-col items-start justify-start mt-2">
-            <h3>{{game}}</h3>
-            <h5>126.4 hours played</h5>
+          <div class="flex flex-col items-start justify-start">
+            <h3 class="text-start text-xl font-convergence">{{game}}</h3>
+            <h5 class="text-start opacity-60">126.4 hours played</h5>
           </div>
         </div>
       }
