@@ -8,7 +8,7 @@
       @for (game of mockGames; track game.appId) {
         <div class="rounded-md p-1 w-[30rem] flex flex-row items-center justify-start gap-3 game-card">
           <img ngSrc="https://cdn.cloudflare.steamstatic.com/steam/apps/{{game.appId}}/hero_capsule.jpg" crossorigin="anonymous" referrerpolicy="no-referrer"
-               alt="{{game.name}}" class="max-w-32 max-h-32 rounded" width="374" height="488"> <!-- TODO: Images get stretched here -->
+               alt="{{game.name}}" class="max-w-[8.5rem] rounded" width="374" height="488">
           <div class="flex flex-col items-start justify-start">
             <h3 class="text-start text-xl font-convergence">{{game.name}}</h3>
             <h5 class="text-start opacity-60">{{game.hoursPlayed}} hours played</h5>
