@@ -5,7 +5,8 @@
       "dev": false,
       "update-readme": false,
       "photo-modal": false,
-      "home-styles": false
+      "home-styles": false,
+      "add-georgia": false
     }
   }
 }
