@@ -6,7 +6,7 @@ import { RankedStats } from "./rankedStats";
 @Injectable({
   providedIn: 'root'
 })
-export class RiotApiService {
+export class VideoGamesService {
   private baseUrl: string = 'https://eun1.api.riotgames.com';
   private endPointUrl: string = '/lol/league/v4/entries/by-summoner/';
   private encryptedSummonerId = 'Hu8FVOEICrjmBhAhint4ToIf1mSyWwNPiAUK5nuz6ZZ1O6Q'; // The encrypted summoner ID for FNC Nick #EUNE (my account)
