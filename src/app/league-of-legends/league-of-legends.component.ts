@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 import { VideoGamesService } from "../video-games.service";
-import { LolProfile, RankedStats } from "../lol-profile";
+import { LolProfile } from "../lol-profile";
 
 const tierImages: Map<string, string> = new Map([
   ['IRON', 'Rank=Iron.png'],
