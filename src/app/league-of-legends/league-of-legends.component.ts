@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 import { VideoGamesService } from "../video-games.service";
-import { RankedStats } from "../rankedStats";
+import { LolProfile, RankedStats } from "../lol-profile";
 
 const tierImages: Map<string, string> = new Map([
   ['IRON', 'Rank=Iron.png'],
@@ -70,9 +70,9 @@ export class LeagueOfLegendsComponent implements OnInit {
   statsLoaded: boolean = false;
 
   ngOnInit(): void {
-    this.videoGamesService.getRankedStats().subscribe({
-      next: (data: RankedStats[]) => {
-        for (let queueStats of data) {
+    this.videoGamesService.getLolProfile().subscribe({
+      next: (data: LolProfile) => {
+        for (let queueStats of data.ranked) {
           // get the tier for every queue (solo/duo, flex) and check if it is higher than my highest past tier
           const queueTier = queueStats.tier;
           const queueTierRanking = tierOrder.get(queueTier);
