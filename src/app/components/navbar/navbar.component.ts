@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { NgClass } from "@angular/common";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { A11yModule } from "@angular/cdk/a11y";
 
@@ -13,7 +12,6 @@ const timing: string = '0.3s ease-in-out';
   standalone: true,
   imports: [
     RouterLink,
-    NgClass,
     A11yModule,
   ],
   templateUrl: './navbar.component.html',
