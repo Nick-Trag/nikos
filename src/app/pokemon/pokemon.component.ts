@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
+import { VideoGamesService } from "../video-games.service";
+import { PokemonProfile } from "../pokemon-profile";
 
 @Component({
   selector: 'app-pokemon',
@@ -10,6 +12,22 @@ import { NgOptimizedImage } from "@angular/common";
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.scss'
 })
-export class PokemonComponent {
+export class PokemonComponent implements OnInit {
+  private videoGamesService = inject(VideoGamesService);
 
+  pokemonProfile!: PokemonProfile;
+
+  profileLoaded: boolean = false;
+
+  ngOnInit() {
+    this.videoGamesService.getPokemonProfile().subscribe({
+      next: (data) => {
+        this.pokemonProfile = data;
+        this.profileLoaded = true;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }
