@@ -43,7 +43,7 @@ interface TierRankAndLp {
     TitleCasePipe
   ],
   templateUrl: './league-of-legends.component.html',
-  styleUrl: './league-of-legends.component.scss'
+  styleUrl: './league-of-legends.component.scss',
 })
 export class LeagueOfLegendsComponent implements OnInit {
   season2024tier = 'EMERALD';
@@ -121,7 +121,7 @@ export class LeagueOfLegendsComponent implements OnInit {
       },
       error: (err) => {
         this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
-        this.statsLoaded = true;
+        // this.statsLoaded = true;
         console.log(err);
       },
     });
