@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "./navbar/navbar.component";
-import { FooterComponent } from "./footer/footer.component";
-import { ImageLoaderService } from "./image-loader.service";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { ImageLoaderService } from "./services/image-loader.service";
 import { NgOptimizedImage } from "@angular/common";
 import { animate, group, query, style, transition, trigger, AnimationEvent } from "@angular/animations";
-import { LoadingScreenService } from "./loading-screen.service";
+import { LoadingScreenService } from "./services/loading-screen.service";
 import { environment } from "../environments/environment";
 
 @Component({
