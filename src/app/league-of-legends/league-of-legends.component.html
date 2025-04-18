@@ -49,6 +49,7 @@
       <div>
         <h3 class="text-xl mt-4 mb-2">Most played champions</h3>
         <div class="champion-icons-container">
+          <!-- TODO: Handle possible null champion name -->
           @for (champion of favoriteChampions; track $index) {
             <div class="champion-icon relative">
               <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion.championName}}.png" alt="{{champion.championName}}" width="128" height="128"
