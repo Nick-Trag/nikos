@@ -1,43 +1,34 @@
-import { Component } from '@angular/core';
-import { NgOptimizedImage } from "@angular/common";
+import { Component, inject, OnInit } from '@angular/core';
+import { DecimalPipe, NgOptimizedImage } from "@angular/common";
 import { SteamGame } from "../steam-game";
+import { VideoGamesService } from "../video-games.service";
 
 @Component({
   selector: 'app-other-games',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    DecimalPipe
   ],
   templateUrl: './other-games.component.html',
-  styleUrl: './other-games.component.scss'
+  styleUrl: './other-games.component.scss',
 })
-export class OtherGamesComponent {
-  mockGames: SteamGame[] = [
-    {
-      name: 'The Witcher 3: Wild Hunt',
-      hoursPlayed: 178.6,
-      appId: 292030,
-    },
-    {
-      name: 'Elden Ring',
-      hoursPlayed: 134.4,
-      appId: 1245620,
-    },
-    {
-      name: 'Hollow Knight',
-      hoursPlayed: 126.4,
-      appId: 367520,
-    },
-    {
-      name: 'Hogwarts Legacy',
-      hoursPlayed: 100.5,
-      appId: 990080,
-    },
-    {
-      name: 'Ruined King: A League of Legends Story™',
-      hoursPlayed: 40,
-      appId: 1276790,
-    },
-  ];
+export class OtherGamesComponent implements OnInit {
+  steamGames: SteamGame[] = [];
 
+  gamesLoaded: boolean = false;
+
+  private videoGameService = inject(VideoGamesService);
+
+  ngOnInit() {
+    this.videoGameService.getSteamGames().subscribe({
+      next: (data) => {
+        this.steamGames = data;
+        this.gamesLoaded = true;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

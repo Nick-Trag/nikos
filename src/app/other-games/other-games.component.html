@@ -1,20 +1,22 @@
-<section class="text-center pb-12 max-w-[31rem] mx-auto">
-  <h2 class="font-capriola text-2xl mb-4">
-    Other games
-  </h2>
-  <div>
-    <h3 class="text-lg mb-3 font-varela-round">Most played games on <span class="text-nowrap"><i class="fa-brands fa-steam text-sm"></i> Steam</span></h3>
-    <div class="flex flex-col items-center justify-center gap-4 mx-3">
-      @for (game of mockGames; track game.appId) {
-        <div class="rounded-md p-1 w-full flex flex-row items-center justify-start gap-3 game-card">
-          <img ngSrc="https://cdn.cloudflare.steamstatic.com/steam/apps/{{game.appId}}/hero_capsule.jpg" crossorigin="anonymous" referrerpolicy="no-referrer"
-               alt="{{game.name}}" class="w-[8.5rem] rounded" width="374" height="488">
-          <div class="flex flex-col items-start justify-start">
-            <h3 class="text-start text-xl font-convergence">{{game.name}}</h3>
-            <h5 class="text-start opacity-60">{{game.hoursPlayed}} hours played</h5>
+@if (gamesLoaded) {
+  <section class="text-center pb-12 max-w-[31rem] mx-auto">
+    <h2 class="font-capriola text-2xl mb-4">
+      Other games
+    </h2>
+    <div>
+      <h3 class="text-lg mb-3 font-varela-round">Most played games on <span class="text-nowrap"><i class="fa-brands fa-steam text-sm"></i> Steam</span></h3>
+      <div class="flex flex-col items-center justify-center gap-4 mx-3">
+        @for (game of steamGames; track game.appid) {
+          <div class="rounded-md p-1 w-full flex flex-row items-center justify-start gap-3 game-card">
+            <img ngSrc="https://cdn.cloudflare.steamstatic.com/steam/apps/{{game.appid}}/hero_capsule.jpg" crossorigin="anonymous" referrerpolicy="no-referrer"
+                 alt="{{game.name}}" class="w-[8.5rem] rounded" width="374" height="488">
+            <div class="flex flex-col items-start justify-start">
+              <h3 class="text-start text-xl font-convergence">{{game.name}}</h3>
+              <h5 class="text-start opacity-60">{{(game.playtime_forever / 60) | number:"1.0-1"}} hours played</h5>
+            </div>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+}
