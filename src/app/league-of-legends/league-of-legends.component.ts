@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 import { VideoGamesService } from "../video-games.service";
-import { LolProfile } from "../lol-profile";
+import { LolProfile, MasteryStats } from "../lol-profile";
 
 const tierImages: Map<string, string> = new Map([
   ['IRON', 'Rank=Iron.png'],
@@ -52,18 +52,17 @@ export class LeagueOfLegendsComponent implements OnInit {
   maxTierNumber: number = tierOrder.get(this.season2024tier)!;
   maxTierImageUrl = '';
 
+  gameName: string = "";
+  tagLine: string = "";
+  profileIconId: number | undefined;
+  summonerLevel: number | undefined;
+
   currentFlexRanking: TierRankAndLp | null = null;
   currentSoloRanking: TierRankAndLp | null = null;
   currentFlexImageUrl: string = '';
   currentSoloImageUrl: string = '';
 
-  favoriteChampions: string[] = [ // TODO: Dynamic
-    'Xayah',
-    'Ezreal',
-    'Ahri',
-    'Senna',
-    'Jinx',
-  ];
+  favoriteChampions: MasteryStats[] = [];
 
   private videoGamesService = inject(VideoGamesService);
 
@@ -72,6 +71,13 @@ export class LeagueOfLegendsComponent implements OnInit {
   ngOnInit(): void {
     this.videoGamesService.getLolProfile().subscribe({
       next: (data: LolProfile) => {
+        this.gameName = data.gameName;
+        this.tagLine = data.tagLine;
+        this.profileIconId = data.profileIconId;
+        this.summonerLevel = data.summonerLevel;
+
+        this.favoriteChampions = data.mastery;
+
         for (let queueStats of data.ranked) {
           // get the tier for every queue (solo/duo, flex) and check if it is higher than my highest past tier
           const queueTier = queueStats.tier;
