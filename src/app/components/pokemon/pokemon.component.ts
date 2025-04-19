@@ -7,7 +7,6 @@ import { videoGamesAnimation } from "../../animations/video-games.animation";
 
 @Component({
   selector: 'app-pokemon',
-  standalone: true,
   imports: [
     NgOptimizedImage
   ],

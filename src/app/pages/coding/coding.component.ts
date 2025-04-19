@@ -41,7 +41,6 @@ const whoisResults = new Map([
 
 @Component({
   selector: 'app-coding',
-  standalone: true,
   imports: [
     FormsModule,
     NgClass

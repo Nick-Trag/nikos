@@ -7,7 +7,6 @@ import { videoGamesAnimation } from "../../animations/video-games.animation";
 
 @Component({
   selector: 'app-other-games',
-  standalone: true,
   imports: [
     NgOptimizedImage,
     DecimalPipe

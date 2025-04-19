@@ -4,7 +4,6 @@ import { LoadingScreenService } from "../../services/loading-screen.service";
 
 @Component({
   selector: 'app-page-not-found',
-  standalone: true,
   imports: [
     NgClass
   ],

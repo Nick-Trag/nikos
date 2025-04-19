@@ -4,7 +4,6 @@ import { Platform } from "@angular/cdk/platform";
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [
     ObserverDirective
   ],

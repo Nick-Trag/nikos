@@ -4,7 +4,6 @@ import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-under-construction',
-  standalone: true,
   imports: [
     NgClass
   ],

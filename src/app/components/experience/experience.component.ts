@@ -4,7 +4,6 @@ import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-experience',
-  standalone: true,
   imports: [
     ObserverDirective,
     NgOptimizedImage

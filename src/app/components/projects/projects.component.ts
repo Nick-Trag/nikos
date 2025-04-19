@@ -6,7 +6,6 @@ import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-projects',
-  standalone: true,
   imports: [
     ObserverDirective,
     NgOptimizedImage
