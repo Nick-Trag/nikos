@@ -1,8 +1,11 @@
 <main class="min-h-screen-no-navbar max-w-6xl mx-auto pt-12">
   <app-league-of-legends></app-league-of-legends>
-  <app-pokemon></app-pokemon>
-  <app-hollow-knight></app-hollow-knight>
-  <app-other-games></app-other-games>
+  <!-- Defer the loading of the games that are not immediately visible, to avoid content shifting -->
+  @defer {
+    <app-pokemon></app-pokemon>
+    <app-hollow-knight></app-hollow-knight>
+    <app-other-games></app-other-games>
+  }
   <!-- Ideas:
   1. Console history:
     a. GBA SP
