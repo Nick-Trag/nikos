@@ -76,6 +76,7 @@ export class LeagueOfLegendsComponent implements OnInit {
   private videoGamesService = inject(VideoGamesService);
 
   statsLoaded: boolean = false;
+  loading: boolean = true;
 
   ngOnInit(): void {
     this.videoGamesService.getLolProfile().subscribe({
@@ -127,9 +128,11 @@ export class LeagueOfLegendsComponent implements OnInit {
           }
         }
         this.statsLoaded = true;
+        this.loading = false;
       },
       error: (err) => {
-        this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
+        // this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
+        this.loading = false;
         console.log(err);
       },
     });
