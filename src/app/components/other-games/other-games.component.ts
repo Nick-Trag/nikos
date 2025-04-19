@@ -2,6 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { DecimalPipe, NgOptimizedImage } from "@angular/common";
 import { SteamGame } from "../../models/steam-game";
 import { VideoGamesService } from "../../services/video-games.service";
+import { transition, trigger, useAnimation } from "@angular/animations";
+import { videoGamesAnimation } from "../../animations/video-games.animation";
 
 @Component({
   selector: 'app-other-games',
@@ -12,6 +14,13 @@ import { VideoGamesService } from "../../services/video-games.service";
   ],
   templateUrl: './other-games.component.html',
   styleUrl: './other-games.component.scss',
+  animations: [
+    trigger('dropIn', [
+      transition(':enter', [
+        useAnimation(videoGamesAnimation),
+      ]),
+    ]),
+  ],
 })
 export class OtherGamesComponent implements OnInit {
   steamGames: SteamGame[] = [];

@@ -2,6 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 import { VideoGamesService } from "../../services/video-games.service";
 import { PokemonProfile } from "../../models/pokemon-profile";
+import { transition, trigger, useAnimation } from "@angular/animations";
+import { videoGamesAnimation } from "../../animations/video-games.animation";
 
 @Component({
   selector: 'app-pokemon',
@@ -10,7 +12,14 @@ import { PokemonProfile } from "../../models/pokemon-profile";
     NgOptimizedImage
   ],
   templateUrl: './pokemon.component.html',
-  styleUrl: './pokemon.component.scss'
+  styleUrl: './pokemon.component.scss',
+  animations: [
+    trigger('dropIn', [
+      transition(':enter', [
+        useAnimation(videoGamesAnimation),
+      ]),
+    ]),
+  ],
 })
 export class PokemonComponent implements OnInit {
   private videoGamesService = inject(VideoGamesService);

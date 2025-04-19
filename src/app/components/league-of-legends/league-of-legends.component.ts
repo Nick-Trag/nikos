@@ -2,6 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 import { VideoGamesService } from "../../services/video-games.service";
 import { LolProfile, MasteryStats } from "../../models/lol-profile";
+import { transition, trigger, useAnimation } from "@angular/animations";
+import { videoGamesAnimation } from "../../animations/video-games.animation";
 
 const tierImages: Map<string, string> = new Map([
   ['IRON', 'Rank=Iron.png'],
@@ -44,6 +46,13 @@ interface TierRankAndLp {
   ],
   templateUrl: './league-of-legends.component.html',
   styleUrl: './league-of-legends.component.scss',
+  animations: [
+    trigger('dropIn', [
+      transition(':enter', [
+        useAnimation(videoGamesAnimation),
+      ]),
+    ]),
+  ],
 })
 export class LeagueOfLegendsComponent implements OnInit {
   season2024tier = 'EMERALD';
@@ -121,7 +130,6 @@ export class LeagueOfLegendsComponent implements OnInit {
       },
       error: (err) => {
         this.maxTierImageUrl = 'images/ranked_emblems_2024/' + tierImages.get(this.season2024tier)!; // Fallback to default (emerald)
-        // this.statsLoaded = true;
         console.log(err);
       },
     });

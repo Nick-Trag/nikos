@@ -1,5 +1,5 @@
 @if (statsLoaded) {
-  <section class="text-center pb-12">
+  <section class="text-center pb-12" @dropIn>
     <h2 class="font-capriola text-2xl mb-8">
       League of Legends
     </h2>
@@ -54,6 +54,14 @@
                 <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/{{champion.championName}}.png" alt="{{champion.championName}}" width="128" height="128"
                      class="max-w-20 max-h-20 rounded" crossorigin="anonymous" referrerpolicy="no-referrer">
                 <div class="tooltip">{{champion.championName}}</div>
+              </div>
+            }
+            @else {
+              <!-- Show the 'unknown' icon (Helmet bro) (should never happen) -->
+              <div class="champion-icon relative">
+                <img ngSrc="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/profileicon/29.png" alt="Unknown" width="128" height="128"
+                     class="max-w-20 max-h-20 rounded" crossorigin="anonymous" referrerpolicy="no-referrer">
+                <div class="tooltip">Unknown</div>
               </div>
             }
           }
