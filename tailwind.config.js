@@ -21,6 +21,8 @@ module.exports = {
         convergence: ['Convergence', ...defaultTheme.fontFamily.sans],
         capriola: ['Capriola', 'Varela Round', ...defaultTheme.fontFamily.sans],
         roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
+        vt323: ['VT323', ...defaultTheme.fontFamily.mono],
+        'share-tech-mono': ['Share Tech Mono', ...defaultTheme.fontFamily.mono],
       },
       animation: {
         'rotate': 'rotate 2s linear infinite',
@@ -82,6 +84,8 @@ module.exports = {
         },
       },
       screens: {
+        '2xs': '320px',
+        'xs': '400px',
         'almost-lg': '850px', // This works, but breakpoint order matters, so I'll keep an eye on it. If something breaks, this might be a possible culprit. Relevant thread(s): https://github.com/tailwindlabs/tailwindcss/pull/9558
         'h-xs': {
           'raw': '(min-height: 150px)'

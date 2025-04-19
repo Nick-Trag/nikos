@@ -1,0 +1,19 @@
+a {
+  @apply py-1;
+  display: inline-block;
+  width: 2.5rem;
+
+  &:hover {
+    outline: 2px dashed;
+  }
+}
+
+.fade-transition {
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

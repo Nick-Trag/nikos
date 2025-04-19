@@ -1,0 +1,48 @@
+@if (profileLoaded) {
+  <section class="text-center pb-12 max-w-2xl mx-auto" @dropIn>
+    <h2 class="font-capriola text-2xl mb-8">
+      Hollow Knight
+    </h2>
+    <div class="hollow-knight-box">
+      <img ngSrc="images/hollow_knight_small.jpg" alt="Hollow Knight" class="mx-auto max-w-36 max-h-36 mb-4 rounded border-charcoal border-[1px]" width="200" height="192">
+      <table class="mx-auto">
+        <tbody>
+          <tr>
+            <td>
+              Completion
+            </td>
+            <td>
+              {{hollowKnightProfile.completion}}%
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Achievements
+            </td>
+            <td>
+              {{hollowKnightProfile.achievements}}/63
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Radiant bosses beaten
+            </td>
+            <td>
+              {{hollowKnightProfile.radiantBossesBeaten}}/45
+            </td>
+          </tr>
+          @if (hollowKnightProfile.daysWaitingForSilksong) {
+            <tr>
+              <td>
+                Days waiting for Silksong
+              </td>
+              <td>
+                {{hollowKnightProfile.daysWaitingForSilksong}} days
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+}

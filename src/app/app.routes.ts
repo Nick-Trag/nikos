@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from "./home/home.component";
-import { PhotographyComponent } from "./photography/photography.component";
-import { UnderConstructionComponent } from "./under-construction/under-construction.component";
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { TravelComponent } from "./travel/travel.component";
-import { CodingComponent } from "./coding/coding.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { PhotographyComponent } from "./pages/photography/photography.component";
+import { UnderConstructionComponent } from "./pages/under-construction/under-construction.component";
+import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
+import { TravelComponent } from "./pages/travel/travel.component";
+import { CodingComponent } from "./pages/coding/coding.component";
+import { VideoGamesComponent } from "./pages/video-games/video-games.component";
 
 export const routes: Routes = [ // TODO: Route animations
   {
@@ -17,7 +18,7 @@ export const routes: Routes = [ // TODO: Route animations
   },
   {
     path: 'video-games',
-    component: UnderConstructionComponent,
+    component: VideoGamesComponent,
   },
   {
     path: 'travel',

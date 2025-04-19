@@ -1,0 +1,78 @@
+@if (profileLoaded) {
+  <section class="text-center pb-12 max-w-2xl mx-auto" @dropIn>
+    <h2 class="font-capriola text-2xl mb-8">
+      Pokémon
+    </h2>
+    <div class="pokemon-box">
+      <img ngSrc="images/trainer_cards/platinum_red.png" alt="Nikos Tragkas' Pokémon trainer card" height="158" width="245" class="mx-auto">
+      <table class="mx-auto mt-2">
+        <tbody>
+          <tr>
+            <td>
+              Games played
+            </td>
+            <td>
+              {{pokemonProfile.gamesPlayed}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Pokémon caught
+            </td>
+            <td>
+              {{pokemonProfile.pokemonCaught}}+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              First game
+            </td>
+            <td>
+              {{pokemonProfile.firstGame}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Most recent game
+            </td>
+            <td>
+              {{pokemonProfile.mostRecentGame}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Favorite game
+            </td>
+            <td>
+              {{pokemonProfile.favoriteGame}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              First Pokémon
+            </td>
+            <td>
+              {{pokemonProfile.firstPokemon}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Favorite Pokémon
+            </td>
+            <td>
+              {{pokemonProfile.favoritePokemon}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Spirit Pokémon
+            </td>
+            <td>
+              {{pokemonProfile.spiritPokemon}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+}

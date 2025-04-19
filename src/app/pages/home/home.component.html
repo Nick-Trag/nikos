@@ -1,0 +1,19 @@
+<main>
+  <div class="h-sm:h-screen-no-navbar px-3 sm:px-0 max-w-xl mx-auto">
+    <div class="h-sm:vertical-center opacity-0 animation-delay-200 animate-slow-fade-in" [ngClass]="loadingScreenShown ? 'md:animation-delay-0' : 'md:animation-delay-1000'">
+      <h1 class="font-capriola text-3xl -ml-0.5 mb-1">Hi, my name is Nikos Tragkas!</h1>
+      <p>
+<!--        Quickly introduce self -->
+        I am a Software Engineer from Thessaloniki, Greece, who likes to build websites.
+        I graduated from the Aristotle University of Thessaloniki with a Bachelor's degree in Computer Science and
+        a Master's degree in Artificial Intelligence. Welcome to my virtual hang-out spot.
+        Explore this site to learn more about me.
+      </p>
+    </div>
+  </div>
+  <!-- TODO: Previously animated items leave traces -->
+  <app-about-me></app-about-me>
+  <app-education></app-education>
+  <app-experience></app-experience>
+  <app-projects></app-projects>
+</main>

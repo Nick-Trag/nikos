@@ -1,0 +1,14 @@
+<footer class="text-center border-t-[1px] border-t-white/10 h-16 flex items-center justify-center text-2xl" appObserver [inViewSignal]="inView" [threshold]="threshold">
+  <a href="https://github.com/Nick-Trag" target="_blank" class="fade-transition" [class.to-fade-in]="!inView()" aria-label="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+  <a href="mailto:nikos-tr@hotmail.com" target="_blank" class="fade-transition delay-100" [class.to-fade-in]="!inView()" aria-label="e-mail">
+    <i class="fa-regular fa-envelope"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/nikos-tragkas/" target="_blank" class="fade-transition delay-200" [class.to-fade-in]="!inView()" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+  <a href="https://www.instagram.com/nikos.trag/" target="_blank" class="fade-transition delay-300" [class.to-fade-in]="!inView()" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+</footer>

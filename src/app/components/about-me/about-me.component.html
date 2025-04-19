@@ -1,0 +1,34 @@
+<div class="mt-12 p-3 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4" appObserver [inViewSignal]="inView" [threshold]="threshold">
+  <div class="enter-transition" [class.to-slide-in-left]="!inView()">
+    <h1 class="font-capriola text-3xl">About me!</h1>
+    <div>
+      <p>
+        I am a software engineer, with a passion for web development.
+      </p>
+      <p class="pt-1">
+        I studied Computer Science at the Aristotle University of Thessaloniki, and later got a Master's degree in
+        Artificial Intelligence, from the same university.
+        During my Master's studies, I also completed an Erasmus+ exchange semester at the
+        <span lang="es">Universidad Politécnica de Madrid</span>.
+      </p>
+      <p class="pt-1">
+        I have worked as an intern web developer at the university's IT center, working on an updated
+        <span class="text-nowrap">open-source</span> student information system,
+        and as a software engineer at INCA Hellas, where I primarily worked on a queueing system used by large companies in Greece,
+        as well as on modernizing the company's website.
+      </p>
+      <p class="pt-2">
+        Other than <a routerLink="/coding" class="text-nowrap"><i class="fa-solid fa-laptop-code text-xs"></i> coding</a>, my hobbies include
+        going to the <a routerLink="/gym" class="text-nowrap"><i class="fa-solid fa-dumbbell text-xs"></i> gym</a>,
+        playing <a routerLink="/gym" class="text-nowrap"><i class="fa-regular fa-futbol text-xs"></i> sports</a>,
+        <a routerLink="/photography" class="text-nowrap"><i class="fa-solid fa-camera text-xs"></i> photography</a>,
+        <a routerLink="/travel" class="text-nowrap"><i class="fa-solid fa-plane text-xs"></i> traveling</a>,
+        and playing <a routerLink="/video-games" class="text-nowrap"><i class="fa-solid fa-gamepad text-xs"></i> video games</a>.
+      </p>
+    </div>
+  </div>
+  <div class="enter-transition delay-200" [class.to-slide-in-left]="!inView()">
+    <img ngSrc="images/nikos_2023_small.jpg" alt="Picture of Nikos Tragkas" class="border-black border-[1px] rounded-xl"
+         height="500" width="750" priority>
+  </div>
+</div>

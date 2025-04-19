@@ -93,6 +93,24 @@
       font-display: swap;
       src: url(./fonts/Nunito-Italic-VariableFont_wght.ttf) format('truetype');
     }
+
+    /* VT323 */
+    @font-face {
+      font-family: 'VT323';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(./fonts/VT323-Regular.ttf) format('truetype');
+    }
+
+    /* Share Tech Mono */
+    @font-face {
+      font-family: 'Share Tech Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(./fonts/ShareTechMono-Regular.ttf) format('truetype');
+    }
   </style>
 
   <!-- Light mode favicon -->
@@ -108,6 +126,10 @@
   <link rel="preload" as="image" href="images/site_logos/nikos_logo_d5dcf9_small_bottom_half.png">
   <!-- Preload the Capriola font, which is very important to the layout -->
   <link rel="preload" as="font" href="fonts/Capriola-Regular.ttf" crossorigin>
+  <!-- Preconnect to the backend server -->
+  <link rel="preconnect" href="https://api.nikostragkas.eu">
+  <!-- Preconnect to Data Dragon (for League of Legends assets) -->
+  <link rel="preconnect" href="https://ddragon.leagueoflegends.com">
 </head>
 <body>
   <noscript>
