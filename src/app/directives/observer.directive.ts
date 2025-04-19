@@ -2,7 +2,6 @@ import { AfterViewInit, Directive, ElementRef, inject, Input, WritableSignal } f
 
 @Directive({
   selector: '[appObserver]',
-  standalone: true
 })
 // Uses IntersectionObserver to detect if an item comes into view, and updates a given signal accordingly
 export class ObserverDirective implements AfterViewInit {

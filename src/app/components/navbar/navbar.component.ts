@@ -9,7 +9,6 @@ const timing: string = '0.3s ease-in-out';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [
     RouterLink,
     A11yModule,

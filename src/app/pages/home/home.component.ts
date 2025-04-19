@@ -8,7 +8,6 @@ import { LoadingScreenService } from "../../services/loading-screen.service";
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [
     EducationComponent,
     ExperienceComponent,

@@ -18,7 +18,6 @@ const hoveredStyle: PathOptions = {
 
 @Component({
   selector: 'app-travel',
-  standalone: true,
   imports: [
     NgOptimizedImage,
   ],

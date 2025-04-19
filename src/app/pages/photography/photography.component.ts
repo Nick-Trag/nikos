@@ -6,7 +6,6 @@ import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-photography',
-  standalone: true,
   imports: [
     NgStyle,
     NgOptimizedImage,

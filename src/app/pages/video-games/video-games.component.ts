@@ -6,7 +6,6 @@ import { OtherGamesComponent } from "../../components/other-games/other-games.co
 
 @Component({
   selector: 'app-video-games',
-  standalone: true,
   imports: [
     LeagueOfLegendsComponent,
     PokemonComponent,

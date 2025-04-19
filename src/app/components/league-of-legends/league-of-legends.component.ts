@@ -39,7 +39,6 @@ interface TierRankAndLp {
 
 @Component({
   selector: 'app-league-of-legends',
-  standalone: true,
   imports: [
     NgOptimizedImage,
     TitleCasePipe

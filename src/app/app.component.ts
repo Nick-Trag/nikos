@@ -10,7 +10,6 @@ import { environment } from "../environments/environment";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet, NavbarComponent, FooterComponent, NgOptimizedImage],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
