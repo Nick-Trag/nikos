@@ -84,8 +84,6 @@ export class CodingComponent implements OnInit {
   }
 
   handleCommand(): void {
-    // TODO: Remove this
-    console.log("TEMP LOG");
     let fullCommand: string = this.currentCommand.trim();
 
     if (this.commandHistory.length > 0) {
