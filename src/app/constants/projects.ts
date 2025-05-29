@@ -92,7 +92,7 @@ export const projects: Project[] = [
   },
   {
     name: "Achaikos Faros website",
-    mainLink: "https://cavaaxaikosfaros.gr",
+    mainLink: "https://cavaaxaikosfaros.infinityfreeapp.com",
     imageLink: "images/compressed/axaikos_faros_small.png",
     imageAlt: "Achaikos Faros logo",
     imageHeight: 147,
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     projectLinks: [
       {
         faIcons: "fa-solid fa-link",
-        link: "https://cavaaxaikosfaros.gr",
+        link: "https://cavaaxaikosfaros.infinityfreeapp.com",
         ariaLabel: 'Link to the Achaikos Faros website',
       },
     ],
