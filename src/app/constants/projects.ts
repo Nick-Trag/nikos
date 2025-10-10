@@ -55,7 +55,7 @@ export const projects: Project[] = [
       'Personal website, including a portfolio, and featuring multiple pages about my interests',
       'Every page was built to show off a different skill in web development',
       'Includes animations, responsiveness, interactivity, cool layouts, maps, and more to come!',
-      'Built using Angular framework and Tailwind CSS',
+      'Built using Angular framework and Tailwind CSS, with FastAPI and Python for the backend',
     ],
     projectLinks: [
       {

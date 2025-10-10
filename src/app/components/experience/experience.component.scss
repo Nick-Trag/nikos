@@ -1,6 +1,7 @@
 .job-card {
   align-items: center;
   @apply max-w-xl;
+  @apply pb-6;
 
   & > h3 {
     @apply text-lg;
@@ -16,15 +17,37 @@
 }
 
 .jobs-container {
-  @apply flex;
-  @apply flex-col;
-  @apply md:flex-row;
-  @apply items-center;
-  @apply md:items-stretch;
+  @apply grid;
   @apply gap-4;
   @apply pt-4;
   @apply px-2;
+  justify-items: center;
   justify-content: space-around;
   max-width: 95%;
   margin: 0 auto;
+  grid-template-areas:
+    "job1"
+    "job2"
+    "job3";
+
+  @media (min-width: theme('screens.md')) {
+    grid-template-areas:
+      "job1 job1 job2 job2"
+      ". job3 job3 .";
+    //grid-template-areas:
+    //  "job1 job2"
+    //  "job3 .";
+  }
+
+  .job-card:nth-child(1) {
+    grid-area: job1;
+  }
+
+  .job-card:nth-child(2) {
+    grid-area: job2;
+  }
+
+  .job-card:nth-child(3) {
+    grid-area: job3;
+  }
 }

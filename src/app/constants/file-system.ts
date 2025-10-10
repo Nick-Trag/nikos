@@ -48,7 +48,9 @@ export const root: FileSystemEntity = {
               content: 'I have worked as an intern front-end web developer at the Aristotle University\'s IT center during my studies, where I contributed to the development of ' +
               'the new and open-source student information system, called UniverSIS, which is now used by multiple universities in Greece. ' +
               'I also worked as a Software Engineer at INCA Hellas, where I completely modernized the company\'s website, and where I was responsible for the ' +
-              'refactoring of a queueing system that is used by large companies across Greece.',
+              'refactoring of a queueing system that is used by large companies across Greece. ' +
+              'Currently, I am working as a Software Engineering Consultant at Deloitte, where I assist multiple large clients ' +
+              'in developing and modernizing their complex web applications.',
             },
             {
               name: 'projects.txt',
@@ -96,9 +98,9 @@ export const root: FileSystemEntity = {
                     'for language in languages:\n' +
                     '\tprint(language)\n' +
                     '\n' +
-                    'print("My favorite one of these is " + favorite_language)\n' +
+                    'print(f"My favorite one of these is {favorite_language}")\n' +
                     '\n' +
-                    'frameworks_used = ["angular", "django", "react", "flutter", "pytorch"]\n' +
+                    'frameworks_used = ["angular", "fastapi", "django", "react", "flutter", "pytorch"]\n' +
                     'favorite_ide = "jetbrains"\n' +
                     '\n' +
                     'coding_projects = {\n' +
