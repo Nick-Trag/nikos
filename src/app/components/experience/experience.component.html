@@ -1,11 +1,37 @@
 <div class="my-24 max-w-5xl mx-auto" appObserver [inViewSignal]="inView" [threshold]="threshold">
   <h1 class="text-3xl text-center font-capriola enter-transition" [class.to-slide-in-down]="!inView()">Experience</h1>
   <div class="jobs-container">
-    <!-- TODO: Add Deloitte (also on the intro page and coding page files) -->
     <div class="card job-card enter-transition delay-300" [class.to-slide-in-down]="!inView()">
       <div class="job-info">
-        <div class="job-dates hidden sm:block text-pretty">Oct 2023 - Now</div>
-        <div class="job-dates sm:hidden text-pretty">10/2023 - Now</div> <!-- Gets a bit tight on mobile, so using shorter form dates to save space -->
+        <div class="job-dates hidden sm:block text-pretty">Jan 2025 - Now</div>
+        <div class="job-dates sm:hidden text-pretty">01/2025 - Now</div> <!-- Gets a bit tight on mobile, so using shorter form dates to save space -->
+        <div class="job-location">Thessaloniki, Greece</div>
+      </div>
+      <div class="logo-wrapper">
+        <img ngSrc="images/deloitte_logo.png" alt="Deloitte logo" height="500" width="540">
+      </div>
+      <h2>Deloitte</h2>
+      <h3>Software Engineering Consultant</h3>
+      <ul class="bullet-points">
+        <li class="text-balance">
+          Provided software engineering services for developing and modernizing web applications
+          for national and international corporations, as well as government clients
+        </li>
+        <li>
+          Led the front-end development of a cutting-edge centralized supplies system for
+          the Government, ensuring team alignment and proper architectural practices, and
+          incrementally developing and presenting the application to the clients
+        </li>
+        <li>
+          Implemented full front-end payment flow, allowing users to directly settle bills online,
+          leading to quicker payments and increased client satisfaction
+        </li>
+      </ul>
+    </div>
+    <div class="card job-card enter-transition delay-500" [class.to-slide-in-down]="!inView()">
+      <div class="job-info">
+        <div class="job-dates hidden sm:block text-pretty">Oct 2023 - Jan 2025</div>
+        <div class="job-dates sm:hidden text-pretty">10/2023 - 01/2025</div>
         <div class="job-location">Thessaloniki, Greece</div>
       </div>
       <div class="logo-wrapper">
@@ -15,24 +41,20 @@
       <h3>Software Engineer</h3>
       <ul class="bullet-points">
         <li>
+          Architected and implemented full-stack solutions tailored to client requirements,
+          ensuring proper functionality, scalability, and overall satisfaction
+        </li>
+        <li>
+          Led the refactoring of a widely used queue management system, enhancing
+          scalability and adding key functionality for large enterprise clients in Greece
+        </li>
+        <li>
           Was solely responsible for the refactoring and modernization of the company website
           <a href="https://incahellas.infinityfreeapp.com" target="_blank" class="text-nowrap">incahellas.gr <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
         </li>
-        <li>
-          Used HTML, CSS, JavaScript, PHP
-        </li>
-        <li>
-          Significantly contributed to the ongoing development of a queue system used by
-          large companies across Greece and was responsible for its refactoring to support
-          new requested functionality and improve its scalability
-        </li>
-        <li>
-          Used mainly PHP, as well as many other technologies for secondary systems, such
-          as Python and JavaScript
-        </li>
       </ul>
     </div>
-    <div class="card job-card enter-transition delay-500" [class.to-slide-in-down]="!inView()">
+    <div class="card job-card enter-transition delay-700" [class.to-slide-in-down]="!inView()">
       <div class="job-info">
         <div class="job-dates hidden sm:block text-pretty">Jul 2019 - Feb 2020</div>
         <div class="job-dates sm:hidden text-pretty">07/2019 - 02/2020</div>
@@ -51,12 +73,6 @@
         <li>
           Worked as part of a large team and collaborated with multiple other teams
           (Back end Developers, UX Team etc.)
-        </li>
-        <li>
-          Used Angular framework and Bootstrap
-        </li>
-        <li>
-          Collaborated with my team using version control tools (Git + Gitlab)
         </li>
       </ul>
     </div>
