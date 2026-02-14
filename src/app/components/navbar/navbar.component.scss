@@ -55,3 +55,29 @@
   left: 40px;
   top: 25px;
 }
+
+@keyframes mobile-navbar-animation {
+  from {
+    clip-path: ellipse(0px 0px at -100px -100px);
+  }
+
+  to {
+    clip-path: ellipse(1100px 1100px at 0% 0%);
+  }
+}
+
+.mobile-navbar-open-animation {
+  animation: mobile-navbar-animation 0.3s ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.mobile-navbar-close-animation {
+  animation: mobile-navbar-animation 0.3s ease-in-out reverse;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}

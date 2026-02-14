@@ -1,7 +1,3 @@
-.project-card {
-
-}
-
 .projects-container {
   @apply flex;
   flex-direction: column;
@@ -26,4 +22,12 @@
   &:hover, &:active {
     outline: 2px rgb(var(--charcoal)) dashed;
   }
+}
+
+.recursion-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.recursion-fade-out {
+  animation: fade-in 0.5s ease-in-out reverse;
 }

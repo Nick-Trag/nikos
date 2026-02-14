@@ -2,7 +2,6 @@ import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '
 import { Photo, photos } from "../../constants/photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
 import { LoadingScreenService } from "../../services/loading-screen.service";
-import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-photography',
@@ -12,18 +11,6 @@ import { animate, style, transition, trigger } from "@angular/animations";
   ],
   templateUrl: './photography.component.html',
   styleUrl: './photography.component.scss',
-  animations: [
-    trigger('modal', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.15s ease-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('0.15s ease-out', style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
 })
 export class PhotographyComponent implements OnInit {
   photos: Photo[] = this.shuffle(photos);
