@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '
 import { Photo, photos } from "../../constants/photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
 import { LoadingScreenService } from "../../services/loading-screen.service";
-import { animate, style, transition, trigger } from "@angular/animations";
+import { AnimationsService } from "../../services/animations.service";
 
 @Component({
   selector: 'app-photography',
@@ -12,31 +12,20 @@ import { animate, style, transition, trigger } from "@angular/animations";
   ],
   templateUrl: './photography.component.html',
   styleUrl: './photography.component.scss',
-  animations: [
-    trigger('modal', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.15s ease-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('0.15s ease-out', style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
 })
 export class PhotographyComponent implements OnInit {
   photos: Photo[] = this.shuffle(photos);
   styles: Record<string, string>[] = [];
   private loadingScreenService = inject(LoadingScreenService);
   protected loadingScreenShown = this.loadingScreenService.hasLoadingScreenBeenShown();
+  private animationsService = inject(AnimationsService);
   modalOpen: boolean = false;
   currentImageIndex = 0;
   @ViewChild('modal')
   private modal!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    const delay = this.loadingScreenShown ? 100 : 500;
+    const delay = this.animationsService.areAnimationsDisabled() ? 0 : this.loadingScreenShown ? 100 : 500;
     for (let i = 0; i < this.photos.length; i++) {
       let rotation = Math.random() * 70 - 35; // Rotations from -35deg to 35deg
 
@@ -59,8 +48,9 @@ export class PhotographyComponent implements OnInit {
           'translate': translationX + 'px ' + translationY + 'px',
           'rotate': rotation + 'deg',
         });
-      }, delay); // Not the cleanest solution, but I could not find a better one. If I don't put this in a setTimeout, the styles are applied immediately, so no transition occurs
-      // I'm also adding a small delay of 100ms, to give time for the mobile navbar to get out of the way and not hide the transitions
+      }, delay); // Not the cleanest solution, but I could not find a better one. If I don't put this in a setTimeout, the styles are applied immediately, so no transition occurs.
+      // I'm also adding a small delay of 100ms, to give time for the mobile navbar to get out of the way and not hide the transitions.
+      // Note that the delay is always 0 if animations are disabled, since we do want the photos to immediately be in their final position
     }
   }
 

@@ -2,7 +2,6 @@ import { Component, signal, WritableSignal } from '@angular/core';
 import { Project, projects } from "../../constants/projects";
 import { ObserverDirective } from "../../directives/observer.directive";
 import { NgOptimizedImage } from "@angular/common";
-import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-projects',
@@ -12,18 +11,6 @@ import { animate, style, transition, trigger } from "@angular/animations";
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
-  animations: [
-    trigger('recursion', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.5s ease-in-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('0.5s ease-in-out', style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
 })
 export class ProjectsComponent {
   projects: Project[] = projects;

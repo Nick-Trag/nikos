@@ -191,3 +191,35 @@ a.card:hover, a.card:active {
 .leaflet-container {
   background: #222222 !important;
 }
+
+/*
+Styles and animations for replacing the old Angular animations
+*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+
+.fade-out {
+  animation: fade-in 0.15s ease-out reverse;
+}
+
+.video-game-section {
+  opacity: 1;
+  translate: 0 0;
+  transition: all 0.4s ease-in-out;
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 -5px;
+  }
+}

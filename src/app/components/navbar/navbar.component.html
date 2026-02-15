@@ -27,7 +27,7 @@
     </button>
   </nav>
   @if (navOpen) {
-    <nav class="mobile-navbar-open" @toggleNav cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+    <nav class="mobile-navbar-open" cdkTrapFocus [cdkTrapFocusAutoCapture]="true" animate.enter="mobile-navbar-open-animation" animate.leave="mobile-navbar-close-animation">
       <button class="close-button enter-transition animate-fade-in" (click)="closeNav()" aria-label="Close navigation">
         <i class="fa-solid fa-xmark text-2xl"></i>
       </button>
