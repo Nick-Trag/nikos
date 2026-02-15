@@ -1,19 +1,21 @@
 @if (loading) {
-  <!-- Loading screen. This really belongs in its own component, but Angular animations are extremely buggy at this time, so it needs to be here -->
+  <!-- Loading screen. This could be in its own component, but Angular animations were pretty buggy when I first made it, so it needed to be here. Might be moved in the future -->
   <!-- DO NOT USE TAILWIND CLASSES IN THIS COMPONENT. THIS IS USED IN LARGE PART BECAUSE TAILWIND IS TOO SLOW TO LOAD -->
   <!-- https://stackoverflow.com/questions/76731627/tailwindcss-doesnt-load-styles-on-time -->
-  <div class="loading-screen" @loading (@loading.done)="finishAnimation($event)">
-    @if (animation1Ended) {
-      <div class="top-half">
-        <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small_top_half.png" alt="" class="logo" height="172" width="500" priority [style.opacity]="animation1Ended ? 1 : 0">
-      </div>
-      <div class="bottom-half">
-        <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small_bottom_half.png" alt="" class="logo" height="172" width="500" priority [style.opacity]="animation1Ended ? 1 : 0">
-      </div>
+  <div class="loading-screen">
+    @if (enterAnimationEnded) {
+      @if (!loadingScreenClosing) {
+        <div class="top-half" animate.leave="top-half-exit" (animationend)="finishLeaveAnimation()">
+          <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small_top_half.png" alt="" class="logo" height="172" width="500" priority>
+        </div>
+        <div class="bottom-half"  animate.leave="bottom-half-exit">
+          <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small_bottom_half.png" alt="" class="logo" height="172" width="500" priority>
+        </div>
+      }
     }
     @else {
       <div class="full-page">
-        <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small.png" alt="Website logo" class="logo" height="344" width="500" priority [style.opacity]="animation1Ended ? 1 : 0">
+        <img ngSrc="images/site_logos/nikos_logo_d5dcf9_small.png" alt="Website logo" class="logo" height="344" width="500" priority animate.enter="full-page-enter" (animationend)="finishEnterAnimation()">
       </div>
     }
 

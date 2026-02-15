@@ -38,3 +38,45 @@
   width: 150px;
   display: block;
 }
+
+@keyframes full-page-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes top-half-exit {
+  to {
+    translate: 0 -700px;
+  }
+}
+
+@keyframes bottom-half-exit {
+  to {
+    translate: 0 700px;
+  }
+}
+
+.full-page-enter {
+  animation: full-page-enter 1.5s ease-in-out;
+}
+
+.bottom-half-exit {
+  animation: bottom-half-exit 0.5s cubic-bezier(.73,.04,.85,.76);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.top-half-exit {
+  animation: top-half-exit 0.5s cubic-bezier(.73,.04,.85,.76);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
