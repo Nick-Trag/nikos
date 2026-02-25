@@ -33,6 +33,8 @@ export class LoadingScreenComponent {
 
   finishLeaveAnimation(): void {
     this.loadingFinished.emit();
-    this.loadingScreenService.markLoadingScreenAsShown();
+    setTimeout(() => { // Adding a small delay because otherwise the components immediately think the loading screen has been shown, even on the first load into the SPA
+      this.loadingScreenService.markLoadingScreenAsShown();
+    }, 100);
   }
 }
