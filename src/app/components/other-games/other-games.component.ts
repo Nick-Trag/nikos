@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DecimalPipe, NgOptimizedImage } from "@angular/common";
 import { SteamGame } from "../../models/steam-game";
 import { VideoGamesService } from "../../services/video-games.service";
@@ -10,6 +10,7 @@ import { VideoGamesService } from "../../services/video-games.service";
     DecimalPipe
   ],
   templateUrl: './other-games.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './other-games.component.scss',
 })
 export class OtherGamesComponent implements OnInit {

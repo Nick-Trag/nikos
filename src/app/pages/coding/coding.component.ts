@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { FileSystemEntity, root } from "../../constants/file-system";
 import { LoadingScreenService } from "../../services/loading-screen.service";
@@ -46,6 +46,7 @@ const whoisResults = new Map([
     NgClass
   ],
   templateUrl: './coding.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './coding.component.scss',
 })
 export class CodingComponent implements OnInit {

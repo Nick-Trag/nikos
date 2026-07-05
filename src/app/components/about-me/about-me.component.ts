@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ObserverDirective } from "../../directives/observer.directive";
 import { RouterLink } from "@angular/router";
 import { NgOptimizedImage } from "@angular/common";
@@ -11,6 +11,7 @@ import { NgOptimizedImage } from "@angular/common";
     NgOptimizedImage
   ],
   templateUrl: './about-me.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './about-me.component.scss'
 })
 export class AboutMeComponent {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { A11yModule } from "@angular/cdk/a11y";
 
@@ -9,6 +9,7 @@ import { A11yModule } from "@angular/cdk/a11y";
     A11yModule,
   ],
   templateUrl: './navbar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {

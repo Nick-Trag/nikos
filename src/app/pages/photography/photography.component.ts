@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Photo, photos } from "../../constants/photos";
 import { NgOptimizedImage, NgStyle } from "@angular/common";
 import { LoadingScreenService } from "../../services/loading-screen.service";
@@ -11,6 +11,7 @@ import { AnimationsService } from "../../services/animations.service";
     NgOptimizedImage,
   ],
   templateUrl: './photography.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './photography.component.scss',
 })
 export class PhotographyComponent implements OnInit {

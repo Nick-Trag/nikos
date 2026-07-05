@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from "@angular/common";
 import { LoadingScreenService } from "../../services/loading-screen.service";
 
@@ -8,6 +8,7 @@ import { LoadingScreenService } from "../../services/loading-screen.service";
     NgClass
   ],
   templateUrl: './page-not-found.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './page-not-found.component.scss',
 })
 export class PageNotFoundComponent {
