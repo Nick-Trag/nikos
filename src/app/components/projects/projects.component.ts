@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { Project, projects } from "../../constants/projects";
 import { ObserverDirective } from "../../directives/observer.directive";
 import { NgOptimizedImage } from "@angular/common";
@@ -10,6 +10,7 @@ import { NgOptimizedImage } from "@angular/common";
     NgOptimizedImage
   ],
   templateUrl: './projects.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { EducationComponent } from "../../components/education/education.component";
 import { ExperienceComponent } from "../../components/experience/experience.component";
 import { ProjectsComponent } from "../../components/projects/projects.component";
@@ -16,6 +16,7 @@ import { LoadingScreenService } from "../../services/loading-screen.service";
     NgClass,
   ],
   templateUrl: './home.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {

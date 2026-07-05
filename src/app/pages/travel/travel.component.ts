@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { geoJSON, Layer, LeafletMouseEvent, map, Map, PathOptions, tileLayer } from 'leaflet';
 import { countries, countryNames, flags } from "../../constants/countries";
 import { NgOptimizedImage } from "@angular/common";
@@ -22,6 +22,7 @@ const hoveredStyle: PathOptions = {
     NgOptimizedImage,
   ],
   templateUrl: './travel.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './travel.component.scss'
 })
 export class TravelComponent implements AfterViewInit {

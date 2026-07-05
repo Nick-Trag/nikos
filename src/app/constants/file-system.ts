@@ -100,7 +100,7 @@ export const root: FileSystemEntity = {
                     '\n' +
                     'print(f"My favorite one of these is {favorite_language}")\n' +
                     '\n' +
-                    'frameworks_used = ["angular", "fastapi", "django", "react", "flutter", "pytorch"]\n' +
+                    'frameworks_used = ["angular", "fastapi", "spring boot", "django", "react", "flutter", "pytorch"]\n' +
                     'favorite_ide = "jetbrains"\n' +
                     '\n' +
                     'coding_projects = {\n' +

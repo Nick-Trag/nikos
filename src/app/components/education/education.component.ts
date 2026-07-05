@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ObserverDirective } from "../../directives/observer.directive";
 import { NgOptimizedImage } from "@angular/common";
 
@@ -9,6 +9,7 @@ import { NgOptimizedImage } from "@angular/common";
     NgOptimizedImage
   ],
   templateUrl: './education.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './education.component.scss',
 })
 export class EducationComponent {

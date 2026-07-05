@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage, TitleCasePipe } from "@angular/common";
 import { VideoGamesService } from "../../services/video-games.service";
 import { LolProfile, MasteryStats } from "../../models/lol-profile";
@@ -42,6 +42,7 @@ interface TierRankAndLp {
     TitleCasePipe
   ],
   templateUrl: './league-of-legends.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './league-of-legends.component.scss',
 })
 export class LeagueOfLegendsComponent implements OnInit {

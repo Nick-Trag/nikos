@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 import { VideoGamesService } from "../../services/video-games.service";
 import { PokemonProfile } from "../../models/pokemon-profile";
@@ -9,6 +9,7 @@ import { PokemonProfile } from "../../models/pokemon-profile";
     NgOptimizedImage
   ],
   templateUrl: './pokemon.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './pokemon.component.scss',
 })
 export class PokemonComponent implements OnInit {

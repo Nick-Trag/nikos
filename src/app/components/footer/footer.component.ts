@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ObserverDirective } from "../../directives/observer.directive";
 import { Platform } from "@angular/cdk/platform";
 
@@ -8,6 +8,7 @@ import { Platform } from "@angular/cdk/platform";
     ObserverDirective
   ],
   templateUrl: './footer.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {

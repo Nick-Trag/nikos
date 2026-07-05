@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, output, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 import { LoadingScreenService } from "../../services/loading-screen.service";
 import { AnimationsService } from "../../services/animations.service";
@@ -9,6 +9,7 @@ import { AnimationsService } from "../../services/animations.service";
     NgOptimizedImage
   ],
   templateUrl: './loading-screen.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './loading-screen.component.scss',
 })
 export class LoadingScreenComponent {
