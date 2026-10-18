@@ -37,6 +37,7 @@ import { ireland } from "./countries/ireland";
 import { cyprus } from "./countries/cyprus";
 import { singapore } from "./countries/singapore";
 import { japan } from "./countries/japan";
+import { sanMarino } from "./countries/san-marino";
 
 export const countries: Feature[] = [
   greece,
@@ -73,7 +74,8 @@ export const countries: Feature[] = [
   ireland,
   cyprus,
   singapore,
-  japan
+  japan,
+  sanMarino
 ];
 
 export const flags: string[] = [
@@ -112,6 +114,7 @@ export const flags: string[] = [
   'cy.svg',
   'sg.svg',
   'jp.svg',
+  'sm.svg'
 ];
 
 export const countryNames: string[] = [
@@ -150,4 +153,5 @@ export const countryNames: string[] = [
   'Cyprus',
   'Singapore',
   'Japan',
+  'San Marino'
 ];
